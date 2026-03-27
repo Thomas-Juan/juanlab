@@ -56,7 +56,16 @@
       height: 64px;
     }
 
-    .brand { font-weight: 600; font-size: 0.95rem; letter-spacing: -0.01em; }
+    .brand {
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand svg { flex-shrink: 0; }
 
     .nav-links { display: flex; align-items: center; gap: 2rem; }
     .nav-links a {
@@ -382,7 +391,30 @@
 <body>
   <header class="site-header">
     <div class="w nav">
-      <a class="brand" href="#top">Juan Lab</a>
+      <a class="brand" href="#top">
+        <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Juan Lab logo">
+          <!-- Main trunk — ascending vessel -->
+          <path d="M50 92 C50 72, 50 60, 50 38" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round"/>
+          <!-- Left primary branch -->
+          <path d="M50 58 C42 50, 30 42, 18 36" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round"/>
+          <!-- Left secondary branches -->
+          <path d="M30 44 C26 36, 20 28, 14 20" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M24 40 C18 38, 12 40, 8 44" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+          <!-- Right primary branch -->
+          <path d="M50 50 C58 42, 68 34, 80 28" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round"/>
+          <!-- Right secondary branches -->
+          <path d="M68 36 C74 28, 78 20, 82 12" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M74 32 C80 30, 86 32, 92 36" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+          <!-- Top branch from trunk -->
+          <path d="M50 38 C48 28, 44 18, 38 10" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+          <path d="M50 38 C54 26, 58 18, 64 12" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Flow dot accents -->
+          <circle cx="18" cy="36" r="3" fill="#1a1a1a"/>
+          <circle cx="80" cy="28" r="3" fill="#1a1a1a"/>
+          <circle cx="50" cy="92" r="4" fill="#1a1a1a"/>
+        </svg>
+        Juan Lab
+      </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#research">Research</a>
         <a href="#team">Team</a>
