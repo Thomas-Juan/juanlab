@@ -280,23 +280,12 @@
     .person-links a:hover { color: var(--text); }
 
     /* ─── Publications ─── */
-    .pub-year {
-      font-family: var(--serif);
-      font-size: 1.6rem;
-      font-weight: 400;
-      color: var(--light);
-      text-align: right;
-      margin-bottom: 1.5rem;
-      margin-top: 2.5rem;
-    }
-    .pub-year:first-child { margin-top: 0; }
-
     .pub-item {
-      padding: 1.2rem 0;
+      padding: 0.75rem 0;
       border-top: 1px solid var(--border);
       display: grid;
       grid-template-columns: 1fr;
-      gap: 0.35rem;
+      gap: 0.2rem;
     }
 
     .pub-item:last-child { border-bottom: 1px solid var(--border); }
@@ -429,8 +418,8 @@
       <!-- Full-width hero image -->
       <img
         class="hero-image"
-        src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1400&h=500&fit=crop&crop=center"
-        alt="Fluorescence microscopy of vasculature"
+        src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1400&h=500&fit=crop&crop=center"
+        alt="Abstract fluid dynamics"
       />
     </section>
 
@@ -442,8 +431,8 @@
           <article class="research-item">
             <img
               class="research-img"
-              src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600&h=400&fit=crop"
-              alt="Endothelial cell network under microscopy"
+              src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop"
+              alt="Abstract flowing forms"
             />
             <div class="research-tags">
               <span>Endothelium</span>
@@ -459,8 +448,8 @@
           <article class="research-item">
             <img
               class="research-img"
-              src="https://images.unsplash.com/photo-1535127022272-dbe7ee35cf33?w=600&h=400&fit=crop"
-              alt="Zebrafish embryo for live imaging"
+              src="https://images.unsplash.com/photo-1567095761054-7a02e69e5571?w=600&h=400&fit=crop"
+              alt="Abstract light and motion"
             />
             <div class="research-tags">
               <span>Zebrafish</span>
@@ -476,8 +465,8 @@
           <article class="research-item">
             <img
               class="research-img"
-              src="https://images.unsplash.com/photo-1631556290934-e4adeae10c3d?w=600&h=400&fit=crop"
-              alt="CRISPR genetic tools and molecular biology"
+              src="https://images.unsplash.com/photo-1604871000636-074fa5117945?w=600&h=400&fit=crop"
+              alt="Abstract geometric pattern"
             />
             <div class="research-tags">
               <span>CRISPR</span>
@@ -497,8 +486,8 @@
     <section class="about-strip">
       <div class="w about-inner">
         <img
-          src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=600&fit=crop"
-          alt="Research laboratory with microscopy equipment"
+          src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800&h=600&fit=crop"
+          alt="Abstract organic forms"
         />
         <div class="about-text">
           <h2>Mechanobiology in vivo</h2>
@@ -597,18 +586,13 @@
       </div>
     `).join('');
 
-    // Render publications grouped by year
-    const byYear = {};
-    pubs.forEach(p => { (byYear[p.year] = byYear[p.year] || []).push(p); });
-    document.getElementById('pubList').innerHTML = Object.keys(byYear).sort((a,b) => b - a).map(year => `
-      <div class="pub-year">${year}</div>
-      ${byYear[year].map(p => `
-        <article class="pub-item">
-          <h3>${p.link && p.link !== '#' ? `<a href="${p.link}" target="_blank" rel="noreferrer">${p.title}</a>` : p.title}</h3>
-          <div class="pub-authors">${p.authors}</div>
-          <div class="pub-journal">${p.journal} (${p.year})</div>
-        </article>
-      `).join('')}
+    // Render publications (flat list)
+    document.getElementById('pubList').innerHTML = pubs.map(p => `
+      <article class="pub-item">
+        <h3>${p.link && p.link !== '#' ? `<a href="${p.link}" target="_blank" rel="noreferrer">${p.title}</a>` : p.title}</h3>
+        <div class="pub-authors">${p.authors}</div>
+        <div class="pub-journal">${p.journal} (${p.year})</div>
+      </article>
     `).join('');
 
     document.getElementById('year').textContent = new Date().getFullYear();
