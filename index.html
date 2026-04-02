@@ -459,17 +459,10 @@
     <section class="section" id="publications">
       <div class="w">
         <h2 class="section-title" id="pubsTitle"></h2>
+        <a id="scholarProfileTopLink" class="pub-scholar-profile-link" href="" target="_blank" rel="noreferrer" style="display:inline-flex;margin-bottom:2rem;">Google Scholar profile</a>
         <div id="pubList"></div>
       </div>
-       { label: "Scholar", url: "https://scholar.google.com/citations?hl=en&user=vMfxQ8AAAAAJ&view_op=list_works&sortby=pubdate" },
     </section>
-
-
-
-
-
-
-    
 
     <!-- Contact -->
     <section class="contact-section" id="contact">
@@ -666,6 +659,9 @@
         ${m.links.length ? `<div class="person-links">${m.links.map(l => `<a href="${l.url}" target="_blank" rel="noreferrer">${l.label}</a>`).join('')}</div>` : ''}
       </div>
     `).join('');
+
+    // Set the top-of-section Scholar link
+    document.getElementById('scholarProfileTopLink').href = SCHOLAR_PROFILE_URL;
 
     document.getElementById('pubList').innerHTML = PUBLICATIONS.map(p => {
       const scholarUrl = `https://scholar.google.com/scholar?q=${encodeURIComponent(p.scholarQuery)}`;
