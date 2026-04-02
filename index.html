@@ -413,7 +413,7 @@
           <circle cx="80" cy="28" r="3" fill="#1a1a1a"/>
           <circle cx="50" cy="92" r="4" fill="#1a1a1a"/>
         </svg>
-        Juan Lab
+        <span id="brandName"></span>
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#research">Research</a>
@@ -429,106 +429,32 @@
     <section class="hero">
       <div class="w hero-top">
         <div class="hero-text">
-          <h1>Blood flow forces shape the cardiovascular system</h1>
-          <p>
-            We study how hemodynamic forces control cardiovascular development and function.
-            The lab builds genetic tools to control cardiac contractions and probe
-            mechanosensor function in endothelial and cardiovascular cell populations.
-          </p>
+          <h1 id="heroHeadline"></h1>
+          <p id="heroDescription"></p>
         </div>
         <div class="hero-aside">
-          <p>
-            Laboratory of Blood Flow Mechanosensation<br />
-            Uppsala University · Immunology, Genetics and Pathology · Vascular Biology
-          </p>
-          <div class="hero-links">
-            <a href="https://www.uu.se/en/department/immunology-genetics-and-pathology/research/vascular-biology/thomas-juan" target="_blank" rel="noreferrer">Institutional page</a>
-            <a href="https://scholar.google.com" target="_blank" rel="noreferrer">Google Scholar</a>
-          </div>
+          <p id="heroAffiliation"></p>
+          <div class="hero-links" id="heroLinks"></div>
         </div>
       </div>
-      <!-- Full-width hero image -->
-      <img
-        class="hero-image"
-        src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1400&h=500&fit=crop&crop=center"
-        alt="Abstract fluid dynamics"
-      />
+      <img class="hero-image" id="heroImage" alt="Abstract fluid dynamics" />
     </section>
 
     <!-- Research -->
     <section class="section" id="research">
       <div class="w">
-        <h2 class="section-title">Research</h2>
-        <div class="research-grid">
-          <article class="research-item">
-            <img
-              class="research-img"
-              src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop"
-              alt="Abstract flowing forms"
-            />
-            <div class="research-tags">
-              <span>Endothelium</span>
-              <span>Mechanotransduction</span>
-            </div>
-            <h3>Blood flow mechanosensation in endothelial cells</h3>
-            <p>
-              Endothelial cells are in direct contact with blood flow and provide a first-line
-              response to hemodynamic forces. The lab investigates the mechanosensitive proteins
-              and pathways that convert these physical cues into developmental decisions.
-            </p>
-          </article>
-          <article class="research-item">
-            <img
-              class="research-img"
-              src="https://images.unsplash.com/photo-1567095761054-7a02e69e5571?w=600&h=400&fit=crop"
-              alt="Abstract light and motion"
-            />
-            <div class="research-tags">
-              <span>Zebrafish</span>
-              <span>Live imaging</span>
-            </div>
-            <h3>Zebrafish as a window into cardiovascular development</h3>
-            <p>
-              Zebrafish embryos allow rapid genetics, optical access, and in vivo imaging of cardiac
-              and vascular morphogenesis. Their transparency and resilience make them ideal for
-              studying force-dependent developmental processes.
-            </p>
-          </article>
-          <article class="research-item">
-            <img
-              class="research-img"
-              src="https://images.unsplash.com/photo-1604871000636-074fa5117945?w=600&h=400&fit=crop"
-              alt="Abstract geometric pattern"
-            />
-            <div class="research-tags">
-              <span>CRISPR</span>
-              <span>Conditional knockdown</span>
-            </div>
-            <h3>Genetic tools to interrogate cardiovascular gene function</h3>
-            <p>
-              The lab develops conditional loss-of-function approaches to control cardiac contraction
-              and bypass limits of classical mutants, including compensation and protein persistence.
-            </p>
-          </article>
-        </div>
+        <h2 class="section-title" id="researchTitle"></h2>
+        <div class="research-grid" id="researchGrid"></div>
       </div>
     </section>
 
     <!-- About / Lab image strip -->
     <section class="about-strip">
       <div class="w about-inner">
-        <img
-          src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800&h=600&fit=crop"
-          alt="Abstract organic forms"
-        />
+        <img id="aboutImage" alt="Abstract organic forms" />
         <div class="about-text">
-          <h2>Mechanobiology in vivo</h2>
-          <p>
-            High-resolution imaging and zebrafish genetics make it possible to watch blood flow,
-            heart contractions, and cardiovascular cell behaviors as they unfold in real time.
-            Our approach combines forward genetics, conditional tools, and quantitative live imaging
-            to understand how physical forces are translated into biological outcomes during development.
-          </p>
+          <h2 id="aboutHeading"></h2>
+          <p id="aboutText"></p>
         </div>
       </div>
     </section>
@@ -536,7 +462,7 @@
     <!-- Team -->
     <section class="section" id="team">
       <div class="w">
-        <h2 class="section-title">Team</h2>
+        <h2 class="section-title" id="teamTitle"></h2>
         <div class="team-grid" id="teamGrid"></div>
       </div>
     </section>
@@ -544,7 +470,7 @@
     <!-- Publications -->
     <section class="section" id="publications">
       <div class="w">
-        <h2 class="section-title">Publications</h2>
+        <h2 class="section-title" id="pubsTitle"></h2>
         <div id="pubList"></div>
       </div>
     </section>
@@ -553,15 +479,9 @@
     <section class="contact-section" id="contact">
       <div class="w">
         <div class="contact-inner">
-          <h2>Interested in developmental mechanobiology?</h2>
-          <p>
-            We are always looking for motivated scientists at all levels. If you're interested
-            in joining the lab or collaborating, please get in touch.
-          </p>
-          <div class="contact-links">
-            <a href="mailto:thomas.juan@igp.uu.se">thomas.juan@igp.uu.se</a>
-            <a href="https://www.uu.se/en/department/immunology-genetics-and-pathology/research/vascular-biology/thomas-juan" target="_blank" rel="noreferrer">Institutional page</a>
-          </div>
+          <h2 id="contactHeading"></h2>
+          <p id="contactText"></p>
+          <div class="contact-links" id="contactLinks"></div>
         </div>
       </div>
     </section>
@@ -569,45 +489,221 @@
 
   <footer class="site-footer">
     <div class="w footer-row">
-      <span>&copy; <span id="year"></span> Thomas Juan Lab · Uppsala University</span>
+      <span>&copy; <span id="year"></span> <span id="footerText"></span></span>
     </div>
   </footer>
 
   <script>
-    const team = [
+    /* ═══════════════════════════════════════════════════════════════════════
+       SITE CONTENT — Edit text, URLs, and data below. Nothing else to touch.
+       ═══════════════════════════════════════════════════════════════════════ */
+
+    // ── Brand / Header ──────────────────────────────────────────────────
+    // Text shown next to the vascular tree logo in the sticky nav bar
+    const BRAND_NAME = "Juan Lab";
+
+    // ── Hero section ────────────────────────────────────────────────────
+    // Large serif headline at the top of the page
+    const HERO_HEADLINE = "Blood flow forces shape the cardiovascular system";
+
+    // Paragraph below the headline summarising the lab's focus
+    const HERO_DESCRIPTION =
+      "We study how hemodynamic forces control cardiovascular development and function. " +
+      "The lab builds genetic tools to control cardiac contractions and probe " +
+      "mechanosensor function in endothelial and cardiovascular cell populations.";
+
+    // Affiliation block in the right column (HTML allowed, use <br /> for line breaks)
+    const HERO_AFFILIATION =
+      "Laboratory of Blood Flow Mechanosensation<br />" +
+      "Uppsala University · Immunology, Genetics and Pathology · Vascular Biology";
+
+    // Links shown below the affiliation (each gets an ↗ arrow)
+    const HERO_LINKS = [
+      { label: "Institutional page",
+        url: "https://www.uu.se/en/department/immunology-genetics-and-pathology/research/vascular-biology/thomas-juan" },
+      { label: "Google Scholar",
+        url: "https://scholar.google.com" },
+    ];
+
+    // Full-width banner image below the hero text
+    const HERO_IMAGE_URL =
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1400&h=500&fit=crop&crop=center";
+
+    // ── Section headings ────────────────────────────────────────────────
+    const SECTION_TITLE_RESEARCH     = "Research";
+    const SECTION_TITLE_TEAM         = "Team";
+    const SECTION_TITLE_PUBLICATIONS = "Publications";
+
+    // ── Research cards ──────────────────────────────────────────────────
+    // Three-column grid. Each object = one card.
+    //   image       — card thumbnail URL
+    //   alt         — image alt text for accessibility
+    //   tags        — uppercase keyword chips shown above the title
+    //   title       — card heading (serif)
+    //   description — body text
+    const RESEARCH_ITEMS = [
+      {
+        image: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop",
+        alt: "Abstract flowing forms",
+        tags: ["Endothelium", "Mechanotransduction"],
+        title: "Blood flow mechanosensation in endothelial cells",
+        description:
+          "Endothelial cells are in direct contact with blood flow and provide a first-line " +
+          "response to hemodynamic forces. The lab investigates the mechanosensitive proteins " +
+          "and pathways that convert these physical cues into developmental decisions.",
+      },
+      {
+        image: "https://images.unsplash.com/photo-1567095761054-7a02e69e5571?w=600&h=400&fit=crop",
+        alt: "Abstract light and motion",
+        tags: ["Zebrafish", "Live imaging"],
+        title: "Zebrafish as a window into cardiovascular development",
+        description:
+          "Zebrafish embryos allow rapid genetics, optical access, and in vivo imaging of cardiac " +
+          "and vascular morphogenesis. Their transparency and resilience make them ideal for " +
+          "studying force-dependent developmental processes.",
+      },
+      {
+        image: "https://images.unsplash.com/photo-1604871000636-074fa5117945?w=600&h=400&fit=crop",
+        alt: "Abstract geometric pattern",
+        tags: ["CRISPR", "Conditional knockdown"],
+        title: "Genetic tools to interrogate cardiovascular gene function",
+        description:
+          "The lab develops conditional loss-of-function approaches to control cardiac contraction " +
+          "and bypass limits of classical mutants, including compensation and protein persistence.",
+      },
+    ];
+
+    // ── About strip (mid-page image + text block) ───────────────────────
+    // Image on the left, text on the right
+    const ABOUT_IMAGE_URL =
+      "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800&h=600&fit=crop";
+
+    const ABOUT_HEADING = "Mechanobiology in vivo";
+
+    const ABOUT_TEXT =
+      "High-resolution imaging and zebrafish genetics make it possible to watch blood flow, " +
+      "heart contractions, and cardiovascular cell behaviors as they unfold in real time. " +
+      "Our approach combines forward genetics, conditional tools, and quantitative live imaging " +
+      "to understand how physical forces are translated into biological outcomes during development.";
+
+    // ── Team members ────────────────────────────────────────────────────
+    // Four-column grid of circular avatars.
+    //   name     — displayed below avatar
+    //   role     — subtitle (e.g. "Research leader", "PhD student")
+    //   initials — fallback shown inside grey circle when photo is ""
+    //   photo    — avatar URL (set to "" to show initials instead)
+    //   links    — optional array of { label, url } shown below the role
+    const TEAM = [
       { name: "Thomas Juan", role: "Research leader", initials: "TJ",
         photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=260&h=260&fit=crop&crop=face",
         links: [
           { label: "Profile", url: "https://www.uu.se/en/department/immunology-genetics-and-pathology/research/vascular-biology/thomas-juan" },
-          { label: "Scholar", url: "#" }
+          { label: "Scholar", url: "#" },
         ]},
       { name: "Shahd Aathar", role: "Group member", initials: "SA",
-        photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=260&h=260&fit=crop&crop=face", links: [] },
+        photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=260&h=260&fit=crop&crop=face",
+        links: [] },
       { name: "Cecilia Andersson", role: "Group member", initials: "CA",
-        photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=260&h=260&fit=crop&crop=face", links: [] },
+        photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=260&h=260&fit=crop&crop=face",
+        links: [] },
       { name: "Shivam Govind Jha", role: "Group member", initials: "SJ",
-        photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=260&h=260&fit=crop&crop=face", links: [] },
+        photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=260&h=260&fit=crop&crop=face",
+        links: [] },
       { name: "Sparshika Mishra", role: "Group member", initials: "SM",
-        photo: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=260&h=260&fit=crop&crop=face", links: [] },
+        photo: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=260&h=260&fit=crop&crop=face",
+        links: [] },
       { name: "Priyanka Sharma Juan", role: "Group member", initials: "PJ",
-        photo: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=260&h=260&fit=crop&crop=face", links: [] },
+        photo: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=260&h=260&fit=crop&crop=face",
+        links: [] },
       { name: "Armand Stoe", role: "Group member", initials: "AS",
-        photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=260&h=260&fit=crop&crop=face", links: [] }
+        photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=260&h=260&fit=crop&crop=face",
+        links: [] },
     ];
 
-    const pubs = [
+    // ── Publications ────────────────────────────────────────────────────
+    // Flat list, newest first.
+    //   title   — paper title (rendered in serif)
+    //   authors — author string as you want it displayed
+    //   journal — journal name (italic)
+    //   year    — publication year
+    //   link    — DOI or URL; use "#" for no link (title won't be clickable)
+    const PUBLICATIONS = [
       { title: "A recombinase-activated ribozyme to knock down endogenous gene expression in zebrafish",
-        authors: "Juan T, Molina T, Xie L, Papadopoulou S, et al.", journal: "PLOS Genetics", year: "2025", link: "#" },
+        authors: "Juan T, Molina T, Xie L, Papadopoulou S, et al.",
+        journal: "PLOS Genetics", year: "2025", link: "#" },
       { title: "Control of cardiac contractions using Cre-lox and degron strategies in zebrafish",
-        authors: "Juan T, Bellec M, Cardoso B, Athéa H, et al.", journal: "PNAS", year: "2024", link: "#" },
+        authors: "Juan T, Bellec M, Cardoso B, Athéa H, et al.",
+        journal: "PNAS", year: "2024", link: "#" },
       { title: "egr3 is a mechanosensitive transcription factor gene required for cardiac valve morphogenesis",
-        authors: "da Silva AR, Gunawan F, Boezio GLM, Faure E, et al.", journal: "Science Advances", year: "2024", link: "#" },
+        authors: "da Silva AR, Gunawan F, Boezio GLM, Faure E, et al.",
+        journal: "Science Advances", year: "2024", link: "#" },
       { title: "Multiple pkd and piezo gene family members are required for atrioventricular valve formation",
-        authors: "Juan T, Ribeiro da Silva A, Cardoso B, Lim S, et al.", journal: "Nature Communications", year: "2023", link: "#" }
+        authors: "Juan T, Ribeiro da Silva A, Cardoso B, Lim S, et al.",
+        journal: "Nature Communications", year: "2023", link: "#" },
     ];
 
-    // Render team
-    document.getElementById('teamGrid').innerHTML = team.map(m => `
+    // ── Contact section ─────────────────────────────────────────────────
+    // Heading and paragraph shown above the contact links
+    const CONTACT_HEADING = "Interested in developmental mechanobiology?";
+
+    const CONTACT_TEXT =
+      "We are always looking for motivated scientists at all levels. If you're interested " +
+      "in joining the lab or collaborating, please get in touch.";
+
+    // Links with ↗ arrows
+    const CONTACT_LINKS = [
+      { label: "thomas.juan@igp.uu.se",
+        url: "mailto:thomas.juan@igp.uu.se" },
+      { label: "Institutional page",
+        url: "https://www.uu.se/en/department/immunology-genetics-and-pathology/research/vascular-biology/thomas-juan" },
+    ];
+
+    // ── Footer ──────────────────────────────────────────────────────────
+    // Text after the © year
+    const FOOTER_TEXT = "Thomas Juan Lab · Uppsala University";
+
+
+    /* ═══════════════════════════════════════════════════════════════════════
+       RENDERING — Populates the page from the variables above.
+       You should not need to edit anything below this line.
+       ═══════════════════════════════════════════════════════════════════════ */
+
+    // Brand
+    document.getElementById('brandName').textContent = BRAND_NAME;
+
+    // Hero
+    document.getElementById('heroHeadline').textContent = HERO_HEADLINE;
+    document.getElementById('heroDescription').textContent = HERO_DESCRIPTION;
+    document.getElementById('heroAffiliation').innerHTML = HERO_AFFILIATION;
+    document.getElementById('heroImage').src = HERO_IMAGE_URL;
+    document.getElementById('heroLinks').innerHTML = HERO_LINKS.map(l =>
+      `<a href="${l.url}" target="_blank" rel="noreferrer">${l.label}</a>`
+    ).join('');
+
+    // Section titles
+    document.getElementById('researchTitle').textContent = SECTION_TITLE_RESEARCH;
+    document.getElementById('teamTitle').textContent = SECTION_TITLE_TEAM;
+    document.getElementById('pubsTitle').textContent = SECTION_TITLE_PUBLICATIONS;
+
+    // Research grid
+    document.getElementById('researchGrid').innerHTML = RESEARCH_ITEMS.map(r => `
+      <article class="research-item">
+        <img class="research-img" src="${r.image}" alt="${r.alt}" />
+        <div class="research-tags">
+          ${r.tags.map(t => `<span>${t}</span>`).join('')}
+        </div>
+        <h3>${r.title}</h3>
+        <p>${r.description}</p>
+      </article>
+    `).join('');
+
+    // About strip
+    document.getElementById('aboutImage').src = ABOUT_IMAGE_URL;
+    document.getElementById('aboutHeading').textContent = ABOUT_HEADING;
+    document.getElementById('aboutText').textContent = ABOUT_TEXT;
+
+    // Team
+    document.getElementById('teamGrid').innerHTML = TEAM.map(m => `
       <div class="person">
         <div class="person-avatar">
           ${m.photo ? `<img src="${m.photo}" alt="${m.name}" />` : `<span class="person-initials">${m.initials}</span>`}
@@ -618,8 +714,8 @@
       </div>
     `).join('');
 
-    // Render publications (flat list)
-    document.getElementById('pubList').innerHTML = pubs.map(p => `
+    // Publications
+    document.getElementById('pubList').innerHTML = PUBLICATIONS.map(p => `
       <article class="pub-item">
         <h3>${p.link && p.link !== '#' ? `<a href="${p.link}" target="_blank" rel="noreferrer">${p.title}</a>` : p.title}</h3>
         <div class="pub-authors">${p.authors}</div>
@@ -627,6 +723,15 @@
       </article>
     `).join('');
 
+    // Contact
+    document.getElementById('contactHeading').textContent = CONTACT_HEADING;
+    document.getElementById('contactText').textContent = CONTACT_TEXT;
+    document.getElementById('contactLinks').innerHTML = CONTACT_LINKS.map(l =>
+      `<a href="${l.url}" target="_blank" rel="noreferrer">${l.label}</a>`
+    ).join('');
+
+    // Footer
+    document.getElementById('footerText').textContent = FOOTER_TEXT;
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
