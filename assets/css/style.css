@@ -252,22 +252,8 @@ h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
   gap: 8px;
   list-style: none;
 }
-/* construct and strategy schematics, stacked under the images */
-.schematics {
-  list-style: none;
-  display: grid;
-  gap: 8px;
-  margin-top: 8px;
-}
-.schematics li {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: #fff;
-  overflow: hidden;
-}
-.schematics a { display: block; }
-.schematics img { width: 100%; height: auto; }
-.schematics a:hover img { opacity: .92; }
+/* schematic tiles sit in the same grid as the images, cropped to the square */
+.mosaic li a { display: block; width: 100%; height: 100%; }
 .panel-note { margin-top: .7rem; font-size: .82rem; color: var(--muted); }
 .mosaic li { border-radius: var(--radius); overflow: hidden; background: #0c0a12; aspect-ratio: 1; }
 .mosaic li.wide { grid-column: span 2; aspect-ratio: 2.5; }
