@@ -202,41 +202,11 @@ h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
 
 .cosmos {
-  position: relative;
   justify-self: end;
-  width: min(100%, 600px);
-  aspect-ratio: 1.08;
+  width: min(100%, 520px);
 }
-.galaxy-heart {
-  position: absolute;
-  right: 0; bottom: 0;
-  width: 86%;
-  max-width: 520px;
-}
+.galaxy-heart { width: 100%; height: auto; }
 .galaxy-heart .orbits { transform-origin: 350px 350px; animation: spin 220s linear infinite; }
-
-.nebula {
-  position: absolute;
-  left: 0; top: -2%;
-  width: 36%;
-  max-width: 220px;
-  aspect-ratio: 1;
-}
-.nebula::before {
-  content: '';
-  position: absolute;
-  inset: -26%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgb(42 157 153 / .32) 0%, rgb(185 165 214 / .26) 40%, transparent 70%);
-}
-.nebula img {
-  position: relative;
-  width: 100%;
-  border-radius: 50%;
-  -webkit-mask-image: radial-gradient(circle, #000 48%, rgb(0 0 0 / .6) 60%, transparent 71%);
-  mask-image: radial-gradient(circle, #000 48%, rgb(0 0 0 / .6) 60%, transparent 71%);
-  animation: spin 300s linear infinite reverse;
-}
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
@@ -480,7 +450,7 @@ a.pub-title:hover { color: var(--coral-dark); text-decoration: underline; text-d
   .nav-links a { display: block; padding: .85rem 0; border-bottom: 1px solid var(--line); }
 
   .hero-inner { grid-template-columns: 1fr; min-height: 0; padding-block: 2.6rem 0; gap: 1rem; }
-  .cosmos { justify-self: center; width: min(100%, 420px); }
+  .cosmos { justify-self: center; width: min(100%, 380px); }
   .theme, .join-inner, .pubs-head { grid-template-columns: 1fr; }
   .theme:nth-child(even) .mosaic { order: 0; }
   .pubs-art { justify-self: start; max-width: 320px; }
@@ -498,7 +468,7 @@ a.pub-title:hover { color: var(--coral-dark); text-decoration: underline; text-d
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .galaxy-heart .orbits, .nebula img { animation: none; }
+  .galaxy-heart .orbits { animation: none; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .mosaic img, .avatar { transition: none; }
 }
