@@ -1,690 +1,826 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Juan Lab | Mechanosensation and Bioengineering</title>
-  <meta name="description" content="Website for the  Juan Lab at Uppsala University, focused on mechanosensation during cardiovascular development and biomolecule engineering." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #1a1a1a;
-      --muted: #6b6b6b;
-      --light: #999999;
-      --border: #e5e5e5;
-      --max-w: 1100px;
-      --serif: 'EB Garamond', 'Georgia', serif;
-      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Juan Lab · Mechanosensation and Bioengineering · Uppsala University</title>
+  <meta name="description" content="Juan Lab at Uppsala University studies how cardiac contractions and blood flow shape the developing heart in zebrafish, and engineers genetic tools to control genes and proteins in living animals.">
+  <link rel="canonical" href="https://juanlab.org/">
+  <meta name="theme-color" content="#f5ede0">
+
+  <!-- Social previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Juan Lab">
+  <meta property="og:title" content="Juan Lab · How the beating heart shapes itself">
+  <meta property="og:description" content="Mechanosensation in cardiovascular development and biomolecule engineering, in zebrafish. Uppsala University.">
+  <meta property="og:url" content="https://juanlab.org/">
+  <meta property="og:image" content="https://juanlab.org/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,0..100,0..1;1,9..144,300..600,0..100,0..1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ResearchOrganization",
+    "name": "Juan Lab",
+    "alternateName": "Laboratory of Mechanosensation and Bioengineering",
+    "url": "https://juanlab.org/",
+    "logo": "https://juanlab.org/assets/logo/juanlab-logo.svg",
+    "description": "Mechanosensation in cardiovascular development and biomolecule engineering in zebrafish.",
+    "parentOrganization": {
+      "@type": "CollegeOrUniversity",
+      "name": "Uppsala University",
+      "department": "Department of Immunology, Genetics and Pathology"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rudbeck Laboratory, Dag Hammarskjölds väg 20",
+      "postalCode": "751 85",
+      "addressLocality": "Uppsala",
+      "addressCountry": "SE"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Thomas Juan",
+      "jobTitle": "Assistant Professor in Vascular Biology",
+      "sameAs": [
+        "https://orcid.org/0000-0002-9654-3717",
+        "https://scholar.google.com/citations?user=vMfxQ8AAAAAJ&hl=en"
+      ]
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--sans);
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.65;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-    a:hover { color: var(--muted); }
-
-    .w { width: min(calc(100% - 3rem), var(--max-w)); margin: 0 auto; }
-
-    /* ─── Header ─── */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-
-    .brand {
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .brand svg { flex-shrink: 0; }
-
-    .nav-links { display: flex; align-items: center; gap: 2rem; }
-    .nav-links a {
-      font-size: 0.92rem;
-      color: var(--muted);
-      transition: color 0.15s;
-    }
-    .nav-links a:hover { color: var(--text); }
-
-    /* ─── Hero ─── */
-    .hero {
-      padding: 5rem 0 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero-top {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 4rem;
-      align-items: start;
-      margin-bottom: 3.5rem;
-    }
-
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.8rem, 5.5vw, 4.2rem);
-      font-weight: 400;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.6rem;
-    }
-
-    .hero-text p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 52ch;
-      line-height: 1.7;
-    }
-
-    .hero-aside {
-      padding-top: 0.5rem;
-    }
-
-    .hero-aside p {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 1.4rem;
-    }
-
-    .hero-links { display: flex; flex-direction: column; gap: 0.3rem; }
-    .hero-links a {
-      font-size: 0.92rem;
-      color: var(--text);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .hero-links a::after { content: '↗'; font-size: 0.8em; color: var(--light); }
-    .hero-links a:hover { color: var(--muted); }
-
-    .hero-image {
-      width: 100%;
-      height: 380px;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ─── Section shared ─── */
-    .section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
-    .section:last-of-type { border-bottom: none; }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      margin-bottom: 3rem;
-    }
-
-    /* ─── Research ─── */
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
-    }
-
-    .research-item {}
-
-    .research-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 1.2rem;
-      filter: grayscale(15%);
-    }
-
-    .research-item h3 {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 500;
-      line-height: 1.25;
-      margin-bottom: 0.75rem;
-    }
-
-    .research-item p {
-      color: var(--muted);
-      font-size: 0.93rem;
-      line-height: 1.65;
-    }
-
-    .research-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 0.85rem;
-    }
-
-    .research-tags span {
-      font-size: 0.78rem;
-      color: var(--light);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-weight: 500;
-    }
-
-    .research-tags span + span::before {
-      content: '·';
-      margin-right: 0.4rem;
-    }
-
-    /* ─── Team ─── */
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2.5rem;
-      text-align: center;
-    }
-
-    .person { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
-
-    .person-avatar {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      background: #f3f3f3;
-      margin-bottom: 0.3rem;
-    }
-
-    .person-avatar img { width: 100%; height: 100%; object-fit: cover; }
-
-    .person-initials {
-      font-family: var(--serif);
-      font-size: 1.6rem;
-      color: var(--light);
-      font-weight: 400;
-    }
-
-    .person-name {
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: -0.01em;
-    }
-
-    .person-role {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.45;
-    }
-
-    .person-links {
-      display: flex;
-      gap: 0.9rem;
-      justify-content: center;
-      margin-top: 0.15rem;
-    }
-
-    .person-links a {
-      font-size: 0.82rem;
-      color: var(--light);
-      transition: color 0.15s;
-    }
-    .person-links a:hover { color: var(--text); }
-
-    /* ─── Publications ─── */
-    .pub-item {
-      padding: 0.75rem 0;
-      border-top: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1.2rem;
-      align-items: start;
-    }
-
-    .pub-item:last-child { border-bottom: 1px solid var(--border); }
-
-    .pub-thumb {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 4px;
-      flex-shrink: 0;
-      filter: grayscale(20%);
-    }
-
-    .pub-body { display: flex; flex-direction: column; gap: 0.2rem; }
-
-    .pub-item h3 {
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      font-weight: 500;
-      line-height: 1.35;
-    }
-
-    .pub-item h3 a:hover { text-decoration: underline; }
-
-    .pub-scholar-profile-link {
-      font-size: 0.82rem;
-      color: var(--light);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      transition: color 0.15s;
-    }
-    .pub-scholar-profile-link:hover { color: var(--text); }
-    .pub-scholar-profile-link::after { content: '↗'; font-size: 0.75em; }
-
-    .pub-authors {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .pub-journal {
-      font-size: 0.85rem;
-      color: var(--light);
-      font-style: italic;
-    }
-
-    .pub-scholar-link {
-      font-size: 0.82rem;
-      color: var(--light);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      margin-top: 0.15rem;
-      transition: color 0.15s;
-    }
-    .pub-scholar-link:hover { color: var(--text); }
-    .pub-scholar-link::after { content: '↗'; font-size: 0.75em; }
-
-    /* ─── Contact / CTA ─── */
-    .contact-section {
-      padding: 5rem 0;
-    }
-
-    .contact-inner {
-      max-width: 600px;
-    }
-
-    .contact-inner h2 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-    }
-
-    .contact-inner p {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 1.6rem;
-    }
-
-    .contact-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .contact-links a {
-      font-size: 0.92rem;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-    .contact-links a::after { content: '↗'; font-size: 0.8em; color: var(--light); }
-
-    /* ─── Footer ─── */
-    .site-footer {
-      padding: 2rem 0 3rem;
-      border-top: 1px solid var(--border);
-      color: var(--light);
-      font-size: 0.85rem;
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    /* ─── Responsive ─── */
-    @media (max-width: 900px) {
-      .hero-top { grid-template-columns: 1fr; gap: 2rem; }
-      .research-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-    }
-
-    @media (max-width: 600px) {
-      .hero { padding: 3.5rem 0 0; }
-      .section { padding: 3.5rem 0; }
-      .nav { height: auto; padding: 1rem 0; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
-      .nav-links { gap: 1.2rem; }
-      .team-grid { grid-template-columns: 1fr 1fr; }
-      .hero-image { height: 240px; }
-      .pub-thumb { width: 60px; height: 60px; }
-    }
-  </style>
+  }
+  </script>
+  <script>document.documentElement.classList.add('js');</script>
 </head>
+
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ====================================================================
+       HEADER
+       ==================================================================== -->
   <header class="site-header">
     <div class="w nav">
-      <a class="brand" href="#top">
-        <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Juan Lab logo">
-          <!-- Main trunk — ascending vessel -->
-          <path d="M50 92 C50 72, 50 60, 50 38" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round"/>
-          <!-- Left primary branch -->
-          <path d="M50 58 C42 50, 30 42, 18 36" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round"/>
-          <!-- Left secondary branches -->
-          <path d="M30 44 C26 36, 20 28, 14 20" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M24 40 C18 38, 12 40, 8 44" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
-          <!-- Right primary branch -->
-          <path d="M50 50 C58 42, 68 34, 80 28" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round"/>
-          <!-- Right secondary branches -->
-          <path d="M68 36 C74 28, 78 20, 82 12" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M74 32 C80 30, 86 32, 92 36" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
-          <!-- Top branch from trunk -->
-          <path d="M50 38 C48 28, 44 18, 38 10" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
-          <path d="M50 38 C54 26, 58 18, 64 12" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
-          <!-- Flow dot accents -->
-          <circle cx="18" cy="36" r="3" fill="#1a1a1a"/>
-          <circle cx="80" cy="28" r="3" fill="#1a1a1a"/>
-          <circle cx="50" cy="92" r="4" fill="#1a1a1a"/>
-        </svg>
-        <span id="brandName"></span>
+      <a class="brand" href="#top" aria-label="Juan Lab, back to top">
+        <img src="assets/logo/juanlab-logo.svg" alt="" width="38" height="38">
+        <span class="brand-text">
+          <span class="brand-name">Juan Lab</span>
+          <span class="brand-sub">Uppsala University</span>
+        </span>
       </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#research">Research</a>
-        <a href="#team">Team</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav aria-label="Primary">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#people">People</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a class="nav-cta" href="#join">Join us</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="w hero-top">
-        <div class="hero-text">
-          <h1 id="heroHeadline"></h1>
-          <p id="heroDescription"></p>
-        </div>
-        <div class="hero-aside">
-          <p id="heroAffiliation"></p>
-          <div class="hero-links" id="heroLinks"></div>
-        </div>
-      </div>
-      <img class="hero-image" id="heroImage" alt="Abstract fluid dynamics" />
-    </section>
+  <main id="main">
 
-    <!-- Research -->
-    <section class="section" id="research">
-      <div class="w">
-        <h2 class="section-title" id="researchTitle"></h2>
-        <div class="research-grid" id="researchGrid"></div>
-      </div>
-    </section>
-
-    <!-- Team -->
-    <section class="section" id="team">
-      <div class="w">
-        <h2 class="section-title" id="teamTitle"></h2>
-        <div class="team-grid" id="teamGrid"></div>
-      </div>
-    </section>
-
-    <!-- Publications -->
-    <section class="section" id="publications">
-      <div class="w">
-        <h2 class="section-title" id="pubsTitle"></h2>
-        <a id="scholarProfileTopLink" class="pub-scholar-profile-link" href="" target="_blank" rel="noreferrer" style="display:inline-flex;margin-bottom:2rem;">Google Scholar profile</a>
-        <div id="pubList"></div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact-section" id="contact">
-      <div class="w">
-        <div class="contact-inner">
-          <h2 id="contactHeading"></h2>
-          <p id="contactText"></p>
-          <div class="contact-links" id="contactLinks"></div>
+    <!-- ==================================================================
+         HERO
+         The illustration is inline SVG so it stays sharp at any size.
+         The sun is a line rendering of a zebrafish heart (assets/img/heart-lines.webp).
+         ================================================================== -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="w hero-inner">
+        <div class="hero-copy">
+          <p class="hero-eyebrow mono-label">Mechanosensation &amp; Bioengineering</p>
+          <h1 id="hero-title">How the beating heart <em>shapes itself</em></h1>
+          <p class="lede">
+            The heart starts beating long before it has finished forming. We study how the forces
+            generated by contractions and blood flow guide cardiac morphogenesis in zebrafish, and we
+            engineer genetic tools to control genes and proteins in living animals.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#research">Our research
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#join">Join the lab</a>
+          </div>
         </div>
       </div>
+
+      <div class="hero-art">
+        <svg viewBox="0 0 1440 720" preserveAspectRatio="xMaxYMid slice" role="img" aria-labelledby="hero-art-title">
+          <title id="hero-art-title">Illustration: a lone traveller on desert dunes faces a giant sun drawn from a microscopy image of a zebrafish heart, while a zebrafish larva drifts across the sky.</title>
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="520" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#8fd0c9"/>
+              <stop offset=".34" stop-color="#cfe3cf"/>
+              <stop offset=".6" stop-color="#f4e4c4"/>
+              <stop offset=".82" stop-color="#f7cba2"/>
+              <stop offset="1" stop-color="#f1a780"/>
+            </linearGradient>
+            <radialGradient id="sunFill" cx=".44" cy=".4" r=".7">
+              <stop offset="0" stop-color="#fffaf0"/>
+              <stop offset=".62" stop-color="#fcebcc"/>
+              <stop offset="1" stop-color="#f5cc9b"/>
+            </radialGradient>
+            <radialGradient id="halo">
+              <stop offset="0" stop-color="#fff6e2" stop-opacity=".95"/>
+              <stop offset=".6" stop-color="#fff6e2" stop-opacity=".35"/>
+              <stop offset="1" stop-color="#fff6e2" stop-opacity="0"/>
+            </radialGradient>
+            <clipPath id="sunClip"><circle cx="1060" cy="300" r="228"/></clipPath>
+            <pattern id="hatchV" width="5" height="5" patternUnits="userSpaceOnUse">
+              <path d="M0 0V5" stroke="#1f1b33" stroke-width="1" stroke-opacity=".38"/>
+            </pattern>
+            <pattern id="hatchD" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-32)">
+              <path d="M0 0V6" stroke="#1f1b33" stroke-width=".9" stroke-opacity=".28"/>
+            </pattern>
+            <pattern id="stipple" width="16" height="16" patternUnits="userSpaceOnUse">
+              <circle cx="3" cy="4" r=".95" fill="#9a5e34" fill-opacity=".5"/>
+              <circle cx="11" cy="11" r=".75" fill="#9a5e34" fill-opacity=".42"/>
+              <circle cx="12" cy="2.5" r=".55" fill="#9a5e34" fill-opacity=".35"/>
+              <circle cx="6" cy="13" r=".5" fill="#9a5e34" fill-opacity=".3"/>
+            </pattern>
+          </defs>
+
+          <!-- sky -->
+          <rect width="1440" height="720" fill="url(#sky)"/>
+
+          <!-- long lenticular clouds -->
+          <g fill="#fff8ea" stroke="#1f1b33" stroke-width=".9" stroke-opacity=".32">
+            <path d="M260 34 Q500 22 760 32 Q520 42 260 34Z" fill-opacity=".7"/>
+            <path d="M520 446 Q690 437 880 446 Q700 453 520 446Z" fill-opacity=".6"/>
+            <path d="M1250 476 Q1360 468 1460 474 L1460 482 Q1350 484 1250 476Z" fill-opacity=".6"/>
+          </g>
+
+          <!-- sun halo and orbits -->
+          <circle cx="1060" cy="300" r="370" fill="url(#halo)"/>
+          <g class="spin-slow" fill="none">
+            <circle cx="1060" cy="300" r="262" stroke="#1f1b33" stroke-width="1.1" stroke-opacity=".5"/>
+            <circle cx="1060" cy="300" r="292" stroke="#e0613f" stroke-width="1.5" stroke-dasharray="2 9" stroke-linecap="round"/>
+            <circle cx="1060" cy="300" r="326" stroke="#1f1b33" stroke-width=".8" stroke-opacity=".26" stroke-dasharray="42 14"/>
+            <circle cx="838" cy="113" r="11" fill="#e0613f" stroke="#1f1b33" stroke-width="1.4"/>
+            <circle cx="1306" cy="390" r="6.5" fill="#2a9d99" stroke="#1f1b33" stroke-width="1.2"/>
+          </g>
+
+          <!-- the sun: a zebrafish heart drawn in ink -->
+          <circle cx="1060" cy="300" r="230" fill="url(#sunFill)" stroke="#1f1b33" stroke-width="2"/>
+          <circle cx="1060" cy="300" r="214" fill="none" stroke="#1f1b33" stroke-width=".7" stroke-opacity=".22"/>
+          <g clip-path="url(#sunClip)">
+            <image href="assets/img/heart-lines.webp" x="893" y="98" width="334" height="405" transform="rotate(-7 1060 300)"/>
+          </g>
+
+          <!-- a larva drifting like an airship -->
+          <g class="drift">
+            <image href="assets/img/larva-lines.webp" x="1150" y="40" width="270" height="77"/>
+          </g>
+
+          <!-- distant mesas -->
+          <g stroke="#1f1b33" stroke-width="1.5" stroke-linejoin="round">
+            <path d="M560 512 L566 488 L578 482 L630 482 L636 490 L652 492 L658 512Z" fill="#c6b4dd"/>
+            <path d="M742 512 L752 452 L748 430 L760 404 L774 402 L782 428 L778 456 L792 512Z" fill="#b9a5d6"/>
+            <path d="M1150 512 L1160 448 L1170 440 L1296 440 L1306 452 L1318 456 L1330 512Z" fill="#b9a5d6"/>
+            <path d="M1360 512 L1368 474 L1450 470 L1450 512Z" fill="#c6b4dd"/>
+          </g>
+          <g stroke="none">
+            <path d="M767 403 L774 402 L782 428 L778 456 L792 512 L771 512 L768 456 L772 430Z" fill="url(#hatchV)"/>
+            <path d="M1268 440 L1296 440 L1306 452 L1318 456 L1330 512 L1286 512 L1280 458Z" fill="url(#hatchV)"/>
+            <path d="M612 482 L630 482 L636 490 L652 492 L658 512 L630 512 L624 492Z" fill="url(#hatchV)"/>
+          </g>
+          <g fill="none" stroke="#1f1b33" stroke-width=".7" stroke-opacity=".35">
+            <path d="M1166 462 H1300 M1162 480 H1316 M1158 497 H1322"/>
+          </g>
+
+          <!-- coral dune -->
+          <path d="M-10 548 C160 512 340 514 520 534 C700 554 860 562 1040 532 C1200 506 1320 506 1450 524 L1450 720 L-10 720Z" fill="#ec9473" stroke="#1f1b33" stroke-width="1.6"/>
+          <path d="M1040 532 C1200 506 1320 506 1450 524 L1450 596 C1320 574 1180 576 1040 600 C1010 580 1020 552 1040 532Z" fill="url(#hatchD)"/>
+          <g fill="none" stroke="#1f1b33" stroke-width=".9" stroke-opacity=".34" stroke-linecap="round">
+            <path d="M300 540 C420 536 520 548 640 558"/>
+            <path d="M380 556 C470 554 560 562 660 572"/>
+            <path d="M60 560 C140 546 210 542 290 546"/>
+          </g>
+
+          <!-- sand dune, foreground -->
+          <path d="M-10 640 C200 596 420 584 640 608 C820 628 960 650 1110 628 C1250 608 1350 600 1450 612 L1450 720 L-10 720Z" fill="#f2cc92" stroke="#1f1b33" stroke-width="1.8"/>
+          <path d="M-10 640 C200 596 420 584 640 608 C820 628 960 650 1110 628 C1250 608 1350 600 1450 612 L1450 720 L-10 720Z" fill="url(#stipple)"/>
+          <path d="M640 608 C820 628 960 650 1110 628 C1040 660 900 676 760 670 C700 652 664 630 640 608Z" fill="#e2ae72" fill-opacity=".75"/>
+          <path d="M640 608 C820 628 960 650 1110 628 C1040 660 900 676 760 670 C700 652 664 630 640 608Z" fill="url(#hatchD)"/>
+          <g fill="none" stroke="#1f1b33" stroke-width=".8" stroke-opacity=".4" stroke-linecap="round">
+            <path d="M70 676 q30 -8 60 0 t60 0"/>
+            <path d="M250 694 q30 -8 60 0 t60 0 t60 0"/>
+            <path d="M1170 666 q30 -8 60 0 t60 0"/>
+            <path d="M980 702 q30 -8 60 0 t60 0 t60 0"/>
+            <path d="M520 706 q30 -7 60 0 t60 0"/>
+          </g>
+          <g stroke="#1f1b33" stroke-width="1.3">
+            <ellipse cx="1232" cy="650" rx="15" ry="6" fill="#b9a5d6"/>
+            <ellipse cx="1256" cy="654" rx="6.5" ry="3.5" fill="#c6b4dd"/>
+            <ellipse cx="166" cy="652" rx="9" ry="4" fill="#c6b4dd"/>
+          </g>
+
+          <!-- the traveller -->
+          <g transform="translate(718 617)">
+            <path d="M-2 0 C-50 3 -120 7 -196 5 C-120 11 -50 9 2 2Z" fill="#6e5a9e" fill-opacity=".45"/>
+            <path d="M-8 0 L-6.5 -22 C-7 -30 -4 -36 0 -36 C4 -36 7 -30 6.5 -22 L8 0Z" fill="#f6eee1" stroke="#1f1b33" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M-2 -28 L-3 -3 M2.5 -26 L3 -5" stroke="#1f1b33" stroke-width=".7" stroke-opacity=".6"/>
+            <path d="M-5 -36 C-6 -44 -2 -48 .5 -48 C4 -48 6 -44 5 -36Z" fill="#e0613f" stroke="#1f1b33" stroke-width="1.3" stroke-linejoin="round"/>
+            <path d="M4 -35 C12 -36 20 -33 30 -38 C24 -32 14 -31 5 -32Z" fill="#e0613f" stroke="#1f1b33" stroke-width="1"/>
+            <path d="M11 1 L15 -56" stroke="#1f1b33" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="15.3" cy="-58.2" r="2.5" fill="#2a9d99" stroke="#1f1b33" stroke-width="1"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         SUPPORTERS
+         ================================================================== -->
+    <section class="ribbon" aria-label="Funding">
+      <div class="w">
+        <span class="ribbon-title mono-label">Supported by</span>
+        <ul>
+          <li>Swedish Research Council</li>
+          <li>Novo Nordisk Foundation</li>
+          <li>Göran Gustafsson Foundation</li>
+          <li>Beijer Foundation</li>
+          <li>SciLifeLab</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         RESEARCH
+         ================================================================== -->
+    <section class="section" id="research" aria-labelledby="research-title">
+      <div class="w">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="section-label mono-label">01 · Research</p>
+            <h2 class="display" id="research-title">Forces that shape the heart</h2>
+          </div>
+          <p class="lede">
+            Every heartbeat stretches the cells of the heart wall and drives blood across them.
+            The endocardium, which lines the heart lumen, senses these forces and changes its identity
+            in response. We identify the molecules behind this response in zebrafish, and we build
+            the genetic tools needed to test them.
+          </p>
+        </header>
+
+        <div class="themes">
+
+          <!-- Theme 1 -->
+          <article class="theme reveal">
+            <figure class="theme-media">
+              <div class="panel panel--square" style="--panel-shadow: var(--sky)">
+                <img src="assets/img/endocardium.webp" width="693" height="693" loading="lazy"
+                     alt="Confocal section of a zebrafish heart with the endocardium in cyan and the myocardium in magenta">
+              </div>
+              <div class="inset" aria-hidden="true">
+                <img src="assets/img/heart-vessels.webp" width="512" height="512" loading="lazy" alt="">
+              </div>
+              <figcaption class="panel-caption"><b>Fig. 1</b>Zebrafish heart, confocal section. Endocardium in cyan, myocardium in magenta.</figcaption>
+            </figure>
+            <div class="theme-copy">
+              <p class="theme-num">i.</p>
+              <div class="tags"><span class="tag">Endocardium</span><span class="tag">Hemodynamic forces</span></div>
+              <h3>Mechanosensation in the endocardium</h3>
+              <p>
+                The endocardium is the first cardiac tissue to experience blood flow. We showed that
+                cardiac contractions maintain endocardial identity by locally repressing a venous fate.
+              </p>
+              <p>
+                We now ask which mechanosensors detect these forces in endocardial cells, and how their
+                signals reach the genome. Because endocardial dysfunction contributes to heart failure and
+                congenital heart disease, these mechanisms are a route toward new therapeutic targets.
+              </p>
+              <div class="key-papers">
+                <span class="mono-label">Key paper</span>
+                <a class="arrow-link" href="#publications">Nature Communications 2026</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Theme 2 -->
+          <article class="theme reveal">
+            <figure class="theme-media">
+              <div class="panel panel--square" style="--panel-shadow: var(--lavender)">
+                <img src="assets/img/valve.webp" width="693" height="693" loading="lazy"
+                     alt="Confocal section of a developing zebrafish heart showing endocardial cells forming a valve">
+              </div>
+              <div class="inset" aria-hidden="true">
+                <img src="assets/img/valve-ring.webp" width="360" height="360" loading="lazy" alt="">
+              </div>
+              <figcaption class="panel-caption"><b>Fig. 2</b>Developing zebrafish heart during valve formation, confocal imaging.</figcaption>
+            </figure>
+            <div class="theme-copy">
+              <p class="theme-num">ii.</p>
+              <div class="tags"><span class="tag">Cardiac valves</span><span class="tag">Mechanotransduction</span></div>
+              <h3>Cardiac valve morphogenesis</h3>
+              <p>
+                Cardiac valves form where the heart wall experiences the strongest oscillatory flow.
+                We identified several <i>pkd</i> and <i>piezo</i> family members that are required for
+                atrioventricular valve formation.
+              </p>
+              <p>
+                Downstream of these mechanosensors, we found that the mechanosensitive transcription factor
+                gene <i>egr3</i> is required for valve morphogenesis. Valve malformations are a frequent form
+                of congenital heart disease, and this work opens a route toward producing valve cells for repair.
+              </p>
+              <div class="key-papers">
+                <span class="mono-label">Key papers</span>
+                <a class="arrow-link" href="https://doi.org/10.1038/s41467-023-35843-3" target="_blank" rel="noopener">Nature Communications 2023</a>
+                <a class="arrow-link" href="https://doi.org/10.1126/sciadv.adl0633" target="_blank" rel="noopener">Science Advances 2024</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Theme 3 -->
+          <article class="theme reveal">
+            <figure class="theme-media theme-media--plate">
+              <div class="panel panel--paper" style="--panel-shadow: var(--coral-soft)">
+                <svg viewBox="0 0 420 300" role="img" aria-label="Illustration of a 96-well screening plate with wells shaded by activity">
+                  <defs>
+                    <pattern id="plateHatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)">
+                      <path d="M0 0V6" stroke="#1f1b33" stroke-width="1" stroke-opacity=".35"/>
+                    </pattern>
+                    <linearGradient id="tableGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#cfe3cf"/><stop offset="1" stop-color="#f4e4c4"/>
+                    </linearGradient>
+                  </defs>
+                  <rect width="420" height="300" fill="url(#tableGrad)"/>
+                  <rect x="27" y="37" width="380" height="250" rx="14" fill="url(#plateHatch)"/>
+                  <rect x="18" y="26" width="380" height="250" rx="14" fill="#fbf6ec" stroke="#1f1b33" stroke-width="1.8"/>
+                  <rect x="30" y="46" width="356" height="220" rx="6" fill="none" stroke="#1f1b33" stroke-width=".9"/>
+                  <path d="M18 58 L30 46" stroke="#1f1b33" stroke-width="1.2"/>
+                  <g font-family="IBM Plex Mono, monospace" font-size="8" fill="#625a75" text-anchor="middle">
+                    <text x="42" y="79">A</text><text x="42" y="104">B</text><text x="42" y="129">C</text><text x="42" y="154">D</text>
+                    <text x="42" y="179">E</text><text x="42" y="204">F</text><text x="42" y="229">G</text><text x="42" y="254">H</text>
+                  </g>
+                  <g stroke="#1f1b33" stroke-width=".9"><circle cx="66" cy="76" r="10" fill="#f3e8d6"/><circle cx="93.5" cy="76" r="10" fill="#f3e8d6"/><circle cx="121" cy="76" r="10" fill="#f7c79f"/><circle cx="148.5" cy="76" r="10" fill="#f3e8d6"/><circle cx="176" cy="76" r="10" fill="#f7c79f"/><circle cx="203.5" cy="76" r="10" fill="#f7c79f"/><circle cx="231" cy="76" r="10" fill="#f3e8d6"/><circle cx="258.5" cy="76" r="10" fill="#f7c79f"/><circle cx="286" cy="76" r="10" fill="#f3e8d6"/><circle cx="313.5" cy="76" r="10" fill="#f7c79f"/><circle cx="341" cy="76" r="10" fill="#f3e8d6"/><circle cx="368.5" cy="76" r="10" fill="#f3e8d6"/><circle cx="66" cy="101" r="10" fill="#f3e8d6"/><circle cx="93.5" cy="101" r="10" fill="#f7c79f"/><circle cx="121" cy="101" r="10" fill="#f3e8d6"/><circle cx="148.5" cy="101" r="10" fill="#f3e8d6"/><circle cx="176" cy="101" r="10" fill="#f7c79f"/><circle cx="203.5" cy="101" r="10" fill="#ec9473"/><circle cx="231" cy="101" r="10" fill="#ec9473"/><circle cx="258.5" cy="101" r="10" fill="#ec9473"/><circle cx="286" cy="101" r="10" fill="#e0613f"/><circle cx="313.5" cy="101" r="10" fill="#f7c79f"/><circle cx="341" cy="101" r="10" fill="#ec9473"/><circle cx="368.5" cy="101" r="10" fill="#f3e8d6"/><circle cx="66" cy="126" r="10" fill="#f3e8d6"/><circle cx="93.5" cy="126" r="10" fill="#f3e8d6"/><circle cx="121" cy="126" r="10" fill="#f3e8d6"/><circle cx="148.5" cy="126" r="10" fill="#ec9473"/><circle cx="176" cy="126" r="10" fill="#f7c79f"/><circle cx="203.5" cy="126" r="10" fill="#ec9473"/><circle cx="231" cy="126" r="10" fill="#e0613f"/><circle cx="258.5" cy="126" r="10" fill="#ec9473"/><circle cx="286" cy="126" r="10" fill="#2a9d99"/><circle cx="313.5" cy="126" r="10" fill="#f7c79f"/><circle cx="341" cy="126" r="10" fill="#f7c79f"/><circle cx="368.5" cy="126" r="10" fill="#f7c79f"/><circle cx="66" cy="151" r="10" fill="#f7c79f"/><circle cx="93.5" cy="151" r="10" fill="#f3e8d6"/><circle cx="121" cy="151" r="10" fill="#f3e8d6"/><circle cx="148.5" cy="151" r="10" fill="#f7c79f"/><circle cx="176" cy="151" r="10" fill="#f7c79f"/><circle cx="203.5" cy="151" r="10" fill="#ec9473"/><circle cx="231" cy="151" r="10" fill="#e0613f"/><circle cx="258.5" cy="151" r="10" fill="#e0613f"/><circle cx="286" cy="151" r="10" fill="#ec9473"/><circle cx="313.5" cy="151" r="10" fill="#e0613f"/><circle cx="341" cy="151" r="10" fill="#ec9473"/><circle cx="368.5" cy="151" r="10" fill="#ec9473"/><circle cx="66" cy="176" r="10" fill="#f7c79f"/><circle cx="93.5" cy="176" r="10" fill="#f3e8d6"/><circle cx="121" cy="176" r="10" fill="#ec9473"/><circle cx="148.5" cy="176" r="10" fill="#f3e8d6"/><circle cx="176" cy="176" r="10" fill="#f7c79f"/><circle cx="203.5" cy="176" r="10" fill="#ec9473"/><circle cx="231" cy="176" r="10" fill="#2a9d99"/><circle cx="258.5" cy="176" r="10" fill="#ec9473"/><circle cx="286" cy="176" r="10" fill="#ec9473"/><circle cx="313.5" cy="176" r="10" fill="#e0613f"/><circle cx="341" cy="176" r="10" fill="#ec9473"/><circle cx="368.5" cy="176" r="10" fill="#ec9473"/><circle cx="66" cy="201" r="10" fill="#f7c79f"/><circle cx="93.5" cy="201" r="10" fill="#f3e8d6"/><circle cx="121" cy="201" r="10" fill="#f7c79f"/><circle cx="148.5" cy="201" r="10" fill="#f7c79f"/><circle cx="176" cy="201" r="10" fill="#f7c79f"/><circle cx="203.5" cy="201" r="10" fill="#f7c79f"/><circle cx="231" cy="201" r="10" fill="#ec9473"/><circle cx="258.5" cy="201" r="10" fill="#e0613f"/><circle cx="286" cy="201" r="10" fill="#ec9473"/><circle cx="313.5" cy="201" r="10" fill="#2a9d99"/><circle cx="341" cy="201" r="10" fill="#f3e8d6"/><circle cx="368.5" cy="201" r="10" fill="#ec9473"/><circle cx="66" cy="226" r="10" fill="#f3e8d6"/><circle cx="93.5" cy="226" r="10" fill="#f7c79f"/><circle cx="121" cy="226" r="10" fill="#f7c79f"/><circle cx="148.5" cy="226" r="10" fill="#f3e8d6"/><circle cx="176" cy="226" r="10" fill="#f3e8d6"/><circle cx="203.5" cy="226" r="10" fill="#f7c79f"/><circle cx="231" cy="226" r="10" fill="#f3e8d6"/><circle cx="258.5" cy="226" r="10" fill="#f7c79f"/><circle cx="286" cy="226" r="10" fill="#f3e8d6"/><circle cx="313.5" cy="226" r="10" fill="#f3e8d6"/><circle cx="341" cy="226" r="10" fill="#f3e8d6"/><circle cx="368.5" cy="226" r="10" fill="#f7c79f"/><circle cx="66" cy="251" r="10" fill="#f3e8d6"/><circle cx="93.5" cy="251" r="10" fill="#f3e8d6"/><circle cx="121" cy="251" r="10" fill="#f3e8d6"/><circle cx="148.5" cy="251" r="10" fill="#f7c79f"/><circle cx="176" cy="251" r="10" fill="#f3e8d6"/><circle cx="203.5" cy="251" r="10" fill="#f3e8d6"/><circle cx="231" cy="251" r="10" fill="#f7c79f"/><circle cx="258.5" cy="251" r="10" fill="#ec9473"/><circle cx="286" cy="251" r="10" fill="#f7c79f"/><circle cx="313.5" cy="251" r="10" fill="#f7c79f"/><circle cx="341" cy="251" r="10" fill="#f3e8d6"/><circle cx="368.5" cy="251" r="10" fill="#f3e8d6"/></g>
+                </svg>
+              </div>
+              <div class="inset" aria-hidden="true">
+                <img src="assets/img/larva-fluo.webp" width="900" height="315" loading="lazy" alt="">
+              </div>
+              <figcaption class="panel-caption"><b>Fig. 3</b>Screening plate (illustration) and a fluorescent transgenic zebrafish larva.</figcaption>
+            </figure>
+            <div class="theme-copy">
+              <p class="theme-num">iii.</p>
+              <div class="tags"><span class="tag">Degrons</span><span class="tag">Ribozymes</span><span class="tag">Screening</span></div>
+              <h3>Engineering genetic tools</h3>
+              <p>
+                Testing the role of a force requires removing it in specific cells at specific times.
+                We engineer nucleic acid and protein tools for this purpose. They include Cre-lox and degron
+                strategies that stop cardiac contractions on demand, and a recombinase-activated ribozyme
+                that knocks down endogenous genes.
+              </p>
+              <p>
+                We optimise these molecules with high-throughput screening and develop the most promising
+                ones toward therapeutic use. Our work on transcriptional adaptation, in which mRNA
+                destabilisation upregulates related genes, informs how we design them.
+              </p>
+              <div class="key-papers">
+                <span class="mono-label">Key papers</span>
+                <a class="arrow-link" href="https://doi.org/10.1073/pnas.2309842121" target="_blank" rel="noopener">PNAS 2024</a>
+                <a class="arrow-link" href="https://doi.org/10.1371/journal.pgen.1011594" target="_blank" rel="noopener">PLOS Genetics 2025</a>
+                <a class="arrow-link" href="https://doi.org/10.1038/s44319-025-00427-3" target="_blank" rel="noopener">EMBO Reports 2025</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         WHY ZEBRAFISH (night band)
+         ================================================================== -->
+    <section class="section night" id="zebrafish" aria-labelledby="zebrafish-title">
+      <div class="w">
+        <div class="night-grid">
+          <div class="night-copy reveal">
+            <p class="section-label mono-label">02 · Model</p>
+            <h2 class="display" id="zebrafish-title">Why zebrafish</h2>
+            <p class="lede">
+              Zebrafish embryos are transparent and develop outside the mother, so we can watch the heart
+              form at cellular resolution in living animals.
+            </p>
+            <ul class="facts">
+              <li data-n="01">Embryos receive enough oxygen by diffusion to develop for several days without a heartbeat. We use this property to remove contractions or blood flow and observe how the heart adapts.</li>
+              <li data-n="02">Genome editing is fast and efficient, which lets us build mutants, knock-ins and conditional alleles at scale.</li>
+              <li data-n="03">Most of our experiments use early embryonic stages, in line with the 3R principles of animal research.</li>
+            </ul>
+          </div>
+          <figure class="reveal">
+            <div class="larva-plate">
+              <img src="assets/img/larva-magenta.webp" width="1400" height="465" loading="lazy"
+                   alt="Fluorescence image of a live zebrafish larva">
+            </div>
+            <figcaption class="panel-caption"><b>Fig. 4</b>Live zebrafish larva, fluorescence imaging.</figcaption>
+            <img class="larva-sketch" src="assets/img/larva-lines-cream.webp" width="967" height="275" loading="lazy"
+                 alt="Ink drawing of a zebrafish larva traced from a brightfield image">
+          </figure>
+        </div>
+
+        <div class="atlas reveal">
+          <p class="atlas-head mono-label"><span>Atlas of developing hearts</span><span>Confocal imaging, Juan Lab</span></p>
+          <ul>
+            <li><img src="assets/img/heart-vessels.webp" width="512" height="512" loading="lazy" alt="Zebrafish heart and surrounding vessels, endothelial reporter in green"></li>
+            <li><img src="assets/img/heart-nuclei.webp" width="346" height="346" loading="lazy" alt="Zebrafish heart with nuclei labelled in magenta"></li>
+            <li><img src="assets/img/valve-ring.webp" width="360" height="360" loading="lazy" alt="Zebrafish heart, green and magenta reporters"></li>
+            <li><img src="assets/img/heart-section-rg.webp" width="377" height="377" loading="lazy" alt="Optical section of a zebrafish heart, red and green reporters"></li>
+            <li><img src="assets/img/heart-gm.webp" width="368" height="368" loading="lazy" alt="Zebrafish heart, green and magenta reporters"></li>
+            <li><img src="assets/img/heart-nuclei-2.webp" width="352" height="352" loading="lazy" alt="Zebrafish heart with nuclei labelled in magenta"></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         PUBLICATIONS
+         Lab members are in <b>. * = corresponding author.
+         ================================================================== -->
+    <section class="section" id="publications" aria-labelledby="pubs-title">
+      <div class="w">
+        <header class="section-head section-head--split">
+          <div>
+            <p class="section-label mono-label">03 · Publications</p>
+            <h2 class="display" id="pubs-title">Selected publications</h2>
+          </div>
+          <div>
+            <p class="lede">Original articles with Thomas Juan as first or corresponding author. Lab members in bold, corresponding authors marked with an asterisk.</p>
+            <div class="pub-links">
+              <a class="arrow-link" href="https://scholar.google.com/citations?user=vMfxQ8AAAAAJ&amp;hl=en&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener">Google Scholar</a>
+              <a class="arrow-link" href="https://orcid.org/0000-0002-9654-3717" target="_blank" rel="noopener">ORCID</a>
+              <a class="arrow-link" href="https://www.uu.se/en/department/immunology-genetics-and-pathology/research/vascular-biology/thomas-juan" target="_blank" rel="noopener">Uppsala University</a>
+            </div>
+          </div>
+        </header>
+
+        <ol class="pubs">
+          <li class="pub reveal" style="--pub-shadow: var(--sky)">
+            <div class="pub-head">
+              <span class="pub-year">2026</span>
+              <div class="pub-thumb"><img src="assets/img/heart-arches.webp" width="512" height="512" loading="lazy" alt=""></div>
+            </div>
+            <div class="pub-body">
+              <p class="pub-journal mono-label">Nature Communications · in press</p>
+              <h3>Cardiac contractions maintain endocardial identity by locally repressing venous fate</h3>
+              <p class="authors">Arnold H, <b>Jha SG</b>, Gupta R, Zlatanova I, Tarasco M, <b>Sharma P</b>, Zhang S, Filipek-Gorniok B, <b>Stoe A</b>, Günther S, Black BL, Marín-Juez R, Stainier DYR, Koltowska K, <b>Juan T*</b></p>
+            </div>
+            <div class="pub-actions"><span class="badge">Corresponding</span></div>
+          </li>
+
+          <li class="pub reveal" style="--pub-shadow: var(--peach)">
+            <div class="pub-head">
+              <span class="pub-year">2025</span>
+              <div class="pub-thumb"><img src="assets/img/larva-fluo.webp" width="900" height="315" loading="lazy" alt="" style="object-position: 22% 50%"></div>
+            </div>
+            <div class="pub-body">
+              <p class="pub-journal mono-label">PLOS Genetics</p>
+              <h3><a href="https://doi.org/10.1371/journal.pgen.1011594" target="_blank" rel="noopener">A recombinase-activated ribozyme to knock down endogenous gene expression in zebrafish</a></h3>
+              <p class="authors"><b>Juan T*</b>, Molina T, Xie L, Papadopoulou S, Cardoso B, <b>Jha SG</b>, Stainier DYR*</p>
+            </div>
+            <div class="pub-actions"><span class="badge">First · Corresponding</span><a class="arrow-link" href="https://doi.org/10.1371/journal.pgen.1011594" target="_blank" rel="noopener">DOI</a></div>
+          </li>
+
+          <li class="pub reveal" style="--pub-shadow: var(--lavender)">
+            <div class="pub-head">
+              <span class="pub-year">2025</span>
+              <div class="pub-thumb"><img src="assets/img/larva-red.webp" width="510" height="411" loading="lazy" alt=""></div>
+            </div>
+            <div class="pub-body">
+              <p class="pub-journal mono-label">EMBO Reports</p>
+              <h3><a href="https://doi.org/10.1038/s44319-025-00427-3" target="_blank" rel="noopener">Induction of a transcriptional adaptation response by RNA destabilization events</a></h3>
+              <p class="authors">Xie L, Jakutis G, Dooley CM, Günther S, Kontarakis Z, Howard S, <b>Juan T*</b>, Stainier DYR*</p>
+            </div>
+            <div class="pub-actions"><span class="badge">Co-corresponding</span><a class="arrow-link" href="https://doi.org/10.1038/s44319-025-00427-3" target="_blank" rel="noopener">DOI</a></div>
+          </li>
+
+          <li class="pub reveal" style="--pub-shadow: var(--sky)">
+            <div class="pub-head">
+              <span class="pub-year">2024</span>
+              <div class="pub-thumb"><img src="assets/img/valve.webp" width="693" height="693" loading="lazy" alt=""></div>
+            </div>
+            <div class="pub-body">
+              <p class="pub-journal mono-label">Science Advances</p>
+              <h3><a href="https://doi.org/10.1126/sciadv.adl0633" target="_blank" rel="noopener"><i>egr3</i> is a mechanosensitive transcription factor gene required for cardiac valve morphogenesis</a></h3>
+              <p class="authors">Ribeiro da Silva A, Gunawan F, Boezio G, Faure E, Théron A, Avierinos JF, Lim S, <b>Jha SG</b>, Ramadass R, Günther S, Looso M, Zaffran S, <b>Juan T*</b>, Stainier DYR*</p>
+            </div>
+            <div class="pub-actions"><span class="badge">Co-corresponding</span><a class="arrow-link" href="https://doi.org/10.1126/sciadv.adl0633" target="_blank" rel="noopener">DOI</a></div>
+          </li>
+
+          <li class="pub reveal" style="--pub-shadow: var(--coral-soft)">
+            <div class="pub-head">
+              <span class="pub-year">2024</span>
+              <div class="pub-thumb"><img src="assets/img/heart-green.webp" width="367" height="367" loading="lazy" alt=""></div>
+            </div>
+            <div class="pub-body">
+              <p class="pub-journal mono-label">PNAS</p>
+              <h3><a href="https://doi.org/10.1073/pnas.2309842121" target="_blank" rel="noopener">Control of cardiac contractions using Cre-lox and degron strategies in zebrafish</a></h3>
+              <p class="authors"><b>Juan T*</b>, Bellec M, Cardoso B, Athéa H, Fukuda N, Albu M, Günther S, Looso M, Stainier DYR*</p>
+            </div>
+            <div class="pub-actions"><span class="badge">First · Corresponding</span><a class="arrow-link" href="https://doi.org/10.1073/pnas.2309842121" target="_blank" rel="noopener">DOI</a></div>
+          </li>
+
+          <li class="pub reveal" style="--pub-shadow: var(--sand)">
+            <div class="pub-head">
+              <span class="pub-year">2023</span>
+              <div class="pub-thumb"><img src="assets/img/endocardium.webp" width="693" height="693" loading="lazy" alt=""></div>
+            </div>
+            <div class="pub-body">
+              <p class="pub-journal mono-label">Nature Communications</p>
+              <h3><a href="https://doi.org/10.1038/s41467-023-35843-3" target="_blank" rel="noopener">Multiple <i>pkd</i> and <i>piezo</i> gene family members are required for atrioventricular valve formation</a></h3>
+              <p class="authors"><b>Juan T*</b>, Ribeiro da Silva A, Cardoso B, Lim SE, Charteau V, Stainier DYR*</p>
+            </div>
+            <div class="pub-actions"><span class="badge">First · Corresponding</span><a class="arrow-link" href="https://doi.org/10.1038/s41467-023-35843-3" target="_blank" rel="noopener">DOI</a></div>
+          </li>
+
+          <li class="pub reveal" style="--pub-shadow: var(--lavender)">
+            <div class="pub-head">
+              <span class="pub-year">2018</span>
+              <div class="pub-thumb"><img src="assets/img/heart-nuclei.webp" width="346" height="346" loading="lazy" alt=""></div>
+            </div>
+            <div class="pub-body">
+              <p class="pub-journal mono-label">Nature Communications</p>
+              <h3><a href="https://doi.org/10.1038/s41467-018-04284-8" target="_blank" rel="noopener">Myosin1D is an evolutionarily conserved regulator of animal left-right asymmetry</a></h3>
+              <p class="authors"><b>Juan T</b>, Géminard C, Coutelis JB, Cerezo D, Polès S, Noselli S, Fürthauer M</p>
+            </div>
+            <div class="pub-actions"><span class="badge">First author</span><a class="arrow-link" href="https://doi.org/10.1038/s41467-018-04284-8" target="_blank" rel="noopener">DOI</a></div>
+          </li>
+        </ol>
+
+        <div class="archive">
+          <details>
+            <summary><span>Collaborative articles<span class="count">9</span></span><span class="plus" aria-hidden="true">+</span></summary>
+            <ol>
+              <li><span class="yr">2026</span><div><p class="t">Cardiac contraction-regulated collagen crosslinking controls outflow tract morphogenesis</p><p class="a">Kulkarni R, Molina-Villa T, Vaniawala P, Balakrishnan M, Mattonet K, <b>Juan T</b>, Stainier DYR</p><p class="j">Nature Communications, in press</p></div></li>
+              <li><span class="yr">2026</span><div><p class="t">Lineage-enriched cell proliferation code underlies spatio-temporal regulation of cell cycle dynamics in lymphatic vessels</p><p class="a">Gloger M, Carlantoni C, Kraft M, Peng D, Ebert A, Skoczylas R, Johansson A, Smialowska A, Smith R, <b>Stoe A</b>, Filipek-Gorniok B, <b>Juan T</b>, Mäkinen T, Frye M, Koltowska K</p><p class="j">Nature Communications, in press</p></div></li>
+              <li><span class="yr">2026</span><div><p class="t"><a class="link" href="https://doi.org/10.1016/j.ydbio.2026.10.004" target="_blank" rel="noopener">Mustn1b is required for cardiomyocyte dedifferentiation and heart regeneration in zebrafish</a></p><p class="a">Meena SK, Sagvekar P, Molina-Villa T, Sanda M, Valle-Inclan-Cabello M, <b>Juan T</b>, Tarasco M, Bellec M, Fukuda N, Günther S, Cardeira-da-Silva J, Stainier DYR</p><p class="j">Developmental Biology</p></div></li>
+              <li><span class="yr">2026</span><div><p class="t"><a class="link" href="https://doi.org/10.1126/sciadv.aea7025" target="_blank" rel="noopener">Piezo1-mediated mechanohydraulic control of cell volume drives cardiac morphogenesis</a></p><p class="a">Vagena-Pantoula C, Kalyviotis K, Feng S, Sanchez A, Kondrychyn I, Fukumoto M, Pan X, <b>Juan T</b>, Stainier DYR, Pantazis P, Phng LK, Vermot J</p><p class="j">Science Advances</p></div></li>
+              <li><span class="yr">2026</span><div><p class="t"><a class="link" href="https://doi.org/10.1016/j.celrep.2026.117249" target="_blank" rel="noopener">Time-resolved single-cell transcriptomics maps zebrafish heart development</a></p><p class="a">Tarasco M, <b>Juan T</b>, Alayoubi Y, Kulkarni R, Schumann A, Ribeiro da Silva A, Albu M, Dwari M, Dlnija M, Günther S, Looso M, Stainier DYR</p><p class="j">Cell Reports</p></div></li>
+              <li><span class="yr">2025</span><div><p class="t"><a class="link" href="https://doi.org/10.1038/s41586-024-08539-x" target="_blank" rel="noopener">Transcriptional adaptation upregulates utrophin in Duchenne muscular dystrophy</a></p><p class="a">Falcucci L, Dooley CM, Adamoski D, <b>Juan T</b>, Martinez J, Georgieva AM, Mamchaoui K, Cirzi C, Stainier DYR</p><p class="j">Nature</p></div></li>
+              <li><span class="yr">2024</span><div><p class="t"><a class="link" href="https://doi.org/10.1242/dev.203028" target="_blank" rel="noopener"><i>flt1</i> inactivation promotes zebrafish cardiac regeneration by enhancing endothelial activity and limiting the fibrotic response</a></p><p class="a">Wang ZY, Mehra A, Wang QC, Gupta S, Ribeiro da Silva A, <b>Juan T</b>, Günther S, Looso M, Detleffsen J, Stainier DYR, Marín-Juez R</p><p class="j">Development</p></div></li>
+              <li><span class="yr">2022</span><div><p class="t"><a class="link" href="https://doi.org/10.1126/sciadv.abj2029" target="_blank" rel="noopener">Parental mutations influence wild-type offspring via transcriptional adaptation</a></p><p class="a">Jiang Z, El-Brolosy MA, Serobyan V, Welker JM, Retzer N, Dooley CM, Jakutis G, <b>Juan T</b>, Fukuda N, Maischein HM, Balciunas D, Stainier DYR</p><p class="j">Science Advances</p></div></li>
+              <li><span class="yr">2015</span><div><p class="t"><a class="link" href="https://doi.org/10.1016/j.celrep.2015.09.008" target="_blank" rel="noopener">Companion blood cells control ovarian stem cell niche microenvironment and homeostasis</a></p><p class="a">Van De Bor V, Zimniak G, Papone L, Cerezo D, Malbouyres M, <b>Juan T</b>, Ruggiero F, Noselli S</p><p class="j">Cell Reports</p></div></li>
+            </ol>
+          </details>
+
+          <details>
+            <summary><span>Reviews, short articles &amp; interviews<span class="count">5</span></span><span class="plus" aria-hidden="true">+</span></summary>
+            <ol>
+              <li><span class="yr">2024</span><div><p class="t"><a class="link" href="https://doi.org/10.1242/dev.202806" target="_blank" rel="noopener">Shh signaling activity predicts cardiac laterality in <i>Astyanax mexicanus</i> populations</a></p><p class="a"><b>Juan T*</b>, Ebnicher G</p><p class="j">Development (In Preprints short article)</p></div></li>
+              <li><span class="yr">2023</span><div><p class="t"><a class="link" href="https://doi.org/10.1242/dev.202257" target="_blank" rel="noopener">Pathway to Independence: an interview with Thomas Juan</a></p><p class="j">Development</p></div></li>
+              <li><span class="yr">2023</span><div><p class="t"><a class="link" href="https://doi.org/10.1242/dev.202360" target="_blank" rel="noopener">Pathway to Independence: the future of developmental biology</a></p><p class="a">Agarwal P*, Cadart C*, Fort L*, Gahan J*, Greenspan L*, <b>Juan T*</b>, Kameneva P*, Miao Y*</p><p class="j">Development</p></div></li>
+              <li><span class="yr">2018</span><div><p class="t"><a class="link" href="https://doi.org/10.1016/j.semcdb.2017.08.022" target="_blank" rel="noopener">Biogenesis and function of ESCRT-dependent extracellular vesicles</a></p><p class="a"><b>Juan T</b>, Fürthauer M</p><p class="j">Seminars in Cell &amp; Developmental Biology (review)</p></div></li>
+              <li><span class="yr">2015</span><div><p class="t"><a class="link" href="https://doi.org/10.1051/jbio/2015009" target="_blank" rel="noopener">The ESCRT complex: from endosomal transport to the development of multicellular organisms</a></p><p class="a"><b>Juan T</b>, Fürthauer M</p><p class="j">Biologie Aujourd'hui (review)</p></div></li>
+            </ol>
+          </details>
+
+          <details>
+            <summary><span>Patents<span class="count">2</span></span><span class="plus" aria-hidden="true">+</span></summary>
+            <ol>
+              <li><span class="yr">2024</span><div><p class="t">Cells having the phenotype of cardiac valve cells and the treatment of a valve defect</p></div></li>
+              <li><span class="yr">2024</span><div><p class="t">Self-cleavable ribozyme therapeutic nucleic acid molecules</p></div></li>
+            </ol>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         PEOPLE
+         To add a photo: put a square image in assets/img/team/ and add
+         <img src="assets/img/team/name.jpg" alt=""> inside the .avatar div.
+         ================================================================== -->
+    <section class="section" id="people" aria-labelledby="people-title">
+      <div class="w">
+        <header class="section-head">
+          <p class="section-label mono-label">04 · People</p>
+          <h2 class="display" id="people-title">The team</h2>
+        </header>
+
+        <article class="pi reveal" aria-labelledby="pi-name">
+          <div class="pi-visual">
+            <div class="pi-photo">
+              <!-- Replace with a portrait: <img class="pi-portrait" src="assets/img/team/thomas-juan.jpg" alt="Thomas Juan"> -->
+              <img class="heart-sketch" src="assets/img/heart-lines.webp" width="424" height="514" alt="" loading="lazy">
+              <span class="initials-big" aria-hidden="true">TJ</span>
+            </div>
+          </div>
+          <div class="pi-bio">
+            <p class="pi-role mono-label">Group leader · Assistant Professor in Vascular Biology</p>
+            <h3 id="pi-name">Thomas Juan</h3>
+            <p>
+              Thomas Juan is Assistant Professor (biträdande universitetslektor) in Vascular Biology at the
+              Department of Immunology, Genetics and Pathology, Uppsala University. Thomas founded Juan Lab
+              in 2024 and became a SciLifeLab group leader in 2025.
+            </p>
+            <p>
+              Thomas did a PhD with Maximilian Fürthauer at the Institut de Biologie Valrose in Nice,
+              identifying Myosin1D as a conserved regulator of left-right asymmetry. As an EMBO Long-Term
+              Fellow in Didier Stainier's laboratory at the Max Planck Institute for Heart and Lung Research,
+              Thomas then identified mechanosensitive pathways that shape cardiac valves and developed genetic
+              tools to control cardiac contractions. This work was recognised by the Fondation Bettencourt
+              Schueller award and a Swedish Research Council Starting Grant.
+            </p>
+            <ul class="cv">
+              <li><span class="yr">2025 –</span><span>SciLifeLab group leader</span></li>
+              <li><span class="yr">2024 –</span><span>Assistant Professor, Uppsala University, Sweden</span></li>
+              <li><span class="yr">2018 – 2024</span><span>Postdoctoral researcher, Max Planck Institute for Heart and Lung Research, Bad Nauheim, Germany</span></li>
+              <li><span class="yr">2013 – 2017</span><span>PhD in Cellular and Molecular Biology, Université Côte d'Azur, Nice, France</span></li>
+            </ul>
+            <div class="pi-links">
+              <a class="arrow-link" href="https://orcid.org/0000-0002-9654-3717" target="_blank" rel="noopener">ORCID</a>
+              <a class="arrow-link" href="https://scholar.google.com/citations?user=vMfxQ8AAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+              <a class="arrow-link" href="https://www.uu.se/en/contact-and-organisation/staff?query=N24-163" target="_blank" rel="noopener">University profile</a>
+              <a class="arrow-link" href="mailto:thomas.juan@igp.uu.se">Email</a>
+            </div>
+          </div>
+        </article>
+
+        <ul class="team">
+          <li class="member reveal"><div class="avatar" style="--av: #8ecfc9"><span>PJ</span></div><p class="member-name">Priyanka Sharma Juan</p><p class="member-role">Researcher</p></li>
+          <li class="member reveal"><div class="avatar" style="--av: #b9a5d6"><span>SS</span></div><p class="member-name">Svetlana Semenova</p><p class="member-role">Researcher</p></li>
+          <li class="member reveal"><div class="avatar" style="--av: #e3a63a"><span>SJ</span></div><p class="member-name">Shivam Govind Jha</p><p class="member-role">PhD student</p></li>
+          <li class="member reveal"><div class="avatar" style="--av: #f2cc92"><span>CA</span></div><p class="member-name">Cecilia Andersson</p><p class="member-role">Research assistant</p></li>
+          <li class="member reveal"><div class="avatar" style="--av: #ec9473"><span>AS</span></div><p class="member-name">Armand Stoe</p><p class="member-role">Research assistant</p></li>
+          <li class="member reveal"><div class="avatar" style="--av: #a8d8d0"><span>SA</span></div><p class="member-name">Shahd Aathar</p><p class="member-role">Student</p></li>
+          <li class="member reveal"><div class="avatar" style="--av: #f7c79f"><span>SM</span></div><p class="member-name">Sparshika Mishra</p><p class="member-role">Student</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         NEWS & BEYOND THE BENCH
+         ================================================================== -->
+    <section class="section" id="news" aria-labelledby="news-title">
+      <div class="w">
+        <header class="section-head">
+          <p class="section-label mono-label">05 · News</p>
+          <h2 class="display" id="news-title">Recent highlights</h2>
+        </header>
+
+        <div class="news-grid">
+          <ol class="timeline reveal">
+            <li style="--dot: var(--coral)"><span class="yr">2026</span><p>Our study showing that cardiac contractions maintain endocardial identity is accepted in <i>Nature Communications</i>.</p></li>
+            <li><span class="yr">2026</span><p>We host the 5th Nordic Meeting on Development, Stem Cells and Regeneration in Uppsala.</p></li>
+            <li><span class="yr">2026</span><p>Thomas presents our work at the Weinstein Cardiovascular Development and Regeneration Conference in New York.</p></li>
+            <li style="--dot: var(--sky)"><span class="yr">2025</span><p>Thomas joins SciLifeLab as a group leader.</p></li>
+            <li style="--dot: var(--sand)"><span class="yr">2025</span><p>The lab receives a Pioneer Innovator Grant from the Novo Nordisk Foundation and a major grant from the Göran Gustafsson Foundation.</p></li>
+            <li><span class="yr">2025</span><p>Our recombinase-activated ribozyme for gene knockdown is published in <i>PLOS Genetics</i>.</p></li>
+            <li><span class="yr">2025</span><p>Thomas chairs a session at the 19th International Zebrafish Conference in Madison.</p></li>
+            <li style="--dot: var(--lavender)"><span class="yr">2024</span><p>Juan Lab opens at Uppsala University, supported by a Swedish Research Council Starting Grant and a Beijer Foundation grant.</p></li>
+          </ol>
+
+          <div>
+            <p class="tools-title mono-label">Beyond the bench</p>
+            <div class="tools">
+              <article class="tool reveal">
+                <svg viewBox="0 0 44 44" fill="none" stroke="#1f1b33" stroke-width="1.5" aria-hidden="true">
+                  <rect x="4" y="10" width="36" height="26" rx="2" fill="#8ecfc9"/>
+                  <path d="M4 17h36" />
+                  <path d="M14 27c3-4 9-4 12 0-3 4-9 4-12 0Z" fill="#f6eee1"/>
+                  <path d="M26 27l5-3v6Z" fill="#f6eee1"/>
+                  <circle cx="17" cy="26.5" r=".9" fill="#1f1b33"/>
+                </svg>
+                <div>
+                  <h3>ZebraFile</h3>
+                  <p>Zebrafish facility management software, developed in the lab and now used by five zebrafish research groups.</p>
+                </div>
+              </article>
+              <article class="tool reveal" style="--tool-shadow: var(--peach)">
+                <svg viewBox="0 0 44 44" fill="none" stroke="#1f1b33" stroke-width="1.5" aria-hidden="true">
+                  <rect x="6" y="6" width="32" height="32" rx="2" fill="#f7c79f"/>
+                  <path d="M6 17h32M6 28h32"/>
+                  <rect x="10" y="10" width="6" height="5" fill="#e0613f"/>
+                  <rect x="19" y="21" width="6" height="5" fill="#2a9d99"/>
+                  <rect x="27" y="32" width="6" height="4" fill="#b9a5d6"/>
+                </svg>
+                <div>
+                  <h3>BadBench</h3>
+                  <p>An electronic stock manager that keeps track of the lab's reagents and constructs.</p>
+                </div>
+              </article>
+              <article class="tool reveal" style="--tool-shadow: var(--lavender)">
+                <svg viewBox="0 0 44 44" fill="none" stroke="#1f1b33" stroke-width="1.5" aria-hidden="true">
+                  <path d="M6 12l16-6 16 6-16 6Z" fill="#b9a5d6"/>
+                  <path d="M12 15v10c3 3 7 4 10 4s7-1 10-4V15"/>
+                  <path d="M38 12v12"/>
+                </svg>
+                <div>
+                  <h3>Teaching</h3>
+                  <p>Thomas leads two courses in the Master's Programme in Molecular Medicine: Bioimaging and Cell Analysis, and Advanced Techniques in Molecular Medicine.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         JOIN US
+         ================================================================== -->
+    <section class="join" id="join" aria-labelledby="join-title">
+      <div class="w join-inner">
+        <div class="reveal">
+          <p class="section-label mono-label">06 · Join us</p>
+          <h2 class="display" id="join-title">Curious about forces in biology?</h2>
+          <p>
+            We welcome motivated people at every career stage, from Master's students to postdoctoral
+            researchers. A background in developmental biology is as welcome as one in engineering or
+            computational biology.
+          </p>
+          <p>
+            Postdoctoral candidates should get in touch early, as we support applications for independent
+            fellowships. To enquire, email Thomas with a short description of your interests and your CV.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn--ink" href="mailto:thomas.juan@igp.uu.se?subject=Joining%20Juan%20Lab">Email Thomas
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <aside class="contact-card reveal" aria-label="Contact details">
+          <h3 class="mono-label">Find us</h3>
+          <address>
+            <strong>Juan Lab</strong><br>
+            Department of Immunology, Genetics and Pathology<br>
+            Rudbeck Laboratory, Dag Hammarskjölds väg 20<br>
+            751 85 Uppsala, Sweden
+          </address>
+          <dl>
+            <div><dt>Email</dt><dd><a class="link" href="mailto:thomas.juan@igp.uu.se">thomas.juan@igp.uu.se</a></dd></div>
+            <div><dt>Institutional page</dt><dd><a class="link" href="https://www.uu.se/en/department/immunology-genetics-and-pathology/research/vascular-biology/thomas-juan" target="_blank" rel="noopener">uu.se · Thomas Juan research group</a></dd></div>
+          </dl>
+        </aside>
+      </div>
+
+      <svg class="join-dunes" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 70 C200 30 380 34 560 60 C760 90 900 96 1080 62 C1230 36 1340 40 1440 56 L1440 160 L0 160Z" fill="#f2cc92" stroke="#1f1b33" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+        <path d="M0 118 C240 92 470 96 700 116 C900 132 1120 126 1440 104 L1440 160 L0 160Z" fill="#e2ae72" stroke="#1f1b33" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+      </svg>
     </section>
   </main>
 
+  <!-- ====================================================================
+       FOOTER
+       ==================================================================== -->
   <footer class="site-footer">
-    <div class="w footer-row">
-      <span>&copy; <span id="year"></span> <span id="footerText"></span></span>
+    <div class="w">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="assets/logo/juanlab-logo-light.svg" alt="" width="44" height="44">
+            <div class="brand-text">
+              <span class="brand-name">Juan Lab</span>
+              <span class="brand-sub">Mechanosensation &amp; Bioengineering</span>
+            </div>
+          </div>
+          <p style="margin-top:1.1rem;max-width:40ch">Department of Immunology, Genetics and Pathology, Vascular Biology programme, Uppsala University.</p>
+        </div>
+        <div>
+          <h3 class="mono-label">Explore</h3>
+          <ul>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#people">People</a></li>
+            <li><a href="#join">Join us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mono-label">Elsewhere</h3>
+          <ul>
+            <li><a href="https://www.uu.se/en/department/immunology-genetics-and-pathology/research/vascular-biology/thomas-juan" target="_blank" rel="noopener">Uppsala University</a></li>
+            <li><a href="https://orcid.org/0000-0002-9654-3717" target="_blank" rel="noopener">ORCID</a></li>
+            <li><a href="https://scholar.google.com/citations?user=vMfxQ8AAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
+            <li><a href="mailto:thomas.juan@igp.uu.se">thomas.juan@igp.uu.se</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> Juan Lab · Uppsala University</span>
+        <span>All microscopy images by Juan Lab.</span>
+      </div>
     </div>
   </footer>
 
-  <script>
-    /* ═══════════════════════════════════════════════════════════════════════
-       SITE CONTENT — Edit text, URLs, and data below. Nothing else to touch.
-       ═══════════════════════════════════════════════════════════════════════ */
-
-    // ── Brand / Header ──────────────────────────────────────────────────
-    const BRAND_NAME = "Juan Lab";
-
-    // ── Hero section ────────────────────────────────────────────────────
-    const HERO_HEADLINE = "The cardiovascular system is shaped by mechanical forces";
-
-    const HERO_DESCRIPTION =
-      "We study how mechanical forces control cardiovascular development and function in a vertebrate model, the zebrafish. " +
-      "We engineer biomolecules to control gene expression and stability " +
-      "using high-throughput screening methods.";
-
-    const HERO_AFFILIATION =
-      "Laboratory of Mechanosensation and Biomolecule engineering" +
-      " · Uppsala University · Dpt. Immunology, Genetics and Pathology";
-
-    const HERO_LINKS = [
-      { label: "Institutional page",
-        url: "https://www.uu.se/en/department/immunology-genetics-and-pathology/research/vascular-biology/thomas-juan" },
-    ];
-
-    const HERO_IMAGE_URL =
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1400&h=500&fit=crop&crop=center";
-
-    // ── Section headings ────────────────────────────────────────────────
-    const SECTION_TITLE_RESEARCH     = "Research";
-    const SECTION_TITLE_TEAM         = "Team";
-    const SECTION_TITLE_PUBLICATIONS = "Publications";
-
-    // ── Research cards ──────────────────────────────────────────────────
-    const RESEARCH_ITEMS = [
-      {
-        image: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop",
-        alt: "Abstract light and motion",
-        tags: ["Zebrafish", "Vertebrate model"],
-        title: "Zebrafish and cardiovascular study",
-        description:
-          "Zebrafish embryos enable rapid genetic manipulation and high-resolution in vivo imaging of cardiovascular morphogenesis. " +
-          "As a standard model for studying cardiovascular malformations, their use at early stages also aligns with 3R principles " +
-          ", making them well suited for investigating force-dependent developmental processes.",
-      },      
-      {
-        image: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop",
-        alt: "Abstract flowing forms",
-        tags: ["Endocardium", "Mechanosensation"],
-        title: "Mechanosensation in endocardial cells",
-        description:
-          "Endocardial cells are a specialized subtype of endothelial cells that experience mechanical deformation driven " +
-          "by blood flow and cardiac contractions. The lab studies how these mechanical cues regulate endocardial identity and function, with " +
-          "implications for heart failure and congenital heart disease.",
-      },
-      {
-        image: "https://images.unsplash.com/photo-1604871000636-074fa5117945?w=600&h=400&fit=crop",
-        alt: "Abstract geometric pattern",
-        tags: ["Genetic tools", "Biomolecule optimization"],
-        title: "Bioengineering in cardiovascular context",
-        description:
-          "The lab engineers DNA, RNA, and protein-based tools to interrogate cardiovascular function and treat cardiovascular conditions. " +
-          "We notably developed degron and ribozyme methods to control protein and mRNA levels in zebrafish.",
-      },
-    ];
-
-    // ── Team members ────────────────────────────────────────────────────
-    // Each member has a distinct fish photo
-    const TEAM = [
-      { name: "Thomas Juan", role: "Group leader", initials: "TJ",
-        photo: "https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=260&h=260&fit=crop",  // clownfish
-        links: [
-          { label: "ORCID", url: "https://orcid.org/0000-0002-9654-3717" },
-          { label: "Scholar", url: "https://scholar.google.com/citations?hl=en&user=vMfxQ8AAAAAJ&view_op=list_works&sortby=pubdate" },
-        ]},
-      { name: "Priyanka Sharma Juan", role: "Researcher", initials: "PJ",
-        photo: "https://images.unsplash.com/photo-1490718687940-0ecadf414600?w=260&h=260&fit=crop",  // betta / tropical fish
-        links: [] },
-      { name: "Cecilia Andersson", role: "Research assistant", initials: "CA",
-        photo: "https://images.unsplash.com/photo-1562564055-71e051d33c19?w=260&h=260&fit=crop",  // blue surgeonfish
-        links: [] },
-      { name: "Armand Stoe", role: "Research assistant", initials: "AS",
-        photo: "https://images.unsplash.com/photo-1544552866-d3ed42536cfd?w=260&h=260&fit=crop",  // goldfish
-        links: [] },
-      { name: "Shivam Govind Jha", role: "PhD candidate", initials: "SJ",
-        photo: "https://images.unsplash.com/photo-1571752726703-5e7d1f6a986d?w=260&h=260&fit=crop",  // koi
-        links: [] },
-      { name: "Shahd Aathar", role: "Student", initials: "SA",
-        photo: "https://images.unsplash.com/photo-1520366498724-709889c0c685?w=260&h=260&fit=crop",  // angelfish
-        links: [] },
-      { name: "Sparshika Mishra", role: "Student", initials: "SM",
-        photo: "https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=260&h=260&fit=crop",  // colourful reef fish
-        links: [] },
-    ];
-
-    // ── Google Scholar profile ───────────────────────────────────────────
-    const SCHOLAR_PROFILE_URL = "https://scholar.google.com/citations?user=vMfxQ8AAAAAJ&hl=en";
-
-    // ── Publications ────────────────────────────────────────────────────
-    const PUBLICATIONS = [
-      { title: "A recombinase-activated ribozyme to knock down endogenous gene expression in zebrafish",
-        authors: "Juan T, Molina T, Xie L, Papadopoulou S, et al.",
-        journal: "PLOS Genetics", year: "2025", link: "#",
-        image: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=160&h=160&fit=crop",  // abstract gradient
-        scholarQuery: "A recombinase-activated ribozyme to knock down endogenous gene expression in zebrafish" },
-      { title: "Control of cardiac contractions using Cre-lox and degron strategies in zebrafish",
-        authors: "Juan T, Bellec M, Cardoso B, Athéa H, et al.",
-        journal: "PNAS", year: "2024", link: "#",
-        image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=160&h=160&fit=crop",  // abstract purple
-        scholarQuery: "Control of cardiac contractions using Cre-lox and degron strategies in zebrafish" },
-      { title: "egr3 is a mechanosensitive transcription factor gene required for cardiac valve morphogenesis",
-        authors: "da Silva AR, Gunawan F, Boezio GLM, Faure E, et al.",
-        journal: "Science Advances", year: "2024", link: "#",
-        image: "https://images.unsplash.com/photo-1550684376-efcbd6e3f031?w=160&h=160&fit=crop",  // abstract blue geometry
-        scholarQuery: "egr3 is a mechanosensitive transcription factor gene required for cardiac valve morphogenesis" },
-      { title: "Multiple pkd and piezo gene family members are required for atrioventricular valve formation",
-        authors: "Juan T, Ribeiro da Silva A, Cardoso B, Lim S, et al.",
-        journal: "Nature Communications", year: "2023", link: "#",
-        image: "https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?w=160&h=160&fit=crop",  // abstract orange/gold
-        scholarQuery: "Multiple pkd and piezo gene family members are required for atrioventricular valve formation" },
-    ];
-
-    // ── Contact section ─────────────────────────────────────────────────
-    const CONTACT_HEADING = "Interested in developmental mechanobiology and biomolecule engineering?";
-
-    const CONTACT_TEXT =
-      "We are always looking for motivated scientists at all levels. If you're interested " +
-      "in joining the lab or collaborating, please get in touch.";
-
-    const CONTACT_LINKS = [
-      { label: "Contact us",
-        url: "mailto:thomas.juan@igp.uu.se" },
-    ];
-
-    // ── Footer ──────────────────────────────────────────────────────────
-    const FOOTER_TEXT = "Juan Lab · Uppsala University";
-
-
-    /* ═══════════════════════════════════════════════════════════════════════
-       RENDERING
-       ═══════════════════════════════════════════════════════════════════════ */
-
-    document.getElementById('brandName').textContent = BRAND_NAME;
-
-    document.getElementById('heroHeadline').textContent = HERO_HEADLINE;
-    document.getElementById('heroDescription').textContent = HERO_DESCRIPTION;
-    document.getElementById('heroAffiliation').innerHTML = HERO_AFFILIATION;
-    document.getElementById('heroImage').src = HERO_IMAGE_URL;
-    document.getElementById('heroLinks').innerHTML = HERO_LINKS.map(l =>
-      `<a href="${l.url}" target="_blank" rel="noreferrer">${l.label}</a>`
-    ).join('');
-
-    document.getElementById('researchTitle').textContent = SECTION_TITLE_RESEARCH;
-    document.getElementById('teamTitle').textContent = SECTION_TITLE_TEAM;
-    document.getElementById('pubsTitle').textContent = SECTION_TITLE_PUBLICATIONS;
-
-    document.getElementById('researchGrid').innerHTML = RESEARCH_ITEMS.map(r => `
-      <article class="research-item">
-        <img class="research-img" src="${r.image}" alt="${r.alt}" />
-        <div class="research-tags">
-          ${r.tags.map(t => `<span>${t}</span>`).join('')}
-        </div>
-        <h3>${r.title}</h3>
-        <p>${r.description}</p>
-      </article>
-    `).join('');
-
-    document.getElementById('teamGrid').innerHTML = TEAM.map(m => `
-      <div class="person">
-        <div class="person-avatar">
-          ${m.photo ? `<img src="${m.photo}" alt="${m.name}" />` : `<span class="person-initials">${m.initials}</span>`}
-        </div>
-        <div class="person-name">${m.name}</div>
-        <div class="person-role">${m.role}</div>
-        ${m.links.length ? `<div class="person-links">${m.links.map(l => `<a href="${l.url}" target="_blank" rel="noreferrer">${l.label}</a>`).join('')}</div>` : ''}
-      </div>
-    `).join('');
-
-    // Set the top-of-section Scholar link
-    document.getElementById('scholarProfileTopLink').href = SCHOLAR_PROFILE_URL;
-
-    document.getElementById('pubList').innerHTML = PUBLICATIONS.map(p => {
-      const scholarUrl = `https://scholar.google.com/scholar?q=${encodeURIComponent(p.scholarQuery)}`;
-      return `
-      <article class="pub-item">
-        <img class="pub-thumb" src="${p.image}" alt="Abstract image for publication" />
-        <div class="pub-body">
-          <h3>${p.link && p.link !== '#' ? `<a href="${p.link}" target="_blank" rel="noreferrer">${p.title}</a>` : p.title}</h3>
-          <a class="pub-scholar-profile-link" href="${SCHOLAR_PROFILE_URL}" target="_blank" rel="noreferrer">Google Scholar</a>
-          <div class="pub-authors">${p.authors}</div>
-          <div class="pub-journal">${p.journal} (${p.year})</div>
-        </div>
-      </article>
-    `}).join('');
-
-    document.getElementById('contactHeading').textContent = CONTACT_HEADING;
-    document.getElementById('contactText').textContent = CONTACT_TEXT;
-    document.getElementById('contactLinks').innerHTML = CONTACT_LINKS.map(l =>
-      `<a href="${l.url}" target="_blank" rel="noreferrer">${l.label}</a>`
-    ).join('');
-
-    document.getElementById('footerText').textContent = FOOTER_TEXT;
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
