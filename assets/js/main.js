@@ -26,16 +26,22 @@
     document.querySelectorAll('.member').forEach(function (m) {
       m.addEventListener('click', function (e) {
         e.preventDefault();
-        var email = m.dataset.email;
-        $('dialog-name').textContent = m.dataset.name;
-        $('dialog-role').textContent = m.dataset.role;
-        $('dialog-avatar').src = m.dataset.avatar;
-        $('dialog-profile').href = m.href;
-        $('dialog-email-row').hidden = !email;
-        if (email) {
-          $('dialog-email').href = 'mailto:' + email;
-          $('dialog-email').textContent = email;
+        var d = m.dataset;
+        var profile = m.getAttribute('href');
+        $('dialog-name').textContent = d.name;
+        $('dialog-role').textContent = d.role;
+        $('dialog-avatar').src = d.avatar;
+        $('dialog-email-row').hidden = !d.email;
+        if (d.email) {
+          $('dialog-email').href = 'mailto:' + d.email;
+          $('dialog-email').textContent = d.email;
         }
+        $('dialog-profile-row').hidden = !profile;
+        if (profile) $('dialog-profile').href = profile;
+        $('dialog-orcid-row').hidden = !d.orcid;
+        if (d.orcid) $('dialog-orcid').href = d.orcid;
+        $('dialog-scholar-row').hidden = !d.scholar;
+        if (d.scholar) $('dialog-scholar').href = d.scholar;
         dialog.showModal();
       });
     });
