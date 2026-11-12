@@ -256,7 +256,6 @@ h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
 .mosaic li a { display: block; width: 100%; height: 100%; }
 .panel-note { margin-top: .7rem; font-size: .82rem; color: var(--muted); }
 .mosaic li { border-radius: var(--radius); overflow: hidden; background: #0c0a12; aspect-ratio: 1; }
-.mosaic li.wide { grid-column: span 2; aspect-ratio: 2.5; }
 .mosaic li.light { background: #fff; }
 .mosaic img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
 .mosaic li:hover img { transform: scale(1.04); }
@@ -283,6 +282,7 @@ h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
 
 /* ---------- Software (placeholder) ---------- */
 
+/* used by the encrypted Software section, which is inserted at runtime */
 .soon {
   display: flex;
   align-items: center;
@@ -519,7 +519,8 @@ a.pub-title:hover { color: var(--coral-dark); text-decoration: underline; text-d
   body { font-size: 1rem; }
   .team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem .8rem; }
   .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .soon { padding: 1.4rem 1.5rem; }
+  /* used by the encrypted Software section, which is inserted at runtime */
+.soon { padding: 1.4rem 1.5rem; }
   .avatar { width: 108px; }
   .member-cta { opacity: 1; }
   .pub { grid-template-columns: 1fr; gap: .2rem; }

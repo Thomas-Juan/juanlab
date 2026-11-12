@@ -49,53 +49,97 @@
     dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
   }
 
-  // Software section: a cosmetic password gate.
-  // The check runs in the browser and the page source is public, so this
-  // only keeps the section out of the way — it is not security.
+  // Software section.
+  //
+  // The content is not in this page. It is encrypted with AES-GCM in
+  // assets/private/software.json; the key comes from the password through
+  // PBKDF2. A wrong password fails the cipher's own integrity check, so there
+  // is nothing to compare against and nothing to read in the page source.
+  // The password is asked for on every page load; nothing is remembered.
   var gate = document.getElementById('software-gate');
   var gated = document.getElementById('software-content');
   if (gate && gated) {
     var form = document.getElementById('gate-form');
     var opener = document.getElementById('gate-open');
     var input = document.getElementById('gate-input');
+    var submit = document.getElementById('gate-submit');
     var error = document.getElementById('gate-error');
+    var payload = null;
 
-    // The password is asked for on every page load; nothing is remembered.
+    var fail = function (message) {
+      error.textContent = message;
+      error.hidden = false;
+      gate.classList.add('is-wrong');
+    };
+
     opener.addEventListener('click', function () {
       form.hidden = false;
       opener.hidden = true;
       opener.setAttribute('aria-expanded', 'true');
       input.focus();
+      // fetch the ciphertext now so unlocking feels immediate
+      fetch(gate.dataset.payload, { cache: 'no-store' })
+        .then(function (r) { return r.json(); })
+        .then(function (p) { payload = p; })
+        .catch(function () { payload = null; });
     });
 
-    var open = function () {
-      gated.hidden = false;
-      gate.hidden = true;
+    var bytes = function (b64) {
+      var bin = atob(b64), out = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+      return out;
     };
 
-    var digest = function (text) {
-      if (!window.crypto || !crypto.subtle) return Promise.reject();
-      return crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)).then(function (buf) {
-        return Array.prototype.map.call(new Uint8Array(buf), function (b) {
-          return b.toString(16).padStart(2, '0');
-        }).join('');
-      });
+    var decrypt = function (password, p) {
+      var enc = new TextEncoder();
+      return crypto.subtle
+        .importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveKey'])
+        .then(function (material) {
+          return crypto.subtle.deriveKey(
+            { name: 'PBKDF2', salt: bytes(p.salt), iterations: p.iterations, hash: 'SHA-256' },
+            material,
+            { name: 'AES-GCM', length: 256 },
+            false,
+            ['decrypt']
+          );
+        })
+        .then(function (key) {
+          return crypto.subtle.decrypt({ name: 'AES-GCM', iv: bytes(p.iv) }, key, bytes(p.data));
+        })
+        .then(function (plain) {
+          return new TextDecoder().decode(plain);
+        });
     };
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      digest(input.value).then(function (hash) {
-        if (hash === gate.dataset.hash) {
-          open();
-        } else {
-          error.hidden = false;
-          gate.classList.add('is-wrong');
+      if (!window.crypto || !crypto.subtle) {
+        return fail('This browser cannot open the section. Try a current browser over https.');
+      }
+
+      var attempt = payload
+        ? Promise.resolve(payload)
+        : fetch(gate.dataset.payload, { cache: 'no-store' }).then(function (r) { return r.json(); });
+
+      submit.disabled = true;
+      submit.textContent = 'Opening…';
+
+      attempt
+        .then(function (p) { payload = p; return decrypt(input.value, p); })
+        .then(function (htmlText) {
+          gated.innerHTML = htmlText;
+          gated.hidden = false;
+          gate.hidden = true;
+        })
+        .catch(function () {
+          // AES-GCM rejects a wrong key, so this is the wrong-password path
+          fail('That password is not correct.');
           input.select();
-        }
-      }).catch(function () {
-        error.textContent = 'This section cannot be opened in this browser.';
-        error.hidden = false;
-      });
+        })
+        .then(function () {
+          submit.disabled = false;
+          submit.textContent = 'Unlock';
+        });
     });
 
     input.addEventListener('input', function () {
