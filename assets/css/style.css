@@ -198,7 +198,10 @@ h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
   max-width: 13ch;
 }
 .hero h1 span { color: var(--coral); }
-.hero .lede { margin-bottom: 2rem; max-width: 44ch; }
+.hero .lede { margin-bottom: 1.1rem; max-width: 44ch; }
+.hero-affil { font-size: .92rem; color: var(--ink-soft); max-width: 46ch; margin-bottom: 2rem; }
+.hero-affil a { color: var(--teal); font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.hero-affil a:hover { color: var(--coral-dark); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
 
 .cosmos {
@@ -249,7 +252,30 @@ h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
   gap: 8px;
   list-style: none;
 }
-.panel-src { margin-top: .7rem; font-size: .8rem; color: var(--muted); }
+/* construct and strategy schematics: full width under a theme */
+.schematics {
+  grid-column: 1 / -1;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  margin-top: .4rem;
+}
+.schematics li {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  overflow: hidden;
+}
+.schematics a { display: block; }
+.schematics img { width: 100%; }
+.schematics a:hover img { opacity: .92; }
+.schematics .schematics-note {
+  border: 0;
+  background: none;
+  font-size: .82rem;
+  color: var(--muted);
+  margin-top: -.2rem;
+}
 .mosaic li { border-radius: var(--radius); overflow: hidden; background: #0c0a12; aspect-ratio: 1; }
 .mosaic li.wide { grid-column: span 2; aspect-ratio: 2.5; }
 .mosaic li.light { background: #fff; }
