@@ -49,6 +49,56 @@
     dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
   }
 
+  // Software section: a cosmetic password gate.
+  // The check runs in the browser and the page source is public, so this
+  // only keeps the section out of the way — it is not security.
+  var gate = document.getElementById('software-gate');
+  var gated = document.getElementById('software-content');
+  if (gate && gated) {
+    var input = document.getElementById('gate-input');
+    var error = document.getElementById('gate-error');
+
+    var open = function () {
+      gated.hidden = false;
+      gate.hidden = true;
+      try { sessionStorage.setItem('juanlab-software', '1'); } catch (e) {}
+    };
+
+    try {
+      if (sessionStorage.getItem('juanlab-software') === '1') open();
+    } catch (e) {}
+
+    var digest = function (text) {
+      if (!window.crypto || !crypto.subtle) return Promise.reject();
+      return crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)).then(function (buf) {
+        return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+          return b.toString(16).padStart(2, '0');
+        }).join('');
+      });
+    };
+
+    gate.addEventListener('submit', function (e) {
+      e.preventDefault();
+      digest(input.value).then(function (hash) {
+        if (hash === gate.dataset.hash) {
+          open();
+        } else {
+          error.hidden = false;
+          gate.classList.add('is-wrong');
+          input.select();
+        }
+      }).catch(function () {
+        error.textContent = 'This section cannot be opened in this browser.';
+        error.hidden = false;
+      });
+    });
+
+    input.addEventListener('input', function () {
+      error.hidden = true;
+      gate.classList.remove('is-wrong');
+    });
+  }
+
   // Highlight the section in view, and reveal content on scroll
   if ('IntersectionObserver' in window) {
     var navAnchors = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));

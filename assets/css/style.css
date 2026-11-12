@@ -55,6 +55,9 @@ body {
 
 img, svg { display: block; max-width: 100%; }
 img { height: auto; }
+
+/* the hidden attribute must win over any display rule below */
+[hidden] { display: none !important; }
 a { color: inherit; }
 button { font: inherit; color: inherit; }
 
@@ -252,30 +255,17 @@ h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
   gap: 8px;
   list-style: none;
 }
-/* construct and strategy schematics: full width under a theme */
-.schematics {
+/* construct and strategy schematics, shown among the images */
+.mosaic li.schematic {
   grid-column: 1 / -1;
-  list-style: none;
-  display: grid;
-  gap: 10px;
-  margin-top: .4rem;
-}
-.schematics li {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+  aspect-ratio: auto;
   background: #fff;
-  overflow: hidden;
+  border: 1px solid var(--line);
 }
-.schematics a { display: block; }
-.schematics img { width: 100%; }
-.schematics a:hover img { opacity: .92; }
-.schematics .schematics-note {
-  border: 0;
-  background: none;
-  font-size: .82rem;
-  color: var(--muted);
-  margin-top: -.2rem;
-}
+.mosaic li.schematic a { display: block; }
+.mosaic li.schematic img { width: 100%; height: auto; object-fit: contain; }
+.mosaic li.schematic:hover img { transform: none; opacity: .92; }
+.panel-note { margin-top: .7rem; font-size: .82rem; color: var(--muted); }
 .mosaic li { border-radius: var(--radius); overflow: hidden; background: #0c0a12; aspect-ratio: 1; }
 .mosaic li.wide { grid-column: span 2; aspect-ratio: 2.5; }
 .mosaic li.light { background: #fff; }
@@ -316,6 +306,23 @@ h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
 }
 .soon svg { width: 56px; height: 56px; flex: none; }
 .soon p { font-family: var(--display); font-weight: 600; font-size: 1.35rem; letter-spacing: -0.01em; }
+
+.gate { max-width: 460px; }
+.gate-label { display: block; color: var(--ink-soft); margin-bottom: .9rem; }
+.gate-row { display: flex; flex-wrap: wrap; gap: .6rem; }
+.gate-input {
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: .75rem 1rem;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--card);
+  border: 1.5px solid rgb(31 27 51 / .25);
+  border-radius: 999px;
+}
+.gate-input:focus-visible { border-color: var(--coral); }
+.gate-error { margin-top: .7rem; font-size: .9rem; color: var(--coral-dark); }
+.gate.is-wrong .gate-input { border-color: var(--coral); }
 .pub-links { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; margin-top: 1.1rem; }
 
 .pubs { list-style: none; border-top: 1px solid var(--line); }
