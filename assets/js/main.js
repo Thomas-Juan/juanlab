@@ -55,18 +55,23 @@
   var gate = document.getElementById('software-gate');
   var gated = document.getElementById('software-content');
   if (gate && gated) {
+    var form = document.getElementById('gate-form');
+    var opener = document.getElementById('gate-open');
     var input = document.getElementById('gate-input');
     var error = document.getElementById('gate-error');
+
+    // The password is asked for on every page load; nothing is remembered.
+    opener.addEventListener('click', function () {
+      form.hidden = false;
+      opener.hidden = true;
+      opener.setAttribute('aria-expanded', 'true');
+      input.focus();
+    });
 
     var open = function () {
       gated.hidden = false;
       gate.hidden = true;
-      try { sessionStorage.setItem('juanlab-software', '1'); } catch (e) {}
     };
-
-    try {
-      if (sessionStorage.getItem('juanlab-software') === '1') open();
-    } catch (e) {}
 
     var digest = function (text) {
       if (!window.crypto || !crypto.subtle) return Promise.reject();
@@ -77,7 +82,7 @@
       });
     };
 
-    gate.addEventListener('submit', function (e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
       digest(input.value).then(function (hash) {
         if (hash === gate.dataset.hash) {

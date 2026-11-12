@@ -201,10 +201,7 @@ h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
   max-width: 13ch;
 }
 .hero h1 span { color: var(--coral); }
-.hero .lede { margin-bottom: 1.1rem; max-width: 44ch; }
-.hero-affil { font-size: .92rem; color: var(--ink-soft); max-width: 46ch; margin-bottom: 2rem; }
-.hero-affil a { color: var(--teal); font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-.hero-affil a:hover { color: var(--coral-dark); }
+.hero .lede { margin-bottom: 2rem; max-width: 44ch; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
 
 .cosmos {
@@ -255,16 +252,22 @@ h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
   gap: 8px;
   list-style: none;
 }
-/* construct and strategy schematics, shown among the images */
-.mosaic li.schematic {
-  grid-column: 1 / -1;
-  aspect-ratio: auto;
-  background: #fff;
-  border: 1px solid var(--line);
+/* construct and strategy schematics, stacked under the images */
+.schematics {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
 }
-.mosaic li.schematic a { display: block; }
-.mosaic li.schematic img { width: 100%; height: auto; object-fit: contain; }
-.mosaic li.schematic:hover img { transform: none; opacity: .92; }
+.schematics li {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  overflow: hidden;
+}
+.schematics a { display: block; }
+.schematics img { width: 100%; height: auto; }
+.schematics a:hover img { opacity: .92; }
 .panel-note { margin-top: .7rem; font-size: .82rem; color: var(--muted); }
 .mosaic li { border-radius: var(--radius); overflow: hidden; background: #0c0a12; aspect-ratio: 1; }
 .mosaic li.wide { grid-column: span 2; aspect-ratio: 2.5; }
@@ -309,6 +312,7 @@ h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
 
 .gate { max-width: 460px; }
 .gate-label { display: block; color: var(--ink-soft); margin-bottom: .9rem; }
+.gate #gate-form .gate-label { font-size: .9rem; margin-bottom: .5rem; }
 .gate-row { display: flex; flex-wrap: wrap; gap: .6rem; }
 .gate-input {
   flex: 1 1 200px;
