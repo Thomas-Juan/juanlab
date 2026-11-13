@@ -151,12 +151,20 @@
   // Highlight the section in view, and reveal content on scroll
   if ('IntersectionObserver' in window) {
     var navAnchors = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+    var crossing = null;   // id of the section crossing the line
+    var atEnd = false;     // scrolled to the very bottom of the page
+    var lastId = navAnchors.length ? navAnchors[navAnchors.length - 1].getAttribute('href').slice(1) : null;
+    var paint = function () {
+      var id = atEnd ? lastId : crossing;
+      navAnchors.forEach(function (a) {
+        a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + id));
+      });
+    };
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        navAnchors.forEach(function (a) {
-          a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + entry.target.id));
-        });
+        crossing = entry.target.id;
+        paint();
       });
     // a thin line near the top of the window: the section crossing it is
     // current. Near the top so that the short Software band is caught too.
@@ -168,6 +176,16 @@
     // the banner has no menu entry, so nothing is highlighted while it is in view
     var hero = document.getElementById('top');
     if (hero) spy.observe(hero);
+    // On a tall window the last section cannot reach the line before the page
+    // ends, so the bottom of the page counts as the last section.
+    var checkEnd = function () {
+      var top = window.pageYOffset;
+      var end = top > 0 && window.innerHeight + top >= document.documentElement.scrollHeight - 4;
+      if (end !== atEnd) { atEnd = end; paint(); }
+    };
+    window.addEventListener('scroll', checkEnd, { passive: true });
+    window.addEventListener('resize', checkEnd, { passive: true });
+    checkEnd();
 
     var reveal = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
