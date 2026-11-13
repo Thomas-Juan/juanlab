@@ -16,6 +16,7 @@
   <meta property="og:image" content="https://juanlab.org/assets/img/hero/og-image.jpg?v=20261113b">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="How the beating heart shapes itself, beside a line drawing of a zebrafish heart">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
@@ -25,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261113b">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261113c">
 
   <script type="application/ld+json">
   {
@@ -59,6 +60,7 @@
       <a class="brand" href="#top" aria-label="Juan Lab, back to top">
         <img src="assets/logo/juanlab-logo.svg" alt="" width="34" height="34">
         <span class="brand-name">Juan Lab</span>
+        <span class="brand-aff">Uppsala University</span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
         <span></span><span class="visually-hidden">Menu</span>
@@ -289,29 +291,39 @@
     <!-- ==================================================================
          SOFTWARE & WEB APPS (placeholder until the tools are released)
          ================================================================== -->
-    <section class="section" id="software" aria-labelledby="software-title">
+    <section class="section section--band" id="software" aria-labelledby="software-title">
       <div class="w">
-        <header class="section-head">
-          <p class="eyebrow">Software</p>
-          <h2 id="software-title">Software &amp; web apps</h2>
-        </header>
-        <!-- This section's content is not in this page. It is encrypted in
-             assets/locked/software.json (AES-GCM, key from the password via
-             PBKDF2) and decrypted in the browser once the password is typed.
-             To change the content, edit private/software-section.html and run
-             tools/encrypt-section.py. -->
-        <div class="gate" id="software-gate" data-payload="assets/locked/software.json">
-          <p class="gate-label">This section is not open yet.</p>
-          <button class="btn btn--light" type="button" id="gate-open" aria-expanded="false" aria-controls="gate-form">Enter password</button>
-          <form id="gate-form" hidden>
-            <label class="gate-label" for="gate-input">Password</label>
-            <div class="gate-row">
-              <input id="gate-input" class="gate-input" type="password" autocomplete="off" spellcheck="false" aria-describedby="gate-error">
-              <button class="btn" type="submit" id="gate-submit">Unlock</button>
+        <div class="band-row">
+          <header class="section-head">
+            <p class="eyebrow">Software</p>
+            <h2 id="software-title">Software &amp; web apps</h2>
+          </header>
+          <!-- This section's content is not in this page. It is encrypted in
+               assets/locked/software.json (AES-GCM, key from the password via
+               PBKDF2) and decrypted in the browser once the password is typed.
+               To change the content, edit private/software-section.html and run
+               tools/encrypt-section.py. -->
+          <div class="gate" id="software-gate" data-payload="assets/locked/software.json">
+            <svg class="gate-icon" viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="24" cy="24" r="23" fill="#8ecfc9" stroke="#1f1b33" stroke-width="1.3"/>
+              <path d="M17.5 22v-4.5a6.5 6.5 0 0 1 13 0V22" fill="none" stroke="#1f1b33" stroke-width="1.8"/>
+              <rect x="13.5" y="21.5" width="21" height="15" rx="3" fill="#f2cc92" stroke="#1f1b33" stroke-width="1.6"/>
+              <circle cx="24" cy="28" r="2" fill="#e0613f" stroke="#1f1b33" stroke-width="1.1"/>
+            </svg>
+            <div class="gate-body">
+              <p class="gate-label">This section is not open yet.</p>
+              <button class="btn btn--light" type="button" id="gate-open" aria-expanded="false" aria-controls="gate-form">Enter password</button>
+              <form id="gate-form" hidden>
+                <label class="gate-label" for="gate-input">Password</label>
+                <div class="gate-row">
+                  <input id="gate-input" class="gate-input" type="password" autocomplete="off" spellcheck="false" aria-describedby="gate-error">
+                  <button class="btn" type="submit" id="gate-submit">Unlock</button>
+                </div>
+                <p class="gate-error" id="gate-error" role="status" hidden>That password is not correct.</p>
+              </form>
+              <noscript><p class="gate-error">This section needs JavaScript to open.</p></noscript>
             </div>
-            <p class="gate-error" id="gate-error" role="status" hidden>That password is not correct.</p>
-          </form>
-          <noscript><p class="gate-error">This section needs JavaScript to open.</p></noscript>
+          </div>
         </div>
 
         <div id="software-content" hidden></div>
@@ -462,6 +474,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20261113b" defer></script>
+  <script src="assets/js/main.js?v=20261113c" defer></script>
 </body>
 </html>

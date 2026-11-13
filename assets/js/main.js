@@ -52,7 +52,7 @@
   // Software section.
   //
   // The content is not in this page. It is encrypted with AES-GCM in
-  // assets/private/software.json; the key comes from the password through
+  // assets/locked/software.json; the key comes from the password through
   // PBKDF2. A wrong password fails the cipher's own integrity check, so there
   // is nothing to compare against and nothing to read in the page source.
   // The password is asked for on every page load; nothing is remembered.
@@ -158,11 +158,16 @@
           a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + entry.target.id));
         });
       });
-    }, { rootMargin: '-45% 0px -50% 0px' });
+    // a thin line near the top of the window: the section crossing it is
+    // current. Near the top so that the short Software band is caught too.
+    }, { rootMargin: '-20% 0px -75% 0px' });
     navAnchors.forEach(function (a) {
       var s = document.querySelector(a.getAttribute('href'));
       if (s) spy.observe(s);
     });
+    // the banner has no menu entry, so nothing is highlighted while it is in view
+    var hero = document.getElementById('top');
+    if (hero) spy.observe(hero);
 
     var reveal = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {

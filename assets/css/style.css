@@ -140,6 +140,15 @@ h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
 .brand { display: flex; align-items: center; gap: .65rem; text-decoration: none; }
 .brand img { width: 34px; height: 34px; }
 .brand-name { font-family: var(--display); font-weight: 600; font-size: 1.2rem; letter-spacing: -0.015em; }
+.brand-aff {
+  font-size: .84rem;
+  font-weight: 500;
+  color: var(--muted);
+  padding-left: .75rem;
+  margin-left: .1rem;
+  border-left: 1px solid rgb(31 27 51 / .25);
+  line-height: 1.25;
+}
 
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a {
@@ -239,7 +248,9 @@ h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
   gap: clamp(2rem, 5vw, 4.5rem);
   align-items: center;
 }
-.theme:nth-child(even) .mosaic { order: -1; }
+/* alternate: the middle theme puts its images on the left */
+.theme:nth-child(even) { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
+.theme:nth-child(even) .panel { order: -1; }
 .theme h3 { font-size: clamp(1.45rem, 2.3vw, 1.9rem); margin-bottom: .9rem; }
 .theme p { color: var(--ink-soft); max-width: 54ch; }
 .theme p + p { margin-top: .8rem; }
@@ -296,9 +307,30 @@ h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
 .soon svg { width: 56px; height: 56px; flex: none; }
 .soon p { font-family: var(--display); font-weight: 600; font-size: 1.35rem; letter-spacing: -0.01em; }
 
-.gate { max-width: 460px; }
-.gate-label { display: block; color: var(--ink-soft); margin-bottom: .9rem; }
-.gate #gate-form .gate-label { font-size: .9rem; margin-bottom: .5rem; }
+/* a short band: heading on the left, the locked card on the right */
+.section--band { padding-block: clamp(3.5rem, 6vw, 5rem); border-bottom: 1px solid var(--line); }
+.band-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 480px);
+  gap: 2rem 4rem;
+  align-items: center;
+}
+.band-row .section-head { margin-bottom: 0; }
+#software-content { margin-top: clamp(2rem, 4vw, 3rem); }
+
+.gate {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.2rem;
+  align-items: start;
+  padding: 1.5rem 1.7rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+.gate-icon { width: 48px; height: 48px; }
+.gate-label { display: block; color: var(--ink-soft); margin-bottom: .9rem; padding-top: .55rem; }
+.gate #gate-form .gate-label { font-size: .9rem; margin-bottom: .5rem; padding-top: 0; }
 .gate-row { display: flex; flex-wrap: wrap; gap: .6rem; }
 .gate-input {
   flex: 1 1 200px;
@@ -357,7 +389,7 @@ a.pub-title:hover { color: var(--coral-dark); text-decoration: underline; text-d
 .team {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 2.4rem 1.2rem;
 }
 .member {
@@ -487,12 +519,11 @@ a.pub-title:hover { color: var(--coral-dark); text-decoration: underline; text-d
    Responsive
    ========================================================================== */
 
-@media (max-width: 1100px) {
-  .team { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-}
-
-@media (max-width: 960px) {
-  .team { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* wide monitors: a slightly larger type scale and column, so the page
+   does not shrink to a narrow strip in the middle of the screen */
+@media (min-width: 1800px) {
+  html { font-size: 106.25%; }
+  :root { --max-w: 1240px; }
 }
 
 @media (max-width: 860px) {
@@ -510,17 +541,24 @@ a.pub-title:hover { color: var(--coral-dark); text-decoration: underline; text-d
 
   .hero-inner { grid-template-columns: 1fr; min-height: 0; padding-block: 2.6rem 0; gap: 1rem; }
   .cosmos { justify-self: center; width: min(100%, 380px); }
-  .theme, .join-inner, .pubs-head { grid-template-columns: 1fr; }
-  .theme:nth-child(even) .mosaic { order: 0; }
+  .theme, .theme:nth-child(even), .join-inner, .pubs-head, .band-row { grid-template-columns: 1fr; }
+  .theme:nth-child(even) .panel { order: 0; }
   .pubs-art { justify-self: start; max-width: 320px; }
+}
+
+@media (max-width: 700px) {
+  .team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem .8rem; }
 }
 
 @media (max-width: 560px) {
   body { font-size: 1rem; }
-  .team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem .8rem; }
+  .brand-aff { display: none; }
   .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gate { grid-template-columns: 1fr; padding: 1.3rem 1.4rem; gap: .6rem; }
+  .gate-icon { width: 40px; height: 40px; }
+  .gate-label { padding-top: 0; }
   /* used by the encrypted Software section, which is inserted at runtime */
-.soon { padding: 1.4rem 1.5rem; }
+  .soon { padding: 1.4rem 1.5rem; }
   .avatar { width: 108px; }
   .member-cta { opacity: 1; }
   .pub { grid-template-columns: 1fr; gap: .2rem; }

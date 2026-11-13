@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found · Juan Lab</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f8f3ea">
+  <!-- GitHub Pages serves this page for any address that does not exist.
+       Paths start with / because the page can be shown at any depth.
+       Self-contained on purpose: it does not load style.css. -->
+  <link rel="icon" href="/assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/logo/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      display: flex; flex-direction: column;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      color: #1f1b33;
+      background: linear-gradient(180deg, #8fd0c9 0%, #cbe3d0 30%, #f4e5c6 62%, #f7cba2 86%, #f1a780 100%);
+      -webkit-font-smoothing: antialiased;
+    }
+    header { padding: 1.1rem clamp(1rem, 4vw, 2.5rem); }
+    .brand { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; color: inherit; }
+    .brand img { width: 34px; height: 34px; }
+    .brand span { font-family: 'Inter Tight', 'Inter', sans-serif; font-weight: 600; font-size: 1.2rem; letter-spacing: -0.015em; }
+    main { flex: 1; display: grid; place-items: center; text-align: center; padding: 2rem clamp(1rem, 4vw, 2.5rem) 0; }
+    .code { font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #1c6f73; margin-bottom: .9rem; }
+    h1 { font-family: 'Inter Tight', 'Inter', sans-serif; font-weight: 600; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.025em; }
+    p.lede { margin: 1rem auto 2rem; max-width: 38ch; color: #3f3a55; font-size: 1.08rem; line-height: 1.6; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .78rem 1.35rem; border-radius: 999px;
+      font-size: .95rem; font-weight: 600; text-decoration: none;
+      background: #1f1b33; color: #f8f3ea; border: 1.5px solid #1f1b33;
+      transition: background .15s, border-color .15s;
+    }
+    .btn:hover { background: #e0613f; border-color: #e0613f; color: #fff; }
+    .btn:focus-visible { outline: 2.5px solid #e0613f; outline-offset: 3px; }
+    .btn svg { width: 15px; height: 15px; }
+    .dunes { display: block; width: 100%; height: clamp(90px, 11vw, 160px); margin-top: 3rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Juan Lab home">
+      <img src="/assets/logo/juanlab-logo.svg" alt="" width="34" height="34">
+      <span>Juan Lab</span>
+    </a>
+  </header>
+
+  <main>
+    <div>
+      <p class="code">Error 404</p>
+      <h1>Page not found</h1>
+      <p class="lede">There is no page at this address. The lab's website is a single page, and everything is on it.</p>
+      <a class="btn" href="/">Go to the home page
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <svg class="dunes" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-10 72 C240 30 480 34 720 58 C960 82 1200 84 1450 44 L1450 175 L-10 175Z" fill="#ec9473" stroke="#1f1b33" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+    <path d="M-10 114 C260 86 560 88 860 108 C1080 122 1280 118 1450 99 L1450 175 L-10 175Z" fill="#f2cc92" stroke="#1f1b33" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+  </svg>
+</body>
+</html>
