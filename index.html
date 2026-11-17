@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261117b">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261117c">
 
   <script type="application/ld+json">
   {
@@ -350,10 +350,11 @@
               <h3>Journey of a Zebrafish</h3>
               <p>A side-scrolling game that follows the zebrafish from the rivers of Bengal to the research laboratory. Each level teaches part of the history and biology of the model, and questions along the way test what was learned.</p>
               <div class="game-links">
-                <a class="btn" href="https://github.com/Thomas-Juan/journey-of-a-zebrafish/releases/latest/download/JourneyOfAZebrafish-Windows.exe">Download for Windows</a>
-                <a class="btn btn--light" href="https://github.com/Thomas-Juan/journey-of-a-zebrafish/releases/latest/download/JourneyOfAZebrafish-macOS.zip">Download for Mac</a>
+                <a class="btn" href="games/journey-of-a-zebrafish/" data-game="games/journey-of-a-zebrafish/" data-title="Journey of a Zebrafish">Play in browser</a>
+                <a class="btn btn--light" href="https://github.com/Thomas-Juan/journey-of-a-zebrafish/releases/latest/download/JourneyOfAZebrafish-Windows.exe">Windows</a>
+                <a class="btn btn--light" href="https://github.com/Thomas-Juan/journey-of-a-zebrafish/releases/latest/download/JourneyOfAZebrafish-macOS.zip">Mac</a>
               </div>
-              <p class="game-note">Free. The Mac version needs an Apple silicon Mac. <a href="https://github.com/Thomas-Juan/journey-of-a-zebrafish">Source code and instructions</a></p>
+              <p class="game-note">Free. Playing in the browser needs a keyboard, and progress is kept in that browser. The downloads run on Windows and on Apple silicon Macs. <a href="https://github.com/Thomas-Juan/journey-of-a-zebrafish">Source code</a></p>
             </div>
           </article>
         </div>
@@ -504,6 +505,16 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20261117a" defer></script>
+  <!-- The window a game plays in. The game page is loaded only when "Play in browser" is clicked. -->
+  <dialog class="game-dialog" id="game-dialog" aria-labelledby="game-dialog-title">
+    <div class="game-bar">
+      <strong id="game-dialog-title">Game</strong>
+      <span>Click the game to start, then use the keyboard.</span>
+      <button class="btn game-close" type="button">Close</button>
+    </div>
+    <div class="game-frame"></div>
+  </dialog>
+
+  <script src="assets/js/main.js?v=20261117c" defer></script>
 </body>
 </html>

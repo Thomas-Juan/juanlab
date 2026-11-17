@@ -200,6 +200,35 @@
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
   }
 
+  // Games: "Play in browser" opens the game in a window on this page. The game page is put in
+  // an iframe only when asked for, and the iframe is removed again on close so the game stops.
+  var gameDialog = document.getElementById('game-dialog');
+  if (gameDialog && typeof gameDialog.showModal === 'function') {
+    var gameFrame = gameDialog.querySelector('.game-frame');
+    var closeGame = function () {
+      gameFrame.textContent = '';
+      if (gameDialog.open) gameDialog.close();
+    };
+    document.querySelectorAll('a[data-game]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        gameFrame.textContent = '';
+        var frame = document.createElement('iframe');
+        frame.src = link.getAttribute('data-game');
+        frame.title = link.getAttribute('data-title') || 'Game';
+        frame.allow = 'autoplay; fullscreen';
+        gameFrame.appendChild(frame);
+        document.getElementById('game-dialog-title').textContent = frame.title;
+        gameDialog.showModal();
+        frame.focus();
+      });
+    });
+    gameDialog.querySelector('.game-close').addEventListener('click', closeGame);
+    gameDialog.addEventListener('close', function () { gameFrame.textContent = ''; });
+    // Esc is the game's menu key, so it must not close the window
+    gameDialog.addEventListener('cancel', function (e) { e.preventDefault(); });
+  }
+
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 })();
