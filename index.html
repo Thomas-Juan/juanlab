@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261117c">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261117d">
 
   <script type="application/ld+json">
   {
@@ -348,13 +348,29 @@
             <img src="assets/img/games/journey-of-a-zebrafish.webp" alt="A zebrafish swims through a river level of the game" width="960" height="540" loading="lazy">
             <div class="game-body">
               <h3>Journey of a Zebrafish</h3>
-              <p>A side-scrolling game that follows the zebrafish from the rivers of Bengal to the research laboratory. Each level teaches part of the history and biology of the model, and questions along the way test what was learned.</p>
+              <p>A side-scrolling game on the history and biology of the zebrafish as a research model.</p>
               <div class="game-links">
                 <a class="btn" href="games/journey-of-a-zebrafish/" data-game="games/journey-of-a-zebrafish/" data-title="Journey of a Zebrafish">Play in browser</a>
-                <a class="btn btn--light" href="https://github.com/Thomas-Juan/journey-of-a-zebrafish/releases/latest/download/JourneyOfAZebrafish-Windows.exe">Windows</a>
-                <a class="btn btn--light" href="https://github.com/Thomas-Juan/journey-of-a-zebrafish/releases/latest/download/JourneyOfAZebrafish-macOS.zip">Mac</a>
               </div>
-              <p class="game-note">Free. Playing in the browser needs a keyboard, and progress is kept in that browser. The downloads run on Windows and on Apple silicon Macs. <a href="https://github.com/Thomas-Juan/journey-of-a-zebrafish">Source code</a></p>
+              <div class="game-links">
+                <a class="btn btn--light" href="https://github.com/Thomas-Juan/journey-of-a-zebrafish/releases/latest/download/JourneyOfAZebrafish-Windows.exe" data-download="JourneyOfAZebrafish-Windows.exe" data-size="about 28 MB" data-note="The program is not signed, so Windows may show a notice the first time you run it. Choose More info, then Run anyway.">Download for Windows</a>
+                <a class="btn btn--light" href="https://github.com/Thomas-Juan/journey-of-a-zebrafish/releases/latest/download/JourneyOfAZebrafish-macOS.zip" data-download="JourneyOfAZebrafish-macOS.zip" data-size="about 19 MB" data-note="For Apple silicon Macs. Unzip the file, then right-click the app and choose Open the first time.">Download for Mac</a>
+              </div>
+              <details class="more">
+                <summary>More information</summary>
+                <dl class="game-info">
+                  <dt>The game</dt>
+                  <dd>You follow the zebrafish from the rivers of Bengal to the research laboratory. Each level teaches part of the story, and questions along the way test what was learned.</dd>
+                  <dt>In the browser</dt>
+                  <dd>Needs a keyboard. Progress is kept in that browser.</dd>
+                  <dt>Download for Windows</dt>
+                  <dd>One file, about 28 MB. Windows may ask for confirmation the first time you run it.</dd>
+                  <dt>Download for Mac</dt>
+                  <dd>For Apple silicon Macs, about 19 MB. Unzip, then right-click the app and choose Open the first time.</dd>
+                  <dt>Cost</dt>
+                  <dd>Free. The <a href="https://github.com/Thomas-Juan/journey-of-a-zebrafish">source code</a> is on GitHub.</dd>
+                </dl>
+              </details>
             </div>
           </article>
         </div>
@@ -515,6 +531,17 @@
     <div class="game-frame"></div>
   </dialog>
 
-  <script src="assets/js/main.js?v=20261117c" defer></script>
+  <!-- Shown before a download starts, so a click on a download button is never a surprise. -->
+  <dialog class="notice-dialog" id="download-dialog" aria-labelledby="download-title">
+    <h3 id="download-title">The download will start</h3>
+    <p id="download-file"></p>
+    <p class="notice-note" id="download-note"></p>
+    <div class="notice-actions">
+      <button class="btn" type="button" id="download-go">Start download</button>
+      <button class="btn btn--light" type="button" id="download-cancel">Cancel</button>
+    </div>
+  </dialog>
+
+  <script src="assets/js/main.js?v=20261117d" defer></script>
 </body>
 </html>

@@ -355,7 +355,33 @@ h2 { font-size: clamp(1.85rem, 3.1vw, 2.5rem); }
 .game p { color: var(--ink-soft); font-size: .95rem; }
 .game-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .95rem; }
 .game-links .btn { padding: .6rem 1.1rem; font-size: .9rem; }
-.game p.game-note { margin-top: .8rem; font-size: .84rem; color: var(--muted); }
+.game-links + .game-links { margin-top: .6rem; }
+.game .more { margin-top: .95rem; }
+.game .more summary { padding: .4rem .95rem; font-size: .85rem; border-width: 1px; border-color: var(--line); color: var(--ink-soft); }
+.game .more[open] summary { margin-bottom: .8rem; }
+.game-info { display: grid; gap: .1rem; font-size: .88rem; }
+.game-info dt { font-weight: 600; margin-top: .55rem; }
+.game-info dt:first-child { margin-top: 0; }
+.game-info dd { color: var(--ink-soft); }
+.game-info a { color: var(--teal); font-weight: 500; }
+
+/* the notice shown before a download starts */
+.notice-dialog {
+  margin: auto;
+  width: min(92vw, 440px);
+  border: 0;
+  border-radius: 20px;
+  padding: 1.6rem 1.7rem 1.5rem;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 30px 80px -20px rgb(31 27 51 / .5);
+}
+.notice-dialog::backdrop { background: rgb(34 29 59 / .55); backdrop-filter: blur(3px); }
+.notice-dialog h3 { font-family: var(--display); font-size: 1.3rem; letter-spacing: -0.01em; margin-bottom: .6rem; }
+.notice-dialog p { color: var(--ink-soft); font-size: .95rem; }
+.notice-dialog .notice-note { margin-top: .5rem; font-size: .88rem; color: var(--muted); }
+.notice-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.2rem; }
+.notice-actions .btn { padding: .6rem 1.1rem; font-size: .9rem; cursor: pointer; }
 
 /* the window a game plays in */
 .game-dialog {

@@ -229,6 +229,35 @@
     gameDialog.addEventListener('cancel', function (e) { e.preventDefault(); });
   }
 
+  // Downloads: say what is about to be downloaded and wait for a second click.
+  // Without JavaScript the buttons are ordinary links and download directly.
+  var dlDialog = document.getElementById('download-dialog');
+  if (dlDialog && typeof dlDialog.showModal === 'function') {
+    var dlTarget = null;
+    document.querySelectorAll('a[data-download]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        dlTarget = link.href;
+        var size = link.getAttribute('data-size');
+        document.getElementById('download-file').textContent =
+          link.getAttribute('data-download') + (size ? ' (' + size + ') will be downloaded from GitHub.' : ' will be downloaded from GitHub.');
+        var note = document.getElementById('download-note');
+        note.textContent = link.getAttribute('data-note') || '';
+        note.hidden = !note.textContent;
+        dlDialog.showModal();
+      });
+    });
+    document.getElementById('download-go').addEventListener('click', function () {
+      dlDialog.close();
+      if (dlTarget) window.location.href = dlTarget;
+      dlTarget = null;
+    });
+    document.getElementById('download-cancel').addEventListener('click', function () {
+      dlTarget = null;
+      dlDialog.close();
+    });
+  }
+
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 })();
