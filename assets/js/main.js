@@ -148,45 +148,45 @@
     });
   }
 
-  // Highlight the section in view, and reveal content on scroll
-  if ('IntersectionObserver' in window) {
-    var navAnchors = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
-    var crossing = null;   // id of the section crossing the line
-    var atEnd = false;     // scrolled to the very bottom of the page
-    var lastId = navAnchors.length ? navAnchors[navAnchors.length - 1].getAttribute('href').slice(1) : null;
-    var paint = function () {
-      var id = atEnd ? lastId : crossing;
+  // Highlight the menu entry of the section in view.
+  //
+  // The current section is the last one whose top has passed a line just below
+  // the header. A fixed line (not a share of the window height) works for short
+  // sections like Software and Games at any window size, and it matches where a
+  // menu click lands: the section top sits right under the header. While the
+  // banner is in view nothing is highlighted. On a tall window the last section
+  // may never reach the line, so the bottom of the page counts as that section.
+  var navAnchors = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+  var header = document.querySelector('.site-header');
+  if (navAnchors.length && header) {
+    var lastId = navAnchors[navAnchors.length - 1].getAttribute('href').slice(1);
+    var highlight = function () {
+      var line = header.offsetHeight + 40;
+      var id = null;
+      navAnchors.forEach(function (a) {
+        var s = document.querySelector(a.getAttribute('href'));
+        if (s && s.getBoundingClientRect().top <= line) id = s.id;
+      });
+      var top = window.pageYOffset;
+      if (top > 0 && window.innerHeight + top >= document.documentElement.scrollHeight - 4) id = lastId;
       navAnchors.forEach(function (a) {
         a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + id));
       });
     };
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        crossing = entry.target.id;
-        paint();
-      });
-    // a thin line near the top of the window: the section crossing it is
-    // current. Near the top so that the short Software band is caught too.
-    }, { rootMargin: '-20% 0px -75% 0px' });
-    navAnchors.forEach(function (a) {
-      var s = document.querySelector(a.getAttribute('href'));
-      if (s) spy.observe(s);
-    });
-    // the banner has no menu entry, so nothing is highlighted while it is in view
-    var hero = document.getElementById('top');
-    if (hero) spy.observe(hero);
-    // On a tall window the last section cannot reach the line before the page
-    // ends, so the bottom of the page counts as the last section.
-    var checkEnd = function () {
-      var top = window.pageYOffset;
-      var end = top > 0 && window.innerHeight + top >= document.documentElement.scrollHeight - 4;
-      if (end !== atEnd) { atEnd = end; paint(); }
+    var waiting = false;
+    var onScroll = function () {
+      if (waiting) return;
+      waiting = true;
+      requestAnimationFrame(function () { waiting = false; highlight(); });
     };
-    window.addEventListener('scroll', checkEnd, { passive: true });
-    window.addEventListener('resize', checkEnd, { passive: true });
-    checkEnd();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    window.addEventListener('load', highlight);
+    highlight();
+  }
 
+  // Reveal content as it scrolls into view
+  if ('IntersectionObserver' in window) {
     var reveal = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {

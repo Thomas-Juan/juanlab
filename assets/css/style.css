@@ -139,7 +139,7 @@ h2 { font-size: clamp(1.85rem, 3.1vw, 2.5rem); }
 
 .brand { display: flex; align-items: center; gap: .65rem; text-decoration: none; }
 .brand img { width: 34px; height: 34px; }
-.brand-name { font-family: var(--display); font-weight: 600; font-size: 1.2rem; letter-spacing: -0.015em; }
+.brand-name { font-family: var(--display); font-weight: 600; font-size: 1.2rem; letter-spacing: -0.015em; white-space: nowrap; }
 .brand-aff {
   font-size: .84rem;
   font-weight: 500;
@@ -154,6 +154,7 @@ h2 { font-size: clamp(1.85rem, 3.1vw, 2.5rem); }
 .nav-links a {
   font-size: .94rem;
   font-weight: 500;
+  white-space: nowrap;
   text-decoration: none;
   color: var(--ink-soft);
   transition: color .15s;
@@ -328,6 +329,19 @@ h2 { font-size: clamp(1.85rem, 3.1vw, 2.5rem); }
   border: 1px solid var(--line);
   border-radius: 18px;
 }
+/* the Games band: the same card as the locked Software one, without the password */
+.band-card {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+.band-card svg { width: 48px; height: 48px; flex: none; }
+.band-card p { color: var(--ink-soft); }
+
 .gate-icon { width: 48px; height: 48px; }
 .gate-label { display: block; color: var(--ink-soft); margin-bottom: .9rem; padding-top: .55rem; }
 .gate #gate-form .gate-label { font-size: .9rem; margin-bottom: .5rem; padding-top: 0; }
@@ -525,6 +539,12 @@ a.pub-title:hover { color: var(--coral-dark); text-decoration: underline; text-d
   :root { --max-w: 1240px; }
 }
 
+/* six menu items plus the university name do not fit side by side on a narrow
+   laptop window, so the name goes first */
+@media (max-width: 1000px) {
+  .brand-aff { display: none; }
+}
+
 @media (max-width: 860px) {
   :root { --header-h: 60px; }
   .nav-toggle { display: inline-flex; }
@@ -551,7 +571,6 @@ a.pub-title:hover { color: var(--coral-dark); text-decoration: underline; text-d
 
 @media (max-width: 560px) {
   body { font-size: 1rem; }
-  .brand-aff { display: none; }
   .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .gate { grid-template-columns: 1fr; padding: 1.3rem 1.4rem; gap: .6rem; }
   .gate-icon { width: 40px; height: 40px; }
