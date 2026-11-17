@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261117a">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261117b">
 
   <script type="application/ld+json">
   {
@@ -332,9 +332,10 @@
     </section>
 
     <!-- ==================================================================
-         GAMES (under construction)
-         When the first game is ready, replace the .band-card below with the
-         download links. The heading, the menu link and the band stay as they are.
+         GAMES
+         One .game card per game. The download buttons point at the newest
+         release of the game's GitHub repository, so they do not need
+         changing when a new version is published.
          ================================================================== -->
     <section class="section section--band" id="games" aria-labelledby="games-title">
       <div class="w">
@@ -343,18 +344,18 @@
             <p class="eyebrow">Video games</p>
             <h2 id="games-title">Games</h2>
           </header>
-          <div class="band-card">
-            <svg viewBox="0 0 48 48" aria-hidden="true">
-              <circle cx="24" cy="24" r="23" fill="#f2cc92" stroke="#1f1b33" stroke-width="1.3"/>
-              <g transform="translate(24 24) scale(.8) translate(-24 -27)">
-                <path d="M15 16H33C38 16 41 20 41.5 25L42.5 31C43 35 40.5 37.5 37.5 37.5C35.5 37.5 34.2 36.5 33.2 35L31.5 32.5H16.5L14.8 35C13.8 36.5 12.5 37.5 10.5 37.5C7.5 37.5 5 35 5.5 31L6.5 25C7 20 10 16 15 16Z" fill="#8ecfc9" stroke="#1f1b33" stroke-width="1.8" stroke-linejoin="round"/>
-                <path d="M14 21.5v7M10.5 25h7" fill="none" stroke="#1f1b33" stroke-width="2.2" stroke-linecap="round"/>
-                <circle cx="32.6" cy="22.6" r="2.2" fill="#e0613f" stroke="#1f1b33" stroke-width="1.2"/>
-                <circle cx="37.4" cy="27.4" r="2.2" fill="#e0613f" stroke="#1f1b33" stroke-width="1.2"/>
-              </g>
-            </svg>
-            <p>Section under construction.</p>
-          </div>
+          <article class="game">
+            <img src="assets/img/games/journey-of-a-zebrafish.webp" alt="A zebrafish swims through a river level of the game" width="960" height="540" loading="lazy">
+            <div class="game-body">
+              <h3>Journey of a Zebrafish</h3>
+              <p>A side-scrolling game that follows the zebrafish from the rivers of Bengal to the research laboratory. Each level teaches part of the history and biology of the model, and questions along the way test what was learned.</p>
+              <div class="game-links">
+                <a class="btn" href="https://github.com/Thomas-Juan/journey-of-a-zebrafish/releases/latest/download/JourneyOfAZebrafish-Windows.exe">Download for Windows</a>
+                <a class="btn btn--light" href="https://github.com/Thomas-Juan/journey-of-a-zebrafish/releases/latest/download/JourneyOfAZebrafish-macOS.zip">Download for Mac</a>
+              </div>
+              <p class="game-note">Free. The Mac version needs an Apple silicon Mac. <a href="https://github.com/Thomas-Juan/journey-of-a-zebrafish">Source code and instructions</a></p>
+            </div>
+          </article>
         </div>
       </div>
     </section>

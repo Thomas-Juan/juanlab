@@ -342,6 +342,21 @@ h2 { font-size: clamp(1.85rem, 3.1vw, 2.5rem); }
 .band-card svg { width: 48px; height: 48px; flex: none; }
 .band-card p { color: var(--ink-soft); }
 
+/* a game: screenshot, one paragraph, download buttons */
+.game {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+}
+.game img { display: block; width: 100%; height: auto; border-bottom: 1px solid var(--line); }
+.game-body { padding: 1.1rem 1.5rem 1.3rem; }
+.game h3 { font-family: var(--display); font-size: 1.2rem; letter-spacing: -0.01em; margin-bottom: .35rem; }
+.game p { color: var(--ink-soft); font-size: .95rem; }
+.game-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .95rem; }
+.game-links .btn { padding: .6rem 1.1rem; font-size: .9rem; }
+.game p.game-note { margin-top: .8rem; font-size: .84rem; color: var(--muted); }
+
 .gate-icon { width: 48px; height: 48px; }
 .gate-label { display: block; color: var(--ink-soft); margin-bottom: .9rem; padding-top: .55rem; }
 .gate #gate-form .gate-label { font-size: .9rem; margin-bottom: .5rem; padding-top: 0; }
