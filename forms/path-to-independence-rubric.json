@@ -1,0 +1,1917 @@
+{
+ "version": "1.1",
+ "threshold": 60,
+ "bands": [
+  [
+   0,
+   "Early"
+  ],
+  [
+   40,
+   "Developing"
+  ],
+  [
+   60,
+   "Competitive"
+  ],
+  [
+   75,
+   "Strong"
+  ]
+ ],
+ "target": 0.75,
+ "tiers": {
+  "12": "key",
+  "8": "major",
+  "4": "supporting",
+  "2": "minor"
+ },
+ "timing": [
+  [
+   2,
+   "At {age} years after the PhD, net of leave, you are early for most independence calls, which open about two years after the PhD. Use the time to build the record in the sections above."
+  ],
+  [
+   6,
+   "At {age} years after the PhD, net of leave, the main windows are open. Applying now brings interview experience and reviewer feedback for the next round."
+  ],
+  [
+   7,
+   "At {age} years after the PhD, net of leave, you are close to the seven-year limit of most starting grants and assistant-professor posts. Apply in this cycle."
+  ],
+  [
+   999,
+   "At {age} years after the PhD, net of leave, you are past the seven-year limit used by the ERC, the Swedish Research Council and Uppsala assistant-professor posts. Check that all eligible leave is entered on page 2, and target calls without a time limit."
+  ]
+ ],
+ "windows": [
+  {
+   "name": "ERC Starting Grant",
+   "lo": 2,
+   "hi": 7,
+   "alt": true
+  },
+  {
+   "name": "VR starting grant",
+   "lo": 2,
+   "hi": 7,
+   "alt": false
+  },
+  {
+   "name": "Uppsala assistant professor",
+   "lo": 0,
+   "hi": 7,
+   "alt": false
+  },
+  {
+   "name": "Wallenberg Academy Fellows (approx.)",
+   "lo": 2,
+   "hi": 9,
+   "alt": false
+  }
+ ],
+ "sections": [
+  {
+   "id": "S1",
+   "name": "Research output and quality",
+   "short": "Research output",
+   "weight": 8,
+   "intro": "Count peer-reviewed research papers from acceptance. Shared first authorship counts as first authorship. Papers from third author onward count only in section 7. Some items overlap on purpose: a first-author paper from the postdoc counts in the first two lines.",
+   "criteria": [
+    {
+     "id": "r1",
+     "type": "count",
+     "max": 12,
+     "unit": "papers",
+     "label": "First-author research papers",
+     "hint": "Whole career, PhD included. Shared first authorship counts.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.25
+      ],
+      [
+       2,
+       0.45
+      ],
+      [
+       3,
+       0.6
+      ],
+      [
+       4,
+       0.72
+      ],
+      [
+       5,
+       0.82
+      ],
+      [
+       6,
+       0.9
+      ],
+      [
+       8,
+       1
+      ]
+     ],
+     "advice": "First-author research papers reported: {v}. Aim for five before the main application round: applicants who received offers in a 2019-2022 survey of biology faculty applicants had a median of five. Give priority to the manuscripts closest to submission over new side projects.",
+     "num": "1.1"
+    },
+    {
+     "id": "r2",
+     "type": "count",
+     "max": 12,
+     "unit": "papers",
+     "label": "First- or last-author papers since the PhD",
+     "hint": "Postdoc output. Committees ask what you did after the PhD.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.45
+      ],
+      [
+       2,
+       0.7
+      ],
+      [
+       3,
+       0.85
+      ],
+      [
+       4,
+       1
+      ]
+     ],
+     "advice": "First- or last-author papers since the PhD: {v}. Committees ask what you achieved as a postdoc. Bring at least two postdoc projects to publication, and post each as a preprint once the main result holds.",
+     "num": "1.2"
+    },
+    {
+     "id": "r3",
+     "type": "derived",
+     "source": "rate",
+     "rubric_unit": "papers per year since PhD",
+     "max": 8,
+     "unit": "",
+     "label": "Postdoc output per year",
+     "hint": "Calculated: the line above divided by years since the PhD, net of leave.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       0.2,
+       0.4
+      ],
+      [
+       0.4,
+       0.7
+      ],
+      [
+       0.6,
+       0.9
+      ],
+      [
+       0.8,
+       1
+      ]
+     ],
+     "advice": "Your postdoc output is {rate} first- or last-author papers per year, which is low at {age} years after the PhD. Where the science allows it, publish a self-contained part of a large project on its own, and agree submission dates with your PI.",
+     "num": "1.3"
+    },
+    {
+     "id": "r4",
+     "type": "count",
+     "max": 4,
+     "unit": "papers",
+     "label": "Second-author research papers",
+     "hint": "A defined part of a colleague's project.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.4
+      ],
+      [
+       2,
+       0.65
+      ],
+      [
+       3,
+       0.8
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "advice": "Second-author papers show that you can carry a defined part of a colleague's project. Offer your specific expertise to projects inside and outside your lab.",
+     "num": "1.4"
+    },
+    {
+     "id": "r6",
+     "type": "count",
+     "max": 8,
+     "unit": "papers",
+     "label": "First- or last-author papers in top-tier journals",
+     "hint": "Cell, Nature, Science and their main sister journals, or the leading journal of your subfield.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.7
+      ],
+      [
+       2,
+       0.9
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "A first- or last-author paper in a top-tier journal still carries weight with many committees: in a survey of faculty applicants it was the publication metric most associated with offers. Identify the project that could reach that level and plan dedicated time for it. Institutions that signed DORA are asked not to judge by journal name, so state the advance itself in your research statement.",
+     "num": "1.5"
+    },
+    {
+     "id": "r7",
+     "type": "choice",
+     "max": 12,
+     "label": "Significance of your best work",
+     "hint": "Judge by what changed in the field, not by the journal.",
+     "options": [
+      "Mainly confirms or extends known results",
+      "Solid advance within a narrow niche",
+      "Clear advance, cited and used in the subfield",
+      "Changed practice: concept or tool others adopted",
+      "Breakthrough: commentaries, invited reviews"
+     ],
+     "fracs": [
+      0,
+      0.3,
+      0.6,
+      0.85,
+      1
+     ],
+     "advice": "Make the significance of your best work explicit: what changed in the field because of it, and who now builds on it. If its impact has been modest, direct the next project toward a question with a clearer conceptual contribution.",
+     "num": "1.6",
+     "labels": [
+      "Mainly confirms or extends known results (0 pts)",
+      "Solid advance within a narrow niche (3.6 pts)",
+      "Clear advance, cited and used in the subfield (7.2 pts)",
+      "Changed practice: concept or tool others adopted (10.2 pts)",
+      "Breakthrough: commentaries, invited reviews (12 pts)"
+     ]
+    },
+    {
+     "id": "r8",
+     "type": "count",
+     "max": 4,
+     "unit": "citations",
+     "label": "Total citations",
+     "hint": "Google Scholar or Web of Science. Norms differ between fields.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       100,
+       0.3
+      ],
+      [
+       300,
+       0.55
+      ],
+      [
+       600,
+       0.75
+      ],
+      [
+       1000,
+       0.9
+      ],
+      [
+       2000,
+       1
+      ]
+     ],
+     "advice": "Citations follow visibility. Present your work at international meetings, and share the methods and resources behind your papers so that other labs use them.",
+     "num": "1.7"
+    },
+    {
+     "id": "r9",
+     "type": "count",
+     "max": 4,
+     "unit": "preprints",
+     "label": "First- or last-author preprints under review",
+     "hint": "Not yet published. Shows current momentum.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.7
+      ],
+      [
+       2,
+       1
+      ]
+     ],
+     "advice": "A first-author preprint shows current momentum and lets committees read work that is still under review. Post your next manuscript as a preprint when you submit it.",
+     "num": "1.8"
+    },
+    {
+     "id": "r10",
+     "type": "count",
+     "max": 4,
+     "unit": "items",
+     "label": "Methods, resources or reviews you led",
+     "hint": "Protocols, data sets, software, animal lines, or reviews as first or last author.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.6
+      ],
+      [
+       2,
+       0.85
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "A method or resource that other labs use is strong evidence of an independent contribution. Publish a method you developed as a protocol or resource paper.",
+     "num": "1.9"
+    }
+   ]
+  },
+  {
+   "id": "S2",
+   "name": "Independence and research programme",
+   "short": "Independence",
+   "weight": 10,
+   "intro": "The question every committee asks: is this research the candidate's own? Score what you can document today, not what you intend.",
+   "criteria": [
+    {
+     "id": "i1",
+     "type": "choice",
+     "max": 12,
+     "label": "Research line distinct from your PI's",
+     "hint": "Would your PI keep working on it after you leave?",
+     "options": [
+      "Continuation of the PI's project",
+      "Own angle on the PI's topic, not yet separable",
+      "Own question in the PI's area, agreed with the PI",
+      "Separate question with your own preliminary data",
+      "Distinct, portable programme with own data and funding"
+     ],
+     "fracs": [
+      0,
+      0.25,
+      0.55,
+      0.85,
+      1
+     ],
+     "advice": "Committees examine this item most closely. Define a question that is yours, one your PI will not pursue after you leave, and generate preliminary data for it during the postdoc. Your research plan can then show results, not only intentions.",
+     "num": "2.1",
+     "labels": [
+      "Continuation of the PI's project (0 pts)",
+      "Own angle on the PI's topic, not yet separable (3 pts)",
+      "Own question in the PI's area, agreed with the PI (6.6 pts)",
+      "Separate question with your own preliminary data (10.2 pts)",
+      "Distinct, portable programme with own data and funding (12 pts)"
+     ]
+    },
+    {
+     "id": "i2",
+     "type": "choice",
+     "max": 8,
+     "label": "Portability agreed with your PI",
+     "hint": "Which projects, data and materials leave with you.",
+     "options": [
+      "Not discussed",
+      "Discussed informally",
+      "Agreed: what leaves with you is settled",
+      "Agreed and stated in the PI's reference letter"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Agree with your PI, explicitly and early, which projects and materials leave with you, and ask for the agreement to appear in the reference letter. Committees read silence on portability as a risk.",
+     "num": "2.2",
+     "labels": [
+      "Not discussed (0 pts)",
+      "Discussed informally (3.2 pts)",
+      "Agreed: what leaves with you is settled (6.4 pts)",
+      "Agreed and stated in the PI's reference letter (8 pts)"
+     ]
+    },
+    {
+     "id": "i3",
+     "type": "count",
+     "max": 8,
+     "unit": "papers",
+     "label": "Last- or corresponding-author papers",
+     "hint": "On a question you led. Postdoc ones also count in section 1.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.7
+      ],
+      [
+       2,
+       0.9
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "A last- or corresponding-author paper is the clearest written evidence of independence. A short paper by a student you supervised, on your own question, is enough.",
+     "num": "2.3"
+    },
+    {
+     "id": "i4",
+     "type": "choice",
+     "max": 12,
+     "label": "Written research plan",
+     "hint": "The plan you would present as a new group leader.",
+     "options": [
+      "No written plan",
+      "General direction, no defined aims",
+      "Five-year plan with defined aims",
+      "Plan with risks and alternatives, read by seniors",
+      "Plan tested in peer review (grant panel, fellowship)"
+     ],
+     "fracs": [
+      0,
+      0.25,
+      0.6,
+      0.85,
+      1
+     ],
+     "advice": "Write a five-year plan with two or three aims, the main risk of each and a named alternative. Ask two senior scientists outside your lab to read it, then test it in a grant application.",
+     "num": "2.4",
+     "labels": [
+      "No written plan (0 pts)",
+      "General direction, no defined aims (3 pts)",
+      "Five-year plan with defined aims (7.2 pts)",
+      "Plan with risks and alternatives, read by seniors (10.2 pts)",
+      "Plan tested in peer review (grant panel, fellowship) (12 pts)"
+     ]
+    },
+    {
+     "id": "i5",
+     "type": "choice",
+     "max": 8,
+     "label": "Distinctive expertise",
+     "hint": "What other groups come to you for.",
+     "options": [
+      "Same toolkit as the PI's lab",
+      "Strong in a widely available technique or model",
+      "Combines fields or models few others combine",
+      "Owns a method, model or resource others request"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.75,
+      1
+     ],
+     "advice": "Departments hire people who can do something they cannot do yet. Build one technique, model or resource that other groups come to you for.",
+     "num": "2.5",
+     "labels": [
+      "Same toolkit as the PI's lab (0 pts)",
+      "Strong in a widely available technique or model (2.8 pts)",
+      "Combines fields or models few others combine (6 pts)",
+      "Owns a method, model or resource others request (8 pts)"
+     ]
+    },
+    {
+     "id": "i6",
+     "type": "count",
+     "max": 4,
+     "unit": "projects",
+     "label": "Collaborations you initiated and lead",
+     "hint": "You are the contact person on your side.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.6
+      ],
+      [
+       2,
+       0.85
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "Start at least one collaboration that you lead yourself, with your name as the contact person. It is evidence of independence that a CV shows at a glance.",
+     "num": "2.6"
+    }
+   ]
+  },
+  {
+   "id": "S3",
+   "name": "Funding and recognition",
+   "short": "Funding",
+   "weight": 7,
+   "intro": "Competitive funding and invitations show that peers rank your work highly. Count only awards made in open competition after peer review.",
+   "criteria": [
+    {
+     "id": "f1",
+     "type": "count",
+     "max": 12,
+     "unit": "fellowships",
+     "label": "Personal postdoc fellowships",
+     "hint": "In your name, e.g. EMBO, Marie Curie (MSCA), HFSP, Swedish Research Council, Wenner-Gren.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.7
+      ],
+      [
+       2,
+       0.9
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "In a survey of 317 faculty applicants, holding a postdoc fellowship was associated with receiving offers. Apply for the fellowships still open at your stage, even late in the postdoc; examples are EMBO, Marie Curie (MSCA), HFSP and the Swedish Research Council international postdoc.",
+     "num": "3.1"
+    },
+    {
+     "id": "f2",
+     "type": "choice",
+     "max": 12,
+     "label": "Starting or transition grant",
+     "hint": "ERC Starting Grant, VR starting grant, HFSP Career Development Award, NIH K99/R00.",
+     "options": [
+      "Not applied",
+      "Applied, reviewed, not funded",
+      "Shortlisted or interviewed (e.g. ERC step 2)",
+      "Awarded"
+     ],
+     "fracs": [
+      0,
+      0.25,
+      0.5,
+      1
+     ],
+     "advice": "Apply for a starting or transition grant, such as the Swedish Research Council (VR) starting grant or the ERC Starting Grant. A reviewed application that came close is already a merit, and the reviews will improve your plan.",
+     "num": "3.2",
+     "labels": [
+      "Not applied (0 pts)",
+      "Applied, reviewed, not funded (3 pts)",
+      "Shortlisted or interviewed (e.g. ERC step 2) (6 pts)",
+      "Awarded (12 pts)"
+     ]
+    },
+    {
+     "id": "f3",
+     "type": "count",
+     "max": 8,
+     "unit": "grants",
+     "label": "Project grants as main applicant or co-applicant",
+     "hint": "From councils or foundations after peer review. Travel grants excluded.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.5
+      ],
+      [
+       2,
+       0.75
+      ],
+      [
+       4,
+       1
+      ]
+     ],
+     "advice": "Grants in your own name show that you can raise money, and Uppsala guidelines ask whether you are main applicant or co-applicant. Apply for project or consumables grants from foundations in your field.",
+     "num": "3.3"
+    },
+    {
+     "id": "f4",
+     "type": "count",
+     "max": 2,
+     "unit": "applications",
+     "label": "Grant applications as main applicant",
+     "hint": "Submitted, funded or not.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.5
+      ],
+      [
+       3,
+       0.8
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "advice": "Write grant applications as main applicant, even small ones. Each one is practice for the starting grant and brings reviewer feedback.",
+     "num": "3.4"
+    },
+    {
+     "id": "f5",
+     "type": "count",
+     "max": 4,
+     "unit": "prizes",
+     "label": "Research prizes and awards",
+     "hint": "From societies, foundations or universities. Travel awards excluded.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.6
+      ],
+      [
+       2,
+       0.85
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "Look for early-career prizes from societies and foundations in your field, and ask your PI to nominate you where a nomination is needed.",
+     "num": "3.5"
+    },
+    {
+     "id": "f6",
+     "type": "count",
+     "max": 4,
+     "unit": "talks",
+     "label": "Invited talks",
+     "hint": "Invitations from international meetings or other institutes.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.4
+      ],
+      [
+       2,
+       0.6
+      ],
+      [
+       3,
+       0.8
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "advice": "Invited talks show that the field knows your work. Offer a seminar when you visit another institute, and give selected talks at meetings, which lead to invitations.",
+     "num": "3.6"
+    },
+    {
+     "id": "f7",
+     "type": "choice",
+     "max": 2,
+     "label": "Peer review",
+     "hint": "For journals or funders.",
+     "options": [
+      "None",
+      "Co-reviewed with the PI",
+      "Independent reviewer for journals",
+      "Regular reviewer for several journals, or for a funder"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.75,
+      1
+     ],
+     "advice": "Co-review with your PI and ask to be recommended to editors, then review independently. Reviewing counts as a scientific position of trust in Uppsala career portfolios.",
+     "num": "3.7",
+     "labels": [
+      "None (0 pts)",
+      "Co-reviewed with the PI (0.7 pts)",
+      "Independent reviewer for journals (1.5 pts)",
+      "Regular reviewer for several journals, or for a funder (2 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S4",
+   "name": "Training background and mobility",
+   "short": "Background",
+   "weight": 3,
+   "intro": "Where you trained. Committees still read it, but it is a proxy for quality and carries little weight by default.",
+   "criteria": [
+    {
+     "id": "b1",
+     "type": "choice",
+     "max": 4,
+     "group": "background",
+     "label": "PhD environment",
+     "hint": "Standing of the department or institute.",
+     "options": [
+      "Small or new research environment",
+      "Recognised national environment",
+      "Internationally recognised department or institute",
+      "Leading international institute in the field"
+     ],
+     "fracs": [
+      0.1,
+      0.45,
+      0.8,
+      1
+     ],
+     "advice": "The standing of your training environments cannot change now, and committees should weigh it lightly. Compensate with evidence of your own, above all last-author papers and grants in your name.",
+     "num": "4.1",
+     "labels": [
+      "Small or new research environment (0.4 pts)",
+      "Recognised national environment (1.8 pts)",
+      "Internationally recognised department or institute (3.2 pts)",
+      "Leading international institute in the field (4 pts)"
+     ]
+    },
+    {
+     "id": "b2",
+     "type": "choice",
+     "max": 4,
+     "group": "background",
+     "label": "Postdoc environment",
+     "hint": "Standing of the department or institute.",
+     "options": [
+      "Small or new research environment",
+      "Recognised national environment",
+      "Internationally recognised department or institute",
+      "Leading international institute in the field"
+     ],
+     "fracs": [
+      0.1,
+      0.45,
+      0.8,
+      1
+     ],
+     "advice": "",
+     "num": "4.2",
+     "labels": [
+      "Small or new research environment (0.4 pts)",
+      "Recognised national environment (1.8 pts)",
+      "Internationally recognised department or institute (3.2 pts)",
+      "Leading international institute in the field (4 pts)"
+     ]
+    },
+    {
+     "id": "b3",
+     "type": "choice",
+     "max": 4,
+     "group": "background",
+     "label": "Postdoc laboratory",
+     "hint": "Standing of the group you work in.",
+     "options": [
+      "Early-career group",
+      "Established group",
+      "Internationally recognised group leader",
+      "Leading group in the field"
+     ],
+     "fracs": [
+      0.3,
+      0.55,
+      0.85,
+      1
+     ],
+     "advice": "",
+     "num": "4.3",
+     "labels": [
+      "Early-career group (1.2 pts)",
+      "Established group (2.2 pts)",
+      "Internationally recognised group leader (3.4 pts)",
+      "Leading group in the field (4 pts)"
+     ]
+    },
+    {
+     "id": "b4",
+     "type": "choice",
+     "max": 8,
+     "label": "International mobility",
+     "hint": "Most European schemes expect a move after the PhD.",
+     "options": [
+      "PhD and postdoc at the same institution",
+      "Moved institution within the same country",
+      "Postdoc in a different country from the PhD",
+      "Several countries, or abroad and back with a grant"
+     ],
+     "fracs": [
+      0,
+      0.45,
+      0.85,
+      1
+     ],
+     "advice": "Many Swedish and European committees, and the Wallenberg Academy Fellows programme, expect a postdoc in a different environment from the PhD. If you have not moved, a research stay of several months abroad partly fills the gap.",
+     "num": "4.4",
+     "labels": [
+      "PhD and postdoc at the same institution (0 pts)",
+      "Moved institution within the same country (3.6 pts)",
+      "Postdoc in a different country from the PhD (6.8 pts)",
+      "Several countries, or abroad and back with a grant (8 pts)"
+     ]
+    },
+    {
+     "id": "b5",
+     "type": "check",
+     "max": 4,
+     "label": "Change of field, model or technique after the PhD",
+     "hint": "Shows you can learn something new on your own.",
+     "advice": "A change of model or technique between PhD and postdoc shows that you can learn on your own. If your postdoc continued the PhD topic, show breadth through a technique you introduced to the lab.",
+     "num": "4.5"
+    }
+   ]
+  },
+  {
+   "id": "S5",
+   "name": "Teaching and supervision",
+   "short": "Teaching",
+   "weight": 5,
+   "intro": "The Swedish Higher Education Ordinance requires the same care in assessing teaching expertise as research expertise. Quality and reflection count more than hours.",
+   "criteria": [
+    {
+     "id": "t1",
+     "type": "count",
+     "max": 8,
+     "unit": "hours",
+     "label": "Teaching hours",
+     "hint": "Contact hours: lectures, practicals, seminars.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       20,
+       0.35
+      ],
+      [
+       50,
+       0.65
+      ],
+      [
+       100,
+       0.9
+      ],
+      [
+       150,
+       1
+      ]
+     ],
+     "advice": "Teaching hours reported: {v}. Build up documented teaching across course types; promotion from assistant professor to senior lecturer at Uppsala Medfarm normally requires 200 hours.",
+     "num": "5.1"
+    },
+    {
+     "id": "t2",
+     "type": "choice",
+     "max": 4,
+     "label": "Levels taught",
+     "hint": "Bachelor, master, doctoral.",
+     "options": [
+      "None",
+      "One level",
+      "Two levels",
+      "Bachelor, master and doctoral"
+     ],
+     "fracs": [
+      0,
+      0.5,
+      0.8,
+      1
+     ],
+     "advice": "Teach at more than one level. Uppsala guidelines ask for documented skill on bachelor and master courses, and doctoral courses add to it.",
+     "num": "5.2",
+     "labels": [
+      "None (0 pts)",
+      "One level (2 pts)",
+      "Two levels (3.2 pts)",
+      "Bachelor, master and doctoral (4 pts)"
+     ]
+    },
+    {
+     "id": "t3",
+     "type": "choice",
+     "max": 8,
+     "label": "Course responsibility",
+     "hint": "Planning, running and evaluating teaching.",
+     "options": [
+      "None",
+      "Responsible for a module or practical",
+      "Co-organised a full course",
+      "Course leader: planned, ran and evaluated a course"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.7,
+      1
+     ],
+     "advice": "Take responsibility for a course module, then for a full course. Organising a doctoral course in your own field is a good first step, and it strengthens your research profile too.",
+     "num": "5.3",
+     "labels": [
+      "None (0 pts)",
+      "Responsible for a module or practical (3.2 pts)",
+      "Co-organised a full course (5.6 pts)",
+      "Course leader: planned, ran and evaluated a course (8 pts)"
+     ]
+    },
+    {
+     "id": "t4",
+     "type": "count",
+     "max": 8,
+     "unit": "weeks",
+     "label": "Teacher training in higher education",
+     "hint": "Uppsala Medfarm: 5 weeks for an assistant professor, 10 for a senior lecturer.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.25
+      ],
+      [
+       2,
+       0.45
+      ],
+      [
+       3,
+       0.65
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "advice": "Complete teacher training in higher education. Uppsala Medfarm normally expects five weeks for an assistant professor and ten for a senior lecturer, and postdocs can usually take these courses at their current university.",
+     "num": "5.4"
+    },
+    {
+     "id": "t5",
+     "type": "count",
+     "max": 8,
+     "unit": "students",
+     "label": "Degree projects supervised",
+     "hint": "Bachelor or master projects, as main supervisor.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.4
+      ],
+      [
+       2,
+       0.6
+      ],
+      [
+       3,
+       0.8
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "advice": "Supervise bachelor or master degree projects as main supervisor. A well-chosen project also produces data for your own research line.",
+     "num": "5.5"
+    },
+    {
+     "id": "t6",
+     "type": "choice",
+     "max": 8,
+     "label": "Doctoral supervision",
+     "hint": "Formal registration counts more than day-to-day help.",
+     "options": [
+      "None",
+      "Informal day-to-day mentoring of a doctoral student",
+      "Registered co-supervisor",
+      "Co-supervisor of a doctoral student who has graduated"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Become a registered co-supervisor of a doctoral student. Promotion from assistant professor at Uppsala Medfarm requires supervising at least one doctoral student, and committees value earlier experience.",
+     "num": "5.6",
+     "labels": [
+      "None (0 pts)",
+      "Informal day-to-day mentoring of a doctoral student (3.2 pts)",
+      "Registered co-supervisor (6.4 pts)",
+      "Co-supervisor of a doctoral student who has graduated (8 pts)"
+     ]
+    },
+    {
+     "id": "t7",
+     "type": "choice",
+     "max": 8,
+     "label": "Documented teaching quality",
+     "hint": "Evaluations, and your reflection on them.",
+     "options": [
+      "Nothing documented",
+      "Course evaluations collected",
+      "Evaluations plus a written teaching philosophy",
+      "Plus changes made in response, or a teaching award"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.75,
+      1
+     ],
+     "advice": "Collect course evaluations and write a one-page teaching philosophy that refers to them. Show one change you made after negative feedback: Uppsala guidelines value this more than uniformly positive evaluations.",
+     "num": "5.7",
+     "labels": [
+      "Nothing documented (0 pts)",
+      "Course evaluations collected (3.2 pts)",
+      "Evaluations plus a written teaching philosophy (6 pts)",
+      "Plus changes made in response, or a teaching award (8 pts)"
+     ]
+    },
+    {
+     "id": "t8",
+     "type": "check",
+     "max": 4,
+     "label": "Course development or teaching material",
+     "hint": "A new practical, case study, online module or textbook chapter.",
+     "advice": "Develop teaching material that other teachers can reuse, such as a practical or an online module, and document how students received it.",
+     "num": "5.8"
+    }
+   ]
+  },
+  {
+   "id": "S6",
+   "name": "Leadership, management and service",
+   "short": "Leadership",
+   "weight": 3,
+   "intro": "Experience of leading people and projects, and of service to the academic community.",
+   "criteria": [
+    {
+     "id": "l1",
+     "type": "count",
+     "max": 8,
+     "unit": "days",
+     "label": "Leadership training",
+     "hint": "Days of courses, e.g. UGL or a course for new group leaders.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.35
+      ],
+      [
+       3,
+       0.7
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "advice": "Take a leadership course for researchers, such as UGL (a five-day Swedish course on groups and leadership) or a course for new group leaders. Uppsala portfolios report leadership training in days.",
+     "num": "6.1"
+    },
+    {
+     "id": "l2",
+     "type": "choice",
+     "max": 8,
+     "label": "Management responsibility",
+     "hint": "The highest level you hold or have held.",
+     "options": [
+      "None",
+      "Lab tasks: ordering, safety, equipment",
+      "Project lead coordinating several people",
+      "Staff or budget responsibility"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.7,
+      1
+     ],
+     "advice": "Take on a defined management task, for example coordinating a project with several people or managing a budget line.",
+     "num": "6.2",
+     "labels": [
+      "None (0 pts)",
+      "Lab tasks: ordering, safety, equipment (2.8 pts)",
+      "Project lead coordinating several people (5.6 pts)",
+      "Staff or budget responsibility (8 pts)"
+     ]
+    },
+    {
+     "id": "l3",
+     "type": "count",
+     "max": 4,
+     "unit": "roles",
+     "label": "Committees and boards",
+     "hint": "Department board, postdoc association, equal opportunities group.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.55
+      ],
+      [
+       2,
+       0.8
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "Join one committee or board, such as a department board or a postdoc association. One sustained role counts more than several nominal ones.",
+     "num": "6.3"
+    },
+    {
+     "id": "l4",
+     "type": "count",
+     "max": 4,
+     "unit": "events",
+     "label": "Events organised",
+     "hint": "Seminar series, workshops, conference sessions.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.55
+      ],
+      [
+       2,
+       0.8
+      ],
+      [
+       4,
+       1
+      ]
+     ],
+     "advice": "Organise a seminar series, a workshop or a conference session. It builds your network and counts for both leadership and collaboration.",
+     "num": "6.4"
+    },
+    {
+     "id": "l5",
+     "type": "check",
+     "max": 2,
+     "label": "Work on equal opportunities, ethics or work environment",
+     "hint": "Projects or assignments. Valued explicitly by Uppsala Medfarm.",
+     "advice": "Uppsala guidelines explicitly value work on equal opportunities, ethics or the work environment. One documented contribution is enough.",
+     "num": "6.5"
+    },
+    {
+     "id": "l6",
+     "type": "check",
+     "max": 2,
+     "label": "Mentoring outside formal supervision",
+     "hint": "",
+     "advice": "Mentor a junior researcher outside formal supervision and report it in your leadership portfolio.",
+     "num": "6.6"
+    }
+   ]
+  },
+  {
+   "id": "S7",
+   "name": "Collaboration, outreach and open science",
+   "short": "Collaboration",
+   "weight": 3,
+   "intro": "Work with groups outside your lab and with society. Uppsala assesses collaboration with society as a merit of its own.",
+   "criteria": [
+    {
+     "id": "c1",
+     "type": "count",
+     "max": 8,
+     "unit": "groups",
+     "label": "Active collaborations outside your lab",
+     "hint": "National or international, with shared work in progress.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.4
+      ],
+      [
+       3,
+       0.8
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "advice": "Build a few active collaborations with other groups, in your country and abroad. They are the network you will rely on as a new group leader.",
+     "num": "7.1"
+    },
+    {
+     "id": "c6",
+     "type": "count",
+     "max": 2,
+     "unit": "papers",
+     "label": "Papers as third author or later",
+     "hint": "No special credit; counted only as breadth of collaboration.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       3,
+       0.5
+      ],
+      [
+       6,
+       0.8
+      ],
+      [
+       10,
+       1
+      ]
+     ],
+     "advice": "Middle authorships carry no special weight and need not be pursued. A few of them indicate effective collaboration with other groups.",
+     "num": "7.2"
+    },
+    {
+     "id": "c2",
+     "type": "check",
+     "max": 4,
+     "label": "Collaboration with industry, healthcare or public agencies",
+     "hint": "",
+     "advice": "A collaboration with a company, a hospital or a public agency is a merit in collaboration portfolios. Look for one where your methods solve a problem they have.",
+     "num": "7.3"
+    },
+    {
+     "id": "c3",
+     "type": "count",
+     "max": 4,
+     "unit": "activities",
+     "label": "Outreach activities",
+     "hint": "School visits, popular science texts, public talks, media.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.4
+      ],
+      [
+       3,
+       0.75
+      ],
+      [
+       6,
+       1
+      ]
+     ],
+     "advice": "Do some outreach, for example school visits or popular science texts. Uppsala assesses collaboration with society as a separate merit.",
+     "num": "7.4"
+    },
+    {
+     "id": "c4",
+     "type": "count",
+     "max": 2,
+     "unit": "items",
+     "label": "Innovation",
+     "hint": "Patent applications, licences, start-ups, commercial tools.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.8
+      ],
+      [
+       2,
+       1
+      ]
+     ],
+     "advice": "If a result has applied potential, contact your university's innovation office. A patent application is a merit, but file it before you publish, not instead of publishing.",
+     "num": "7.5"
+    },
+    {
+     "id": "c5",
+     "type": "choice",
+     "max": 4,
+     "label": "Open science",
+     "hint": "",
+     "options": [
+      "Data and code available on request only",
+      "Preprints posted",
+      "Data, code or protocols deposited",
+      "Resources (lines, plasmids, software) used by other labs"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.75,
+      1
+     ],
+     "advice": "Deposit data and code with your papers, and distribute lines or plasmids through repositories. Reuse of your resources by other labs is visible evidence of impact.",
+     "num": "7.6",
+     "labels": [
+      "Data and code available on request only (0 pts)",
+      "Preprints posted (1.6 pts)",
+      "Data, code or protocols deposited (3 pts)",
+      "Resources (lines, plasmids, software) used by other labs (4 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S8",
+   "name": "Fit with the target programme or department",
+   "short": "Fit",
+   "weight": 6,
+   "intro": "Fill in for one specific position, and repeat for each application. Fit often decides between candidates of similar merit.",
+   "criteria": [
+    {
+     "id": "d1",
+     "type": "choice",
+     "max": 12,
+     "label": "Scientific fit",
+     "hint": "Against the advertised profile and the department's strategy.",
+     "options": [
+      "Outside the department's research areas",
+      "Adjacent to its research areas",
+      "Inside a stated priority area",
+      "Matches the advertised profile closely",
+      "Matches the profile and fills a gap they named"
+     ],
+     "fracs": [
+      0,
+      0.3,
+      0.6,
+      0.85,
+      1
+     ],
+     "advice": "Read the department's strategy and the advertised profile, then frame your programme in their terms. If the fit is weak, prefer other positions to overstating the match.",
+     "num": "8.1",
+     "labels": [
+      "Outside the department's research areas (0 pts)",
+      "Adjacent to its research areas (3.6 pts)",
+      "Inside a stated priority area (7.2 pts)",
+      "Matches the advertised profile closely (10.2 pts)",
+      "Matches the profile and fills a gap they named (12 pts)"
+     ]
+    },
+    {
+     "id": "d2",
+     "type": "choice",
+     "max": 8,
+     "label": "Complementarity",
+     "hint": "What you add to the groups already there.",
+     "options": [
+      "Duplicates an existing group",
+      "Overlaps strongly with one group",
+      "Adds a new model, method or question",
+      "Adds expertise the department lacks and others will use"
+     ],
+     "fracs": [
+      0,
+      0.3,
+      0.75,
+      1
+     ],
+     "advice": "State what you bring that the department does not have, and who there would use it. Avoid positions where an existing group already does what you do.",
+     "num": "8.2",
+     "labels": [
+      "Duplicates an existing group (0 pts)",
+      "Overlaps strongly with one group (2.4 pts)",
+      "Adds a new model, method or question (6 pts)",
+      "Adds expertise the department lacks and others will use (8 pts)"
+     ]
+    },
+    {
+     "id": "d3",
+     "type": "count",
+     "max": 4,
+     "unit": "people",
+     "label": "Named potential collaborators there",
+     "hint": "Each with a concrete shared question.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.5
+      ],
+      [
+       2,
+       0.8
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "Identify two or three people in the department you could work with, and name them in the application with a concrete shared question.",
+     "num": "8.3"
+    },
+    {
+     "id": "d4",
+     "type": "choice",
+     "max": 8,
+     "label": "Infrastructure for your programme",
+     "hint": "Animal facility, imaging, sequencing, other core facilities.",
+     "options": [
+      "Key facilities missing",
+      "Partly available",
+      "Available",
+      "Available, and you already know or use them"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.8,
+      1
+     ],
+     "advice": "Check that the facilities your programme needs exist at the host, and contact the facility managers before the interview.",
+     "num": "8.4",
+     "labels": [
+      "Key facilities missing (0 pts)",
+      "Partly available (2.8 pts)",
+      "Available (6.4 pts)",
+      "Available, and you already know or use them (8 pts)"
+     ]
+    },
+    {
+     "id": "d5",
+     "type": "choice",
+     "max": 8,
+     "label": "Teaching fit",
+     "hint": "Against the department's courses and programmes.",
+     "options": [
+      "No match with the curriculum",
+      "Can give a few lectures",
+      "Can teach in existing courses",
+      "Can take over or create a course they need"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.75,
+      1
+     ],
+     "advice": "Look up the department's courses, name the ones you can teach, and offer to build a course the curriculum lacks.",
+     "num": "8.5",
+     "labels": [
+      "No match with the curriculum (0 pts)",
+      "Can give a few lectures (2.8 pts)",
+      "Can teach in existing courses (6 pts)",
+      "Can take over or create a course they need (8 pts)"
+     ]
+    },
+    {
+     "id": "d6",
+     "type": "choice",
+     "max": 4,
+     "label": "Contact with the department",
+     "hint": "",
+     "options": [
+      "None",
+      "Know people there",
+      "Visited or gave a seminar",
+      "Ongoing collaboration with a member"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.75,
+      1
+     ],
+     "advice": "Make contact before applying: ask for a seminar slot, or write to a potential colleague. Being known lowers the perceived risk of a hire.",
+     "num": "8.6",
+     "labels": [
+      "None (0 pts)",
+      "Know people there (1.4 pts)",
+      "Visited or gave a seminar (3 pts)",
+      "Ongoing collaboration with a member (4 pts)"
+     ]
+    },
+    {
+     "id": "d7",
+     "type": "choice",
+     "max": 4,
+     "label": "Language for teaching and administration",
+     "hint": "Swedish posts often expect teaching in Swedish within two years.",
+     "options": [
+      "Cannot use the local language, no plan",
+      "Learning, with a plan",
+      "Fluent, or the post is English-only"
+     ],
+     "fracs": [
+      0,
+      0.5,
+      1
+     ],
+     "advice": "If the department teaches in a language you do not speak, show a plan to learn it. Swedish job advertisements often expect teaching in Swedish within two years.",
+     "num": "8.7",
+     "labels": [
+      "Cannot use the local language, no plan (0 pts)",
+      "Learning, with a plan (2 pts)",
+      "Fluent, or the post is English-only (4 pts)"
+     ]
+    },
+    {
+     "id": "d8",
+     "type": "choice",
+     "max": 2,
+     "label": "Eligibility for the host country's funders",
+     "hint": "In Sweden: the Swedish Research Council and the large foundations.",
+     "options": [
+      "Not eligible yet",
+      "Eligible",
+      "Eligible, with first applications planned"
+     ],
+     "fracs": [
+      0,
+      0.7,
+      1
+     ],
+     "advice": "Check your eligibility for the host country's main funders and plan your first applications before you arrive.",
+     "num": "8.8",
+     "labels": [
+      "Not eligible yet (0 pts)",
+      "Eligible (1.4 pts)",
+      "Eligible, with first applications planned (2 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S9",
+   "name": "Timing and application readiness",
+   "short": "Readiness",
+   "weight": 4,
+   "intro": "The timing item uses the PhD date and leave on page 2. Letters and the interview decide many searches once candidates are shortlisted.",
+   "criteria": [
+    {
+     "id": "a1",
+     "type": "derived",
+     "source": "age",
+     "rubric_unit": "years since PhD",
+     "max": 8,
+     "unit": "",
+     "label": "Timing",
+     "hint": "Calculated from years since the PhD, net of leave.",
+     "anchors": [
+      [
+       0,
+       0.1
+      ],
+      [
+       1.5,
+       0.35
+      ],
+      [
+       2.5,
+       0.75
+      ],
+      [
+       3,
+       1
+      ],
+      [
+       6,
+       1
+      ],
+      [
+       7,
+       0.8
+      ],
+      [
+       8,
+       0.45
+      ],
+      [
+       10,
+       0.25
+      ]
+     ],
+     "advice": "TIMING",
+     "num": "9.1"
+    },
+    {
+     "id": "a2",
+     "type": "choice",
+     "max": 12,
+     "label": "Reference letters",
+     "hint": "Who will write, and what they can say.",
+     "options": [
+      "Only the current PI",
+      "PI plus one more",
+      "Three letters: PhD and postdoc supervisors",
+      "Three or more, incl. an independent senior scientist"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.75,
+      1
+     ],
+     "advice": "Secure three referees: your PhD and postdoc supervisors and one independent senior scientist who knows your work. Ask your PI to state in the letter that your research line is yours to take.",
+     "num": "9.2",
+     "labels": [
+      "Only the current PI (0 pts)",
+      "PI plus one more (4.8 pts)",
+      "Three letters: PhD and postdoc supervisors (9 pts)",
+      "Three or more, incl. an independent senior scientist (12 pts)"
+     ]
+    },
+    {
+     "id": "a3",
+     "type": "choice",
+     "max": 8,
+     "label": "Job talk and trial lecture",
+     "hint": "Judged as science and as a sample of your teaching.",
+     "options": [
+      "Not prepared",
+      "Drafted",
+      "Rehearsed before colleagues",
+      "Given and refined in interviews or invited seminars"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.75,
+      1
+     ],
+     "advice": "Rehearse your job talk in front of colleagues from other fields, and prepare a trial lecture for undergraduates: Swedish recruitments often include one.",
+     "num": "9.3",
+     "labels": [
+      "Not prepared (0 pts)",
+      "Drafted (2.8 pts)",
+      "Rehearsed before colleagues (6 pts)",
+      "Given and refined in interviews or invited seminars (8 pts)"
+     ]
+    },
+    {
+     "id": "a4",
+     "type": "choice",
+     "max": 8,
+     "label": "Research plan presentation (chalk talk)",
+     "hint": "Your first years as group leader, often without slides.",
+     "options": [
+      "Not prepared",
+      "Drafted",
+      "Rehearsed before colleagues",
+      "Given and refined in interviews"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.75,
+      1
+     ],
+     "advice": "Prepare a presentation of your first three years as group leader and how you will fund them. In North American searches this chalk talk often weighs more than the job talk, and European interviews probe the same questions.",
+     "num": "9.4",
+     "labels": [
+      "Not prepared (0 pts)",
+      "Drafted (2.8 pts)",
+      "Rehearsed before colleagues (6 pts)",
+      "Given and refined in interviews (8 pts)"
+     ]
+    },
+    {
+     "id": "a5",
+     "type": "choice",
+     "max": 4,
+     "label": "Application dossier",
+     "hint": "In the format of the target university.",
+     "options": [
+      "Nothing prepared",
+      "CV only",
+      "CV with research and teaching statements",
+      "Full career portfolio, read by a mentor"
+     ],
+     "fracs": [
+      0,
+      0.3,
+      0.7,
+      1
+     ],
+     "advice": "Assemble a full career portfolio in the format of your target university (at Uppsala: research, teaching, leadership and collaboration portfolios) and have a mentor read it.",
+     "num": "9.5",
+     "labels": [
+      "Nothing prepared (0 pts)",
+      "CV only (1.2 pts)",
+      "CV with research and teaching statements (2.8 pts)",
+      "Full career portfolio, read by a mentor (4 pts)"
+     ]
+    },
+    {
+     "id": "a6",
+     "type": "count",
+     "max": 2,
+     "unit": "applications",
+     "label": "Applications this hiring cycle",
+     "hint": "Planned or sent.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       3,
+       0.4
+      ],
+      [
+       8,
+       0.75
+      ],
+      [
+       15,
+       1
+      ]
+     ],
+     "advice": "Apply widely. In a survey of faculty applicants, those who sent more than 15 applications had more remote interviews, although the number of applications predicted offers only weakly.",
+     "num": "9.6"
+    },
+    {
+     "id": "a7",
+     "type": "check",
+     "max": 4,
+     "label": "Senior mentor outside your lab",
+     "hint": "Reads your applications and speaks for you.",
+     "advice": "Find a senior mentor outside your lab who reads your applications critically and can speak for you.",
+     "num": "9.7"
+    }
+   ]
+  }
+ ],
+ "dates": {
+  "signed": false,
+  "rate_item": "r2",
+  "alt": {
+   "per_child": 18,
+   "label": "ERC rule"
+  }
+ },
+ "code": "PTI",
+ "group_labels": {
+  "background": "Training environments"
+ },
+ "flags": [
+  {
+   "item": "r1",
+   "test": "eq",
+   "value": 0,
+   "text": "No first-author research paper: few committees will shortlist without one."
+  },
+  {
+   "item": "i1",
+   "test": "le",
+   "value": 1,
+   "text": "Research line not separable from the PI's: committees treat this as the main risk of a hire."
+  },
+  {
+   "item": "t4",
+   "test": "lt_or_missing",
+   "value": 5,
+   "text": "Under 5 weeks of teacher training: Uppsala Medfarm normally expects 5 weeks for an assistant professor."
+  }
+ ],
+ "presets": [
+  {
+   "name": "Research-intensive assistant professor (default)",
+   "weights": [
+    8,
+    10,
+    7,
+    3,
+    5,
+    3,
+    3,
+    6,
+    4
+   ]
+  },
+  {
+   "name": "Swedish tenure track (biträdande universitetslektor)",
+   "weights": [
+    8,
+    9,
+    6,
+    3,
+    8,
+    4,
+    4,
+    6,
+    4
+   ]
+  },
+  {
+   "name": "Starting grant or fellowship",
+   "weights": [
+    10,
+    10,
+    7,
+    3,
+    1,
+    2,
+    1,
+    3,
+    2
+   ]
+  },
+  {
+   "name": "Teaching-focused lecturer",
+   "weights": [
+    4,
+    3,
+    3,
+    2,
+    10,
+    5,
+    4,
+    7,
+    4
+   ]
+  }
+ ],
+ "bars": {
+  "total": 178,
+  "section": 53
+ }
+}

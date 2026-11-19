@@ -1,0 +1,1282 @@
+{
+ "version": "1.0",
+ "threshold": 60,
+ "bands": [
+  [
+   0,
+   "Early"
+  ],
+  [
+   40,
+   "Developing"
+  ],
+  [
+   60,
+   "Competitive"
+  ],
+  [
+   75,
+   "Strong"
+  ]
+ ],
+ "target": 0.75,
+ "tiers": {
+  "12": "key",
+  "8": "major",
+  "4": "supporting",
+  "2": "minor"
+ },
+ "timing": [
+  [
+   -1,
+   "At {when}, it is early to apply. Use the time to gain research experience and to find groups; international programmes recruit six to twelve months ahead."
+  ],
+  [
+   0,
+   "At {when}, apply now: positions and programmes require the degree by the start of the PhD, not at the application."
+  ],
+  [
+   3,
+   "At {when}, you are in the usual window. Any time before the PhD is best spent adding research experience, for example as a research assistant."
+  ],
+  [
+   999,
+   "At {when}, a gap since the degree is common and not a problem in itself. Explain it in your letter and show recent research experience. Boehringer Ingelheim Fonds fellowships require a university entrance qualification obtained no more than eight years before the deadline."
+  ]
+ ],
+ "windows": [
+  {
+   "name": "Swedish PhD position",
+   "range": "degree by admission",
+   "lo": -0.5,
+   "hi": null,
+   "alt": false
+  },
+  {
+   "name": "EMBL International PhD Programme",
+   "range": "degree by the start",
+   "lo": -1,
+   "hi": null,
+   "alt": false
+  },
+  {
+   "name": "Vienna BioCenter PhD Programme",
+   "range": "120-credit master's",
+   "lo": -1,
+   "hi": null,
+   "alt": false
+  },
+  {
+   "name": "MSCA Doctoral Network position",
+   "range": "no PhD; mobility rule",
+   "lo": -0.5,
+   "hi": null,
+   "alt": false
+  }
+ ],
+ "sections": [
+  {
+   "id": "S1",
+   "name": "Academic record",
+   "short": "Academic record",
+   "weight": 7,
+   "intro": "Grades and training. Swedish doctoral entry requires an advanced-level degree, or 240 credits (ECTS) including 60 at advanced level.",
+   "criteria": [
+    {
+     "id": "q1",
+     "type": "choice",
+     "max": 12,
+     "label": "Grades in your degree programmes",
+     "hint": "Compared with your cohort. ECTS grade A is the top 10 %.",
+     "options": [
+      "Below the programme average",
+      "Around the average",
+      "Upper third of the cohort",
+      "Top 10 %, or a distinction"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Grades are read at shortlisting, and personal fellowships such as the Boehringer Ingelheim Fonds look for top grades. If yours are average, let research experience and strong references carry the application, and explain any weak semester briefly.",
+     "num": "1.1",
+     "labels": [
+      "Below the programme average (0 pts)",
+      "Around the average (4.8 pts)",
+      "Upper third of the cohort (9.6 pts)",
+      "Top 10 %, or a distinction (12 pts)"
+     ]
+    },
+    {
+     "id": "q2",
+     "type": "choice",
+     "max": 8,
+     "label": "Advanced-level training",
+     "hint": "What you will hold when the PhD starts.",
+     "options": [
+      "Bachelor's degree only",
+      "Some advanced-level courses",
+      "Master's, or 240 credits with 60 at advanced level",
+      "Master's with a research thesis of 30 credits or more"
+     ],
+     "fracs": [
+      0,
+      0.3,
+      0.85,
+      1
+     ],
+     "advice": "Complete the advanced-level training that PhD entry requires: in Sweden an advanced-level degree, or 240 credits including 60 at advanced level. Some international programmes, such as the Vienna BioCenter's, ask for a two-year master's of 120 credits, or a four-year bachelor's with first-class honours.",
+     "num": "1.2",
+     "labels": [
+      "Bachelor's degree only (0 pts)",
+      "Some advanced-level courses (2.4 pts)",
+      "Master's, or 240 credits with 60 at advanced level (6.8 pts)",
+      "Master's with a research thesis of 30 credits or more (8 pts)"
+     ]
+    },
+    {
+     "id": "q3",
+     "type": "choice",
+     "max": 8,
+     "label": "Courses relevant to the project",
+     "hint": "Against the PhD project you target.",
+     "options": [
+      "Little overlap",
+      "Some relevant courses",
+      "Core courses in the project's field",
+      "Core courses and advanced methods courses"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.8,
+      1
+     ],
+     "advice": "Take an advanced course in the field or methods of the projects you target, and name it in your letter. Supervisors look for a background they can build on.",
+     "num": "1.3",
+     "labels": [
+      "Little overlap (0 pts)",
+      "Some relevant courses (2.8 pts)",
+      "Core courses in the project's field (6.4 pts)",
+      "Core courses and advanced methods courses (8 pts)"
+     ]
+    },
+    {
+     "id": "q4",
+     "type": "choice",
+     "max": 4,
+     "label": "Quantitative training",
+     "hint": "Statistics and programming.",
+     "options": [
+      "Basic mathematics only",
+      "A statistics course",
+      "Statistics and programming courses",
+      "Programming used in a research project"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Take a course in statistics or programming in R or Python. Most biology PhD projects now involve analysing large data sets.",
+     "num": "1.4",
+     "labels": [
+      "Basic mathematics only (0 pts)",
+      "A statistics course (1.6 pts)",
+      "Statistics and programming courses (3.2 pts)",
+      "Programming used in a research project (4 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S2",
+   "name": "Research experience",
+   "short": "Research",
+   "weight": 10,
+   "intro": "Count research in full-time months, in the lab or at the computer: master's projects, internships and research-assistant jobs.",
+   "criteria": [
+    {
+     "id": "r1",
+     "type": "count",
+     "max": 12,
+     "unit": "months",
+     "label": "Hands-on research experience",
+     "hint": "Full-time months in research groups.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       3,
+       0.35
+      ],
+      [
+       6,
+       0.6
+      ],
+      [
+       12,
+       0.85
+      ],
+      [
+       24,
+       1
+      ]
+     ],
+     "advice": "Research experience reported: {v} months. Most successful applicants have done at least one substantial research project; add an internship or a research-assistant position before you apply if you can.",
+     "num": "2.1"
+    },
+    {
+     "id": "r2",
+     "type": "choice",
+     "max": 12,
+     "label": "Your main research project",
+     "hint": "Usually the master's thesis project.",
+     "options": [
+      "Not started",
+      "Literature review only",
+      "Research project following a set plan",
+      "Your own results, and part of the design",
+      "Results in a paper or preprint, or shown at a meeting"
+     ],
+     "fracs": [
+      0,
+      0.25,
+      0.6,
+      0.85,
+      1
+     ],
+     "advice": "Choose a master's project with experimental or computational work you carry out yourself, and aim for results you can present. Interview panels ask you to explain this project in depth.",
+     "num": "2.2",
+     "labels": [
+      "Not started (0 pts)",
+      "Literature review only (3 pts)",
+      "Research project following a set plan (7.2 pts)",
+      "Your own results, and part of the design (10.2 pts)",
+      "Results in a paper or preprint, or shown at a meeting (12 pts)"
+     ]
+    },
+    {
+     "id": "r3",
+     "type": "count",
+     "max": 4,
+     "unit": "groups",
+     "label": "Research groups you have worked in",
+     "hint": "Projects, internships or jobs of a month or more.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.5
+      ],
+      [
+       2,
+       0.85
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "Work in a second research group, for a summer internship or a short project. It shows you can adapt to a new group and gives you a second referee.",
+     "num": "2.3"
+    },
+    {
+     "id": "r4",
+     "type": "choice",
+     "max": 8,
+     "label": "Independence in research",
+     "hint": "",
+     "options": [
+      "Followed protocols under close supervision",
+      "Ran experiments on your own",
+      "Planned experiments and solved problems",
+      "Proposed and tested ideas of your own"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Ask to plan part of your project and to troubleshoot problems yourself before asking for help. Panels assess whether a candidate can think independently.",
+     "num": "2.4",
+     "labels": [
+      "Followed protocols under close supervision (0 pts)",
+      "Ran experiments on your own (3.2 pts)",
+      "Planned experiments and solved problems (6.4 pts)",
+      "Proposed and tested ideas of your own (8 pts)"
+     ]
+    },
+    {
+     "id": "r5",
+     "type": "count",
+     "max": 8,
+     "unit": "techniques",
+     "label": "Techniques you can run on your own",
+     "hint": "e.g. cell culture, microscopy, sequencing, an animal model, a computational method.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.35
+      ],
+      [
+       2,
+       0.6
+      ],
+      [
+       3,
+       0.8
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "advice": "Become confident in the core methods of the field you target, so that you can start experiments in the first weeks of a PhD.",
+     "num": "2.5"
+    },
+    {
+     "id": "r6",
+     "type": "choice",
+     "max": 4,
+     "label": "Analysis of your own data",
+     "hint": "",
+     "options": [
+      "Spreadsheets only",
+      "Statistics software (e.g. Prism)",
+      "Scripts in R or Python",
+      "Your own analysis workflow for a full data set"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Analyse your own project data with code, in R or Python, rather than leaving it to others. It is a skill almost every PhD project now needs.",
+     "num": "2.6",
+     "labels": [
+      "Spreadsheets only (0 pts)",
+      "Statistics software (e.g. Prism) (1.6 pts)",
+      "Scripts in R or Python (3.2 pts)",
+      "Your own analysis workflow for a full data set (4 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S3",
+   "name": "Output and communication",
+   "short": "Output",
+   "weight": 4,
+   "intro": "Papers are not expected at this stage, but they count when they exist. Presenting and writing about your research count too.",
+   "criteria": [
+    {
+     "id": "p1",
+     "type": "count",
+     "max": 4,
+     "unit": "papers",
+     "label": "Papers or preprints with your name",
+     "hint": "Any author position.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.8
+      ],
+      [
+       2,
+       1
+      ]
+     ],
+     "advice": "If your project produced data used in a paper, make sure your contribution is recognised in the author list or acknowledgements. A co-authorship is rare at this stage and stands out.",
+     "num": "3.1"
+    },
+    {
+     "id": "p2",
+     "type": "check",
+     "max": 4,
+     "label": "First-author paper or preprint",
+     "hint": "",
+     "advice": "If your thesis project gave a complete result, discuss with your supervisor whether it could become a short paper or preprint with you as first author.",
+     "num": "3.2"
+    },
+    {
+     "id": "p3",
+     "type": "count",
+     "max": 4,
+     "unit": "presentations",
+     "label": "Posters or talks at meetings",
+     "hint": "Conferences or symposia, not course presentations.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.6
+      ],
+      [
+       2,
+       0.85
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "Present a poster at a student symposium or a national meeting. It is practice for interviews and a line on your CV.",
+     "num": "3.3"
+    },
+    {
+     "id": "p4",
+     "type": "choice",
+     "max": 4,
+     "label": "Thesis grade, or expected grade",
+     "hint": "Ask your supervisor if not yet graded.",
+     "options": [
+      "Pass",
+      "Good grade, or pass on a pass/fail scale",
+      "Very good grade",
+      "Top grade"
+     ],
+     "fracs": [
+      0.3,
+      0.7,
+      0.85,
+      1
+     ],
+     "advice": "Your thesis is the longest piece of scientific writing a panel can read. Give it the time it needs and ask your supervisor for feedback on a full draft.",
+     "num": "3.4",
+     "labels": [
+      "Pass (1.2 pts)",
+      "Good grade, or pass on a pass/fail scale (2.8 pts)",
+      "Very good grade (3.4 pts)",
+      "Top grade (4 pts)"
+     ]
+    },
+    {
+     "id": "p5",
+     "type": "choice",
+     "max": 4,
+     "label": "Scientific writing",
+     "hint": "",
+     "options": [
+      "Course reports only",
+      "Thesis or project report",
+      "Thesis, and a research plan or review of your own",
+      "Contributed text to a manuscript"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.75,
+      1
+     ],
+     "advice": "Write a short research plan for the project you target. Panels read your writing as a sample of how you think, and personal fellowships ask you to describe the project yourself.",
+     "num": "3.5",
+     "labels": [
+      "Course reports only (0 pts)",
+      "Thesis or project report (1.6 pts)",
+      "Thesis, and a research plan or review of your own (3 pts)",
+      "Contributed text to a manuscript (4 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S4",
+   "name": "Motivation and fit with the project",
+   "short": "Fit",
+   "weight": 9,
+   "intro": "Fill in for one PhD position or programme, and repeat for each. Supervisors first check whether your skills fit the project.",
+   "criteria": [
+    {
+     "id": "f1",
+     "type": "choice",
+     "max": 12,
+     "label": "Fit of your background with the project",
+     "hint": "Against the advertisement or the group's research.",
+     "options": [
+      "Little overlap",
+      "Related field, different methods",
+      "Field and methods match",
+      "Match, and you bring a skill they ask for"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.8,
+      1
+     ],
+     "advice": "Apply to projects that use your training, and say in your letter which of your skills the project needs. Supervisors shortlist mainly on fit.",
+     "num": "4.1",
+     "labels": [
+      "Little overlap (0 pts)",
+      "Related field, different methods (4.2 pts)",
+      "Field and methods match (9.6 pts)",
+      "Match, and you bring a skill they ask for (12 pts)"
+     ]
+    },
+    {
+     "id": "f2",
+     "type": "choice",
+     "max": 8,
+     "label": "Understanding of the project",
+     "hint": "",
+     "options": [
+      "Read the advertisement only",
+      "Read the group's recent papers",
+      "Can explain the project's question and approach",
+      "Discussed ideas for the project with the supervisor"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.8,
+      1
+     ],
+     "advice": "Read the group's last few papers and be able to explain the project's question and approach in your own words. Interview panels test exactly this.",
+     "num": "4.2",
+     "labels": [
+      "Read the advertisement only (0 pts)",
+      "Read the group's recent papers (2.8 pts)",
+      "Can explain the project's question and approach (6.4 pts)",
+      "Discussed ideas for the project with the supervisor (8 pts)"
+     ]
+    },
+    {
+     "id": "f3",
+     "type": "choice",
+     "max": 8,
+     "label": "Motivation letter",
+     "hint": "",
+     "options": [
+      "Generic letter",
+      "Letter names the project",
+      "Letter links your experience to the project",
+      "Tailored letter, read by a mentor"
+     ],
+     "fracs": [
+      0,
+      0.3,
+      0.75,
+      1
+     ],
+     "advice": "Write a letter for each position that links your experience to the project, and have a researcher read it. Supervisors recognise a generic letter at once.",
+     "num": "4.3",
+     "labels": [
+      "Generic letter (0 pts)",
+      "Letter names the project (2.4 pts)",
+      "Letter links your experience to the project (6 pts)",
+      "Tailored letter, read by a mentor (8 pts)"
+     ]
+    },
+    {
+     "id": "f4",
+     "type": "choice",
+     "max": 4,
+     "label": "Contact with the group",
+     "hint": "",
+     "options": [
+      "None",
+      "Emailed the supervisor",
+      "Video call, or met the group",
+      "Visited, or did a project in the group"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.75,
+      1
+     ],
+     "advice": "Write a short email to the supervisor with a specific question about the project before you apply. It shows interest and often brings useful information.",
+     "num": "4.4",
+     "labels": [
+      "None (0 pts)",
+      "Emailed the supervisor (1.6 pts)",
+      "Video call, or met the group (3 pts)",
+      "Visited, or did a project in the group (4 pts)"
+     ]
+    },
+    {
+     "id": "f5",
+     "type": "choice",
+     "max": 4,
+     "label": "Why you want a PhD",
+     "hint": "",
+     "options": [
+      "Not yet clear",
+      "General interest in research",
+      "Clear interest in this research area",
+      "Clear interest and a view of the career after it"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.75,
+      1
+     ],
+     "advice": "Be able to say why you want to do research in this area and what you hope to do after the PhD. Panels ask, and they look for motivation that will last the three to four years of a PhD.",
+     "num": "4.5",
+     "labels": [
+      "Not yet clear (0 pts)",
+      "General interest in research (1.4 pts)",
+      "Clear interest in this research area (3 pts)",
+      "Clear interest and a view of the career after it (4 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S5",
+   "name": "Mobility and language",
+   "short": "Mobility",
+   "weight": 4,
+   "intro": "Fellowship panels ask whether you changed university or country. MSCA Doctoral Networks have a mobility rule.",
+   "criteria": [
+    {
+     "id": "m1",
+     "type": "choice",
+     "max": 8,
+     "label": "Change of environment for the PhD",
+     "hint": "Compared with your master's project.",
+     "options": [
+      "Same lab as the master's project",
+      "Same university, new lab",
+      "New university, same country",
+      "Different country"
+     ],
+     "fracs": [
+      0.2,
+      0.45,
+      0.8,
+      1
+     ],
+     "advice": "Consider a PhD in a new lab or a new university. Staying is common and acceptable, but have a good reason ready: fellowship panels ask about it.",
+     "num": "5.1",
+     "labels": [
+      "Same lab as the master's project (1.6 pts)",
+      "Same university, new lab (3.6 pts)",
+      "New university, same country (6.4 pts)",
+      "Different country (8 pts)"
+     ]
+    },
+    {
+     "id": "m2",
+     "type": "count",
+     "max": 4,
+     "unit": "months",
+     "label": "Study or research abroad",
+     "hint": "Exchange semesters, internships or projects in another country.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       3,
+       0.5
+      ],
+      [
+       6,
+       0.8
+      ],
+      [
+       12,
+       1
+      ]
+     ],
+     "advice": "An exchange semester or a summer internship abroad shows that you can adapt to a new environment, which international programmes look for.",
+     "num": "5.2"
+    },
+    {
+     "id": "m3",
+     "type": "choice",
+     "max": 8,
+     "label": "English for research",
+     "hint": "Uppsala requires English 6 (level B2) for doctoral studies.",
+     "options": [
+      "Below B2",
+      "B2, or English 6 (Nordic upper secondary)",
+      "C1, or a degree taught in English",
+      "C2 or native"
+     ],
+     "fracs": [
+      0,
+      0.7,
+      0.9,
+      1
+     ],
+     "advice": "Reach at least level B2 in English and document it: Uppsala requires English 6 for doctoral studies, and international programmes require proficiency. A degree taught in English usually counts.",
+     "num": "5.3",
+     "labels": [
+      "Below B2 (0 pts)",
+      "B2, or English 6 (Nordic upper secondary) (5.6 pts)",
+      "C1, or a degree taught in English (7.2 pts)",
+      "C2 or native (8 pts)"
+     ]
+    },
+    {
+     "id": "m4",
+     "type": "choice",
+     "max": 2,
+     "label": "Time already spent in the host country",
+     "hint": "MSCA Doctoral Networks: in the 36 months before recruitment.",
+     "options": [
+      "More than 12 months",
+      "Up to 12 months",
+      "None"
+     ],
+     "fracs": [
+      0,
+      0.8,
+      1
+     ],
+     "advice": "MSCA Doctoral Network positions exclude candidates who lived, worked or studied in the host country for more than 12 months in the 36 months before recruitment. Check this before applying.",
+     "num": "5.4",
+     "labels": [
+      "More than 12 months (0 pts)",
+      "Up to 12 months (1.6 pts)",
+      "None (2 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S6",
+   "name": "Skills and personal qualities",
+   "short": "Skills",
+   "weight": 5,
+   "intro": "Advertisements and interview panels ask for teamwork, communication and persistence. Count what you can show with an example.",
+   "criteria": [
+    {
+     "id": "k1",
+     "type": "choice",
+     "max": 4,
+     "label": "Teamwork",
+     "hint": "",
+     "options": [
+      "No example",
+      "Group work in courses",
+      "Worked as part of a research team",
+      "Coordinated work within a team"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.75,
+      1
+     ],
+     "advice": "Prepare one concrete example of how you worked in a research team, including a disagreement and how it was resolved.",
+     "num": "6.1",
+     "labels": [
+      "No example (0 pts)",
+      "Group work in courses (1.4 pts)",
+      "Worked as part of a research team (3 pts)",
+      "Coordinated work within a team (4 pts)"
+     ]
+    },
+    {
+     "id": "k2",
+     "type": "choice",
+     "max": 4,
+     "label": "Presenting your work",
+     "hint": "",
+     "options": [
+      "Course presentations only",
+      "Lab meeting presentations",
+      "Departmental seminar or journal club",
+      "Talk at a conference or symposium"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.75,
+      1
+     ],
+     "advice": "Present your project at a lab meeting and lead a journal club. Many PhD interviews start with a short presentation of your research.",
+     "num": "6.2",
+     "labels": [
+      "Course presentations only (0 pts)",
+      "Lab meeting presentations (1.6 pts)",
+      "Departmental seminar or journal club (3 pts)",
+      "Talk at a conference or symposium (4 pts)"
+     ]
+    },
+    {
+     "id": "k3",
+     "type": "check",
+     "max": 4,
+     "label": "Can give an example of overcoming a setback",
+     "hint": "A failed experiment or a problem you solved.",
+     "advice": "Prepare an example of an experiment that failed and what you did next. Panels look for persistence, which a PhD needs.",
+     "num": "6.3"
+    },
+    {
+     "id": "k4",
+     "type": "choice",
+     "max": 4,
+     "label": "Responsibility outside research",
+     "hint": "",
+     "options": [
+      "None",
+      "Member of a student association or committee",
+      "Organised an event or led a student group",
+      "Elected or leading role for a year or more"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.75,
+      1
+     ],
+     "advice": "Take on one responsibility outside your studies, such as a role in a student association. It shows you can organise your time.",
+     "num": "6.4",
+     "labels": [
+      "None (0 pts)",
+      "Member of a student association or committee (1.6 pts)",
+      "Organised an event or led a student group (3 pts)",
+      "Elected or leading role for a year or more (4 pts)"
+     ]
+    },
+    {
+     "id": "k5",
+     "type": "check",
+     "max": 2,
+     "label": "Teaching, tutoring or outreach",
+     "hint": "Teaching assistant, tutor, school visits, science festivals.",
+     "advice": "Tutor in a course or take part in a science festival. Doctoral students in Sweden often teach, and both are practice in explaining research.",
+     "num": "6.5"
+    }
+   ]
+  },
+  {
+   "id": "S7",
+   "name": "References",
+   "short": "References",
+   "weight": 8,
+   "intro": "At this stage letters carry much of the weight, because referees can describe how you do research.",
+   "criteria": [
+    {
+     "id": "L1",
+     "type": "choice",
+     "max": 12,
+     "label": "Referees",
+     "hint": "Who will write, and how well they know your research.",
+     "options": [
+      "No referee yet",
+      "One academic referee",
+      "Two, including your research supervisor",
+      "Two or more who supervised your research closely"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.75,
+      1
+     ],
+     "advice": "Ask two people who supervised your research, ideally in different labs, to act as referees. A letter from someone who only taught you a course carries little weight.",
+     "num": "7.1",
+     "labels": [
+      "No referee yet (0 pts)",
+      "One academic referee (4.2 pts)",
+      "Two, including your research supervisor (9 pts)",
+      "Two or more who supervised your research closely (12 pts)"
+     ]
+    },
+    {
+     "id": "L2",
+     "type": "choice",
+     "max": 8,
+     "label": "Strength of your supervisor's letter",
+     "hint": "",
+     "options": [
+      "Not asked yet",
+      "Will write a standard letter",
+      "Will write a strong, specific letter",
+      "Strong letter and introductions to groups"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Ask your supervisor early, give them your CV and the advertisement, and ask whether they can write a strong, specific letter. Ask them also to introduce you to groups they know.",
+     "num": "7.2",
+     "labels": [
+      "Not asked yet (0 pts)",
+      "Will write a standard letter (3.2 pts)",
+      "Will write a strong, specific letter (6.4 pts)",
+      "Strong letter and introductions to groups (8 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S8",
+   "name": "Scholarships and recognition",
+   "short": "Recognition",
+   "weight": 3,
+   "intro": "Competitive awards show that others have already ranked you highly.",
+   "criteria": [
+    {
+     "id": "g1",
+     "type": "count",
+     "max": 8,
+     "unit": "awards",
+     "label": "Merit scholarships, awards or prizes",
+     "hint": "Competitive: study scholarships, poster prizes, thesis prizes.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.6
+      ],
+      [
+       2,
+       0.85
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "Apply for scholarships for exchange studies or summer research, and present at meetings that award poster prizes.",
+     "num": "8.1"
+    },
+    {
+     "id": "g2",
+     "type": "choice",
+     "max": 4,
+     "label": "Selected for a competitive research programme",
+     "hint": "",
+     "options": [
+      "None",
+      "Funded summer internship",
+      "Selective programme abroad",
+      "Highly selective programme (e.g. Amgen Scholars)"
+     ],
+     "fracs": [
+      0,
+      0.5,
+      0.8,
+      1
+     ],
+     "advice": "Apply for a summer research programme in a leading institute. It adds research experience and a referee, and selection itself is a merit.",
+     "num": "8.2",
+     "labels": [
+      "None (0 pts)",
+      "Funded summer internship (2 pts)",
+      "Selective programme abroad (3.2 pts)",
+      "Highly selective programme (e.g. Amgen Scholars) (4 pts)"
+     ]
+    },
+    {
+     "id": "g3",
+     "type": "choice",
+     "max": 4,
+     "label": "Personal PhD fellowship",
+     "hint": "e.g. Boehringer Ingelheim Fonds, with a host lab.",
+     "options": [
+      "Not applied",
+      "Applied",
+      "Shortlisted or interviewed",
+      "Awarded"
+     ],
+     "fracs": [
+      0,
+      0.3,
+      0.6,
+      1
+     ],
+     "advice": "Once a lab has accepted you, check whether you can apply for a personal PhD fellowship. The Boehringer Ingelheim Fonds funds experimental basic biomedical projects and accepts applications up to six months into the project.",
+     "num": "8.3",
+     "labels": [
+      "Not applied (0 pts)",
+      "Applied (1.2 pts)",
+      "Shortlisted or interviewed (2.4 pts)",
+      "Awarded (4 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S9",
+   "name": "Timing and application readiness",
+   "short": "Readiness",
+   "weight": 6,
+   "intro": "The timing item uses the degree date on page 2. Interviews decide most PhD selections once you are shortlisted.",
+   "criteria": [
+    {
+     "id": "t1",
+     "type": "derived",
+     "source": "age",
+     "max": 8,
+     "unit": "",
+     "rubric_unit": "years relative to the degree (negative = before it)",
+     "label": "Timing",
+     "hint": "Calculated from the date of your degree.",
+     "anchors": [
+      [
+       -2,
+       0.2
+      ],
+      [
+       -1,
+       0.6
+      ],
+      [
+       -0.5,
+       1
+      ],
+      [
+       2,
+       1
+      ],
+      [
+       4,
+       0.85
+      ],
+      [
+       8,
+       0.7
+      ]
+     ],
+     "advice": "TIMING",
+     "num": "9.1"
+    },
+    {
+     "id": "t2",
+     "type": "choice",
+     "max": 8,
+     "label": "Degree completion",
+     "hint": "Most positions need the degree by the start.",
+     "options": [
+      "Degree more than a year away",
+      "Thesis project under way",
+      "Thesis being written, date set",
+      "Degree awarded"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Agree a completion date for your thesis with your supervisor before you apply. Most positions and programmes need the degree by the start of the PhD.",
+     "num": "9.2",
+     "labels": [
+      "Degree more than a year away (0 pts)",
+      "Thesis project under way (3.2 pts)",
+      "Thesis being written, date set (6.4 pts)",
+      "Degree awarded (8 pts)"
+     ]
+    },
+    {
+     "id": "t3",
+     "type": "choice",
+     "max": 4,
+     "label": "CV",
+     "hint": "",
+     "options": [
+      "No academic CV",
+      "General CV",
+      "Academic CV with research experience first",
+      "Academic CV, read by a researcher"
+     ],
+     "fracs": [
+      0,
+      0.3,
+      0.75,
+      1
+     ],
+     "advice": "Write a one- or two-page academic CV that starts with your research experience and names the techniques you used, and have a researcher read it.",
+     "num": "9.3",
+     "labels": [
+      "No academic CV (0 pts)",
+      "General CV (1.2 pts)",
+      "Academic CV with research experience first (3 pts)",
+      "Academic CV, read by a researcher (4 pts)"
+     ]
+    },
+    {
+     "id": "t4",
+     "type": "choice",
+     "max": 8,
+     "label": "Interview preparation",
+     "hint": "",
+     "options": [
+      "Not prepared",
+      "Can describe your master's project",
+      "Short presentation rehearsed; read the group's papers",
+      "Already interviewed for a PhD"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Prepare a ten-minute presentation of your research project and rehearse it in front of your lab. Prepare questions for the group about supervision and the project.",
+     "num": "9.4",
+     "labels": [
+      "Not prepared (0 pts)",
+      "Can describe your master's project (3.2 pts)",
+      "Short presentation rehearsed; read the group's papers (6.4 pts)",
+      "Already interviewed for a PhD (8 pts)"
+     ]
+    },
+    {
+     "id": "t5",
+     "type": "count",
+     "max": 4,
+     "unit": "applications",
+     "label": "Applications this round",
+     "hint": "Planned or sent.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       2,
+       0.4
+      ],
+      [
+       5,
+       0.75
+      ],
+      [
+       10,
+       1
+      ]
+     ],
+     "advice": "Apply to several positions and programmes in parallel. Competition is strong, so do not rely on a single application.",
+     "num": "9.5"
+    }
+   ]
+  }
+ ],
+ "dates": {
+  "signed": true,
+  "rate_item": null,
+  "alt": null,
+  "leave": false,
+  "ref": "the degree",
+  "event": "degree",
+  "date_label": "degree date",
+  "year_label": "degree year"
+ },
+ "code": "PTD",
+ "group_labels": {},
+ "flags": [
+  {
+   "item": "q2",
+   "test": "eq",
+   "value": 0,
+   "text": "Bachelor's degree only: Swedish doctoral entry requires an advanced-level degree, or 240 credits including 60 at advanced level."
+  },
+  {
+   "item": "r1",
+   "test": "eq",
+   "value": 0,
+   "text": "No research experience yet: few groups shortlist without a research project."
+  },
+  {
+   "item": "m3",
+   "test": "eq",
+   "value": 0,
+   "text": "English below B2: Uppsala requires English 6 for doctoral studies, and international programmes require proficiency."
+  },
+  {
+   "item": "m4",
+   "test": "eq",
+   "value": 0,
+   "text": "More than 12 months living, working or studying in the host country in the last three years: not eligible for an MSCA Doctoral Network position there."
+  }
+ ],
+ "presets": [
+  {
+   "name": "PhD position advertised by a group (default)",
+   "weights": [
+    7,
+    10,
+    4,
+    9,
+    4,
+    5,
+    8,
+    3,
+    6
+   ]
+  },
+  {
+   "name": "International PhD programme (EMBL, Vienna BioCenter)",
+   "weights": [
+    8,
+    10,
+    5,
+    7,
+    6,
+    5,
+    8,
+    4,
+    6
+   ]
+  },
+  {
+   "name": "MSCA Doctoral Network position",
+   "weights": [
+    6,
+    9,
+    4,
+    9,
+    8,
+    6,
+    7,
+    3,
+    6
+   ]
+  },
+  {
+   "name": "Personal PhD fellowship (Boehringer Ingelheim Fonds)",
+   "weights": [
+    10,
+    9,
+    6,
+    8,
+    6,
+    3,
+    8,
+    6,
+    4
+   ]
+  }
+ ],
+ "bars": {
+  "total": 178,
+  "section": 53
+ }
+}

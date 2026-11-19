@@ -317,6 +317,10 @@ h2 { font-size: clamp(1.85rem, 3.1vw, 2.5rem); }
   align-items: center;
 }
 .band-row .section-head { margin-bottom: 0; }
+/* the Training band: heading on top, Games and Forms side by side */
+.subsections { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 2rem; align-items: start; }
+@media (max-width: 860px) { .subsections { grid-template-columns: 1fr; } }
+.sub-title { font-family: var(--display); font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: .6rem; }
 #software-content { margin-top: clamp(2rem, 4vw, 3rem); }
 
 .gate {
@@ -351,7 +355,12 @@ h2 { font-size: clamp(1.85rem, 3.1vw, 2.5rem); }
 }
 .game img { display: block; width: 100%; height: auto; border-bottom: 1px solid var(--line); }
 .game-body { padding: 1.1rem 1.5rem 1.3rem; }
-.game h3 { font-family: var(--display); font-size: 1.2rem; letter-spacing: -0.01em; margin-bottom: .35rem; }
+.game h4 { font-family: var(--display); font-size: 1.2rem; letter-spacing: -0.01em; margin-bottom: .35rem; }
+.form-list { list-style: none; display: grid; gap: .1rem; margin-top: .8rem; }
+.form-list li { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .65rem 0; border-top: 1px solid var(--line); }
+.form-list h4 { font-size: 1rem; margin-bottom: .1rem; }
+.form-list p { font-size: .88rem; }
+.form-list .btn { flex: none; padding: .45rem 1rem; font-size: .85rem; }
 .game p { color: var(--ink-soft); font-size: .95rem; }
 .game-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .95rem; }
 .game-links .btn { padding: .6rem 1.1rem; font-size: .9rem; }

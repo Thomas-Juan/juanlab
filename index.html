@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261117d">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261119a">
 
   <script type="application/ld+json">
   {
@@ -70,7 +70,7 @@
           <li><a href="#research">Research</a></li>
           <li><a href="#publications">Publications</a></li>
           <li><a href="#software">Software</a></li>
-          <li><a href="#games">Games</a></li>
+          <li><a href="#training">Training</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="#join">Join us</a></li>
         </ul>
@@ -332,22 +332,27 @@
     </section>
 
     <!-- ==================================================================
-         GAMES
-         One .game card per game. The download buttons point at the newest
-         release of the game's GitHub repository, so they do not need
+         TRAINING
+         Heading on top, then two subsections side by side: Games and Forms.
+         Games: one .game card per game. The download buttons point at the
+         newest release of the game's GitHub repository, so they do not need
          changing when a new version is published.
+         Forms: the PDFs in forms/ are copies of the builds in ../forms
+         (outside this repository); copy them again after a rebuild.
          ================================================================== -->
-    <section class="section section--band" id="games" aria-labelledby="games-title">
+    <section class="section section--band" id="training" aria-labelledby="training-title">
       <div class="w">
-        <div class="band-row">
-          <header class="section-head">
-            <p class="eyebrow">Video games</p>
-            <h2 id="games-title">Games</h2>
-          </header>
+        <header class="section-head">
+          <p class="eyebrow">Training</p>
+          <h2 id="training-title">Games and career forms</h2>
+        </header>
+        <div class="subsections">
+          <div class="subsection" id="games">
+          <h3 class="sub-title">Games</h3>
           <article class="game">
             <img src="assets/img/games/journey-of-a-zebrafish.webp" alt="A zebrafish swims through a river level of the game" width="960" height="540" loading="lazy">
             <div class="game-body">
-              <h3>Journey of a Zebrafish</h3>
+              <h4>Journey of a Zebrafish</h4>
               <p>A side-scrolling game on the history and biology of the zebrafish as a research model.</p>
               <div class="game-links">
                 <a class="btn" href="games/journey-of-a-zebrafish/" data-game="games/journey-of-a-zebrafish/" data-title="Journey of a Zebrafish">Play in browser</a>
@@ -373,6 +378,34 @@
               </details>
             </div>
           </article>
+          </div>
+
+          <div class="subsection" id="forms">
+          <h3 class="sub-title">Forms</h3>
+          <article class="game forms">
+            <div class="game-body">
+              <p>Merit scores for each career step. Each form turns a CV into a score out of 100, shows how far it is from a competitive level and lists what to work on first.</p>
+              <ul class="form-list">
+                <li><div><h4>Path to PhD</h4><p>For master's students applying for a PhD.</p></div><a class="btn btn--light" href="forms/path-to-phd.pdf" download="Path to PhD - merit score.pdf">PDF</a></li>
+                <li><div><h4>Path to postdoc</h4><p>For PhD students applying for a postdoc position or fellowship.</p></div><a class="btn btn--light" href="forms/path-to-postdoc.pdf" download="Path to postdoc - merit score.pdf">PDF</a></li>
+                <li><div><h4>Path to independence</h4><p>For postdocs applying for a first independent position.</p></div><a class="btn btn--light" href="forms/path-to-independence.pdf" download="Path to independence - merit score.pdf">PDF</a></li>
+              </ul>
+              <details class="more">
+                <summary>More information</summary>
+                <dl class="game-info">
+                  <dt>Filling in</dt>
+                  <dd>Open the form in Adobe Acrobat Reader or Firefox; the score updates as you type. Other viewers may show the fields without calculating.</dd>
+                  <dt>With an AI model</dt>
+                  <dd>Each form ends with a rubric that defines every level. The same rubric as a data file: <a href="forms/path-to-phd-rubric.json">PhD</a>, <a href="forms/path-to-postdoc-rubric.json">postdoc</a>, <a href="forms/path-to-independence-rubric.json">independence</a>.</dd>
+                  <dt>Status</dt>
+                  <dd>A self-assessment, not an official standard of Uppsala University or of any funder.</dd>
+                  <dt>Cost</dt>
+                  <dd>Free.</dd>
+                </dl>
+              </details>
+            </div>
+          </article>
+          </div>
         </div>
       </div>
     </section>
@@ -542,6 +575,6 @@
     </div>
   </dialog>
 
-  <script src="assets/js/main.js?v=20261117d" defer></script>
+  <script src="assets/js/main.js?v=20261119a" defer></script>
 </body>
 </html>

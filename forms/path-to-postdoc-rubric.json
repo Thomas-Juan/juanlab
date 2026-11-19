@@ -1,0 +1,1565 @@
+{
+ "version": "1.0",
+ "threshold": 60,
+ "bands": [
+  [
+   0,
+   "Early"
+  ],
+  [
+   40,
+   "Developing"
+  ],
+  [
+   60,
+   "Competitive"
+  ],
+  [
+   75,
+   "Strong"
+  ]
+ ],
+ "target": 0.75,
+ "tiers": {
+  "12": "key",
+  "8": "major",
+  "4": "supporting",
+  "2": "minor"
+ },
+ "timing": [
+  [
+   -1,
+   "At {when}, it is early to apply. Fellowships need a first-author paper and a PhD by the start, so use the time to publish and to choose labs; contact potential hosts about a year before the defence."
+  ],
+  [
+   0,
+   "At {when}, the main windows are open: EMBO and HFSP accept applications before the defence if the PhD is awarded by the start, and so does the Swedish Research Council for Swedish PhDs. Decisions take several months, and HFSP close to a year from the letter of intent, so apply now."
+  ],
+  [
+   2,
+   "At {when}, the EMBO and Swedish Research Council windows close two years after the PhD. Apply in this cycle."
+  ],
+  [
+   3,
+   "At {when}, the EMBO window has closed; HFSP stays open to three years after the PhD and MSCA to eight. Apply to those and to advertised positions."
+  ],
+  [
+   999,
+   "At {when}, most fellowships for recent PhD graduates have closed; MSCA stays open to eight years. Check that all eligible leave is entered on page 2, and favour MSCA and advertised positions."
+  ]
+ ],
+ "windows": [
+  {
+   "name": "EMBO Postdoctoral Fellowship",
+   "range": "to 2 y after PhD",
+   "lo": -0.5,
+   "hi": 2,
+   "alt": true
+  },
+  {
+   "name": "HFSP Long-Term Fellowship",
+   "range": "to 3 y after PhD",
+   "lo": -1,
+   "hi": 3,
+   "alt": false
+  },
+  {
+   "name": "MSCA Postdoctoral Fellowship",
+   "range": "PhD by deadline, to 8 y",
+   "lo": 0,
+   "hi": 8,
+   "alt": false
+  },
+  {
+   "name": "VR international postdoc",
+   "range": "Swedish PhD, to 2 y",
+   "lo": -0.5,
+   "hi": 2,
+   "alt": false
+  }
+ ],
+ "sections": [
+  {
+   "id": "S1",
+   "name": "Research output and quality",
+   "short": "Research output",
+   "weight": 9,
+   "intro": "Count research papers from acceptance; preprints and submitted manuscripts go in the second line. Shared first authorship counts as first. EMBO and HFSP fellowships require at least one first-author research paper.",
+   "criteria": [
+    {
+     "id": "o1",
+     "type": "count",
+     "max": 12,
+     "unit": "papers",
+     "label": "First-author research papers, published or accepted",
+     "hint": "Shared first authorship counts. Reviews do not.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.6
+      ],
+      [
+       2,
+       0.85
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "First-author research papers accepted or published: {v}. One is the entry requirement for EMBO and HFSP (EMBO also accepts a first-author preprint with public peer reviews), and a second strengthens any application. Bring your next thesis paper to submission before you apply.",
+     "num": "1.1"
+    },
+    {
+     "id": "o2",
+     "type": "count",
+     "max": 8,
+     "unit": "manuscripts",
+     "label": "First-author preprints or manuscripts under review",
+     "hint": "Not yet accepted. Shows what is coming.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.7
+      ],
+      [
+       2,
+       1
+      ]
+     ],
+     "advice": "Post each thesis paper as a preprint when you submit it, so that hosts and panels can read the work now. A first-author preprint with public reviews from an independent service, such as Review Commons, can also meet EMBO's publication requirement.",
+     "num": "1.2"
+    },
+    {
+     "id": "o3",
+     "type": "count",
+     "max": 4,
+     "unit": "papers",
+     "label": "Co-authored research papers",
+     "hint": "Second author or later.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.4
+      ],
+      [
+       2,
+       0.65
+      ],
+      [
+       3,
+       0.8
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "advice": "Contribute a defined part to colleagues' projects. Co-authorships show that you work well in a team and widen your methods.",
+     "num": "1.3"
+    },
+    {
+     "id": "o4",
+     "type": "choice",
+     "max": 8,
+     "label": "Journal level of your first-author work",
+     "hint": "Highest level among papers and preprints under review.",
+     "options": [
+      "No first-author manuscript yet",
+      "Specialised or society journal",
+      "Leading journal of the field (e.g. EMBO J, eLife)",
+      "Top-tier journal (Cell, Nature, Science and sister journals)"
+     ],
+     "fracs": [
+      0,
+      0.55,
+      0.85,
+      1
+     ],
+     "advice": "Aim the main thesis paper at a leading journal of your field. Hosts still read journal names, but institutions that signed DORA are asked not to, so state what the paper shows in your cover letter.",
+     "num": "1.4",
+     "labels": [
+      "No first-author manuscript yet (0 pts)",
+      "Specialised or society journal (4.4 pts)",
+      "Leading journal of the field (e.g. EMBO J, eLife) (6.8 pts)",
+      "Top-tier journal (Cell, Nature, Science and sister journals) (8 pts)"
+     ]
+    },
+    {
+     "id": "o5",
+     "type": "choice",
+     "max": 12,
+     "label": "Significance of your thesis work",
+     "hint": "What changed in the field, not the journal.",
+     "options": [
+      "Mainly confirms or extends known results",
+      "Solid contribution to the lab's line of work",
+      "Clear advance that others cite or use",
+      "New concept, method or model adopted by others",
+      "Recognised breakthrough (commentaries, prizes)"
+     ],
+     "fracs": [
+      0,
+      0.3,
+      0.6,
+      0.85,
+      1
+     ],
+     "advice": "Be able to say in one sentence what your thesis changed. Panels and hosts judge it from your research statement and your letters, so give your referees that sentence too.",
+     "num": "1.5",
+     "labels": [
+      "Mainly confirms or extends known results (0 pts)",
+      "Solid contribution to the lab's line of work (3.6 pts)",
+      "Clear advance that others cite or use (7.2 pts)",
+      "New concept, method or model adopted by others (10.2 pts)",
+      "Recognised breakthrough (commentaries, prizes) (12 pts)"
+     ]
+    },
+    {
+     "id": "o6",
+     "type": "choice",
+     "max": 8,
+     "label": "Your role in your main paper",
+     "hint": "As the author-contribution statement would describe it.",
+     "options": [
+      "Performed experiments designed by others",
+      "Designed and performed most experiments",
+      "Conceived the project with the supervisor and led it",
+      "Conceived and led it, and wrote the first draft"
+     ],
+     "fracs": [
+      0,
+      0.45,
+      0.8,
+      1
+     ],
+     "advice": "Take ownership of your main paper: write the first draft and draft the response to reviewers with your supervisor. Panels look for this in the contribution statement and the letters.",
+     "num": "1.6",
+     "labels": [
+      "Performed experiments designed by others (0 pts)",
+      "Designed and performed most experiments (3.6 pts)",
+      "Conceived the project with the supervisor and led it (6.4 pts)",
+      "Conceived and led it, and wrote the first draft (8 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S2",
+   "name": "Expertise and scientific maturity",
+   "short": "Expertise",
+   "weight": 8,
+   "intro": "What you can do, and how independently you think. Labs hire skills; fellowship panels look for a scientist ready to drive a project.",
+   "criteria": [
+    {
+     "id": "e1",
+     "type": "choice",
+     "max": 12,
+     "label": "Core experimental expertise",
+     "hint": "Your strongest method or model system.",
+     "options": [
+      "Learning the lab's standard methods",
+      "Proficient in the lab's standard methods",
+      "Expert in a method or model; trains others",
+      "Established a new method or model in the lab"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Become the person in your lab who masters one demanding method or model and teaches it to others. It is what host labs hire for, and what your referees will be asked about.",
+     "num": "2.1",
+     "labels": [
+      "Learning the lab's standard methods (0 pts)",
+      "Proficient in the lab's standard methods (4.8 pts)",
+      "Expert in a method or model; trains others (9.6 pts)",
+      "Established a new method or model in the lab (12 pts)"
+     ]
+    },
+    {
+     "id": "e2",
+     "type": "choice",
+     "max": 8,
+     "label": "Quantitative and computational skills",
+     "hint": "Statistics, image analysis, omics, modelling.",
+     "options": [
+      "Basic statistics only",
+      "Statistics with standard software",
+      "Scripts (R, Python, MATLAB) for your own analyses",
+      "Pipelines or tools that others use"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.75,
+      1
+     ],
+     "advice": "Learn to analyse your own data with code, in R or Python. Data-analysis skills appear in most postdoc advertisements and make you useful to any lab.",
+     "num": "2.2",
+     "labels": [
+      "Basic statistics only (0 pts)",
+      "Statistics with standard software (2.8 pts)",
+      "Scripts (R, Python, MATLAB) for your own analyses (6 pts)",
+      "Pipelines or tools that others use (8 pts)"
+     ]
+    },
+    {
+     "id": "e3",
+     "type": "count",
+     "max": 4,
+     "unit": "families",
+     "label": "Technique families you can run on your own",
+     "hint": "e.g. imaging, genome editing, sequencing, biochemistry, an animal model.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.3
+      ],
+      [
+       2,
+       0.6
+      ],
+      [
+       3,
+       0.85
+      ],
+      [
+       4,
+       1
+      ]
+     ],
+     "advice": "Add one technique family outside your core, through a collaboration or a short visit. Breadth lets you join a new lab's projects from the first month.",
+     "num": "2.3"
+    },
+    {
+     "id": "e4",
+     "type": "choice",
+     "max": 12,
+     "label": "Ownership of ideas in your thesis",
+     "hint": "Not whether the topic differs from your supervisor's.",
+     "options": [
+      "Project and plan fully set by the supervisor",
+      "Contributed ideas to the supervisor's plan",
+      "Proposed and ran a sub-project of your own",
+      "Shaped the thesis; own ideas tested and published"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.75,
+      1
+     ],
+     "advice": "Propose and run one sub-project of your own before you defend. It gives you a story about how you think, which interviewers and referees are asked to describe.",
+     "num": "2.4",
+     "labels": [
+      "Project and plan fully set by the supervisor (0 pts)",
+      "Contributed ideas to the supervisor's plan (4.2 pts)",
+      "Proposed and ran a sub-project of your own (9 pts)",
+      "Shaped the thesis; own ideas tested and published (12 pts)"
+     ]
+    },
+    {
+     "id": "e5",
+     "type": "count",
+     "max": 4,
+     "unit": "projects",
+     "label": "Collaborations you worked in",
+     "hint": "With other labs; you did part of the work or ran the exchange.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.5
+      ],
+      [
+       2,
+       0.8
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "Take part in at least one collaboration with another lab and handle part of the exchange yourself. It shows you can work across groups, as most postdocs do.",
+     "num": "2.5"
+    },
+    {
+     "id": "e6",
+     "type": "choice",
+     "max": 4,
+     "label": "Scientific writing",
+     "hint": "",
+     "options": [
+      "No manuscript written yet",
+      "Wrote parts of a manuscript",
+      "Wrote the first draft of a paper",
+      "Wrote a paper and a grant or fellowship application"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Write the first draft of a paper yourself, and write a small grant or travel-grant application. Fellowship proposals are judged on the written project.",
+     "num": "2.6",
+     "labels": [
+      "No manuscript written yet (0 pts)",
+      "Wrote parts of a manuscript (1.6 pts)",
+      "Wrote the first draft of a paper (3.2 pts)",
+      "Wrote a paper and a grant or fellowship application (4 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S3",
+   "name": "Postdoc project and change of field",
+   "short": "Project",
+   "weight": 8,
+   "intro": "Fellowships fund a new step, not more of the same. What counts is how far the postdoc moves from your PhD project; HFSP requires a topic distinctly different from the PhD work.",
+   "criteria": [
+    {
+     "id": "j1",
+     "type": "choice",
+     "max": 12,
+     "label": "Distance from your PhD project",
+     "hint": "The planned postdoc project compared with your thesis.",
+     "options": [
+      "Same project or question, continued",
+      "Same field and system, new question",
+      "New model, method or system on a related question",
+      "New field, building on your PhD expertise",
+      "Unrelated field with no link to your expertise"
+     ],
+     "fracs": [
+      0,
+      0.3,
+      0.85,
+      1,
+      0.5
+     ],
+     "advice": "Choose a postdoc project that adds a new model, method or field and uses your PhD expertise as the bridge. Fellowship panels favour a new direction, and HFSP excludes close continuations of PhD work; a jump with no link to your skills raises doubts about feasibility.",
+     "num": "3.1",
+     "labels": [
+      "Same project or question, continued (0 pts)",
+      "Same field and system, new question (3.6 pts)",
+      "New model, method or system on a related question (10.2 pts)",
+      "New field, building on your PhD expertise (12 pts)",
+      "Unrelated field with no link to your expertise (6 pts)"
+     ]
+    },
+    {
+     "id": "j2",
+     "type": "choice",
+     "max": 8,
+     "label": "New skills you will acquire",
+     "hint": "MSCA scores the training and the transfer of knowledge.",
+     "options": [
+      "No new skills named",
+      "New skills named, no training plan",
+      "Training plan agreed with the host",
+      "Training plan with courses or a secondment"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Name the skills you will learn and agree a training plan with the host, with courses or a short secondment where useful. MSCA scores the two-way transfer of knowledge explicitly.",
+     "num": "3.2",
+     "labels": [
+      "No new skills named (0 pts)",
+      "New skills named, no training plan (3.2 pts)",
+      "Training plan agreed with the host (6.4 pts)",
+      "Training plan with courses or a secondment (8 pts)"
+     ]
+    },
+    {
+     "id": "j3",
+     "type": "choice",
+     "max": 12,
+     "label": "Written project proposal",
+     "hint": "The proposal you would submit to a fellowship.",
+     "options": [
+      "No written project",
+      "One-paragraph idea",
+      "Proposal with aims, discussed with the host",
+      "Full proposal with risks and alternatives, read by host"
+     ],
+     "fracs": [
+      0,
+      0.25,
+      0.7,
+      1
+     ],
+     "advice": "Write a two-page proposal with aims, the main risk of each and a named alternative, and have the host read it. Fellowship panels weigh the scientific quality of the project most.",
+     "num": "3.3",
+     "labels": [
+      "No written project (0 pts)",
+      "One-paragraph idea (3 pts)",
+      "Proposal with aims, discussed with the host (8.4 pts)",
+      "Full proposal with risks and alternatives, read by host (12 pts)"
+     ]
+    },
+    {
+     "id": "j4",
+     "type": "choice",
+     "max": 8,
+     "label": "Whose idea the project is",
+     "hint": "Between you and the host.",
+     "options": [
+      "Assigned by the host, already ongoing",
+      "Host's idea, adapted by you",
+      "Your own idea within the host's interests",
+      "Your own idea that opens a new direction for the host"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Bring an idea of your own to the host rather than taking over an ongoing project. Fellowship panels expect the proposal to be the applicant's own work.",
+     "num": "3.4",
+     "labels": [
+      "Assigned by the host, already ongoing (0 pts)",
+      "Host's idea, adapted by you (3.2 pts)",
+      "Your own idea within the host's interests (6.4 pts)",
+      "Your own idea that opens a new direction for the host (8 pts)"
+     ]
+    },
+    {
+     "id": "j5",
+     "type": "choice",
+     "max": 4,
+     "label": "Career vision",
+     "hint": "MSCA scores career development as part of impact.",
+     "options": [
+      "Not yet considered",
+      "General aim, academic or not",
+      "Defined goal, and how the postdoc serves it",
+      "Defined goal with a career development plan"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.75,
+      1
+     ],
+     "advice": "Write down where you want to be five years after the postdoc and how this project gets you there. MSCA scores career development under impact, and interviewers ask.",
+     "num": "3.5",
+     "labels": [
+      "Not yet considered (0 pts)",
+      "General aim, academic or not (1.4 pts)",
+      "Defined goal, and how the postdoc serves it (3 pts)",
+      "Defined goal with a career development plan (4 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S4",
+   "name": "Choice of host lab and fit",
+   "short": "Host and fit",
+   "weight": 7,
+   "intro": "Fill in for one host lab or position, and repeat for each. Fit with the lab weighs heavily in postdoc hiring.",
+   "criteria": [
+    {
+     "id": "h1",
+     "type": "choice",
+     "max": 12,
+     "label": "Fit of your skills with the host lab",
+     "hint": "Against the host's projects or advertisement.",
+     "options": [
+      "Little overlap",
+      "Related interests, different methods",
+      "Your skills serve the host's current projects",
+      "Your skills fill a gap the host named or advertised"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.8,
+      1
+     ],
+     "advice": "Read the host's recent papers and advertisement, and show in the cover letter which of their projects your skills serve. Many hosts hire for a specific skill set.",
+     "num": "4.1",
+     "labels": [
+      "Little overlap (0 pts)",
+      "Related interests, different methods (4.2 pts)",
+      "Your skills serve the host's current projects (9.6 pts)",
+      "Your skills fill a gap the host named or advertised (12 pts)"
+     ]
+    },
+    {
+     "id": "h2",
+     "type": "choice",
+     "max": 8,
+     "label": "Host's record in training postdocs",
+     "hint": "Fellows funded, alumni careers.",
+     "options": [
+      "Unknown",
+      "New group, under three years",
+      "Established group; alumni in research positions",
+      "Strong record: funded fellows, alumni leading groups"
+     ],
+     "fracs": [
+      0,
+      0.55,
+      0.8,
+      1
+     ],
+     "advice": "Look up where the host's former postdocs went and whether they held fellowships, and ask current lab members about mentoring. Panels score the host's training record.",
+     "num": "4.2",
+     "labels": [
+      "Unknown (0 pts)",
+      "New group, under three years (4.4 pts)",
+      "Established group; alumni in research positions (6.4 pts)",
+      "Strong record: funded fellows, alumni leading groups (8 pts)"
+     ]
+    },
+    {
+     "id": "h3",
+     "type": "choice",
+     "max": 4,
+     "label": "Host environment",
+     "hint": "Institute or university.",
+     "options": [
+      "Small or isolated environment",
+      "Recognised national environment",
+      "Internationally recognised institute or university",
+      "Leading international institute in the field"
+     ],
+     "fracs": [
+      0.1,
+      0.45,
+      0.8,
+      1
+     ],
+     "advice": "Weigh the environment around the lab, its core facilities and seminars, not only the group. Panels assess the host institution's capacity to train you.",
+     "num": "4.3",
+     "labels": [
+      "Small or isolated environment (0.4 pts)",
+      "Recognised national environment (1.8 pts)",
+      "Internationally recognised institute or university (3.2 pts)",
+      "Leading international institute in the field (4 pts)"
+     ]
+    },
+    {
+     "id": "h4",
+     "type": "choice",
+     "max": 8,
+     "label": "Contact with the host",
+     "hint": "",
+     "options": [
+      "None yet",
+      "Sent a CV and letter",
+      "Video call, or met at a conference",
+      "Visited or gave a talk, or invited by the host"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.75,
+      1
+     ],
+     "advice": "Contact the host about a year before you plan to start, ideally after meeting them at a conference, and offer a seminar when you visit. Fellowships need the host's commitment in the application.",
+     "num": "4.4",
+     "labels": [
+      "None yet (0 pts)",
+      "Sent a CV and letter (2.8 pts)",
+      "Video call, or met at a conference (6 pts)",
+      "Visited or gave a talk, or invited by the host (8 pts)"
+     ]
+    },
+    {
+     "id": "h5",
+     "type": "choice",
+     "max": 8,
+     "label": "Host's support for a fellowship application",
+     "hint": "",
+     "options": [
+      "Not discussed",
+      "Host agrees in principle",
+      "Host co-develops the proposal and its host statement",
+      "As above, and can fund you if the fellowship fails"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Agree with the host that you will apply for fellowships together and that they will write the host statement. Ask whether they can fund you while you wait for decisions.",
+     "num": "4.5",
+     "labels": [
+      "Not discussed (0 pts)",
+      "Host agrees in principle (3.2 pts)",
+      "Host co-develops the proposal and its host statement (6.4 pts)",
+      "As above, and can fund you if the fellowship fails (8 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S5",
+   "name": "Mobility and international experience",
+   "short": "Mobility",
+   "weight": 6,
+   "intro": "Most fellowships require a move: EMBO a change of country; MSCA no more than 12 months in the host country in the last three years; HFSP a host country other than your nationality and PhD country.",
+   "criteria": [
+    {
+     "id": "m1",
+     "type": "choice",
+     "max": 12,
+     "label": "Move for the postdoc",
+     "hint": "From your PhD lab.",
+     "options": [
+      "Stay in the PhD lab",
+      "New lab at the PhD institution",
+      "New institution in the same country",
+      "Different country from the PhD"
+     ],
+     "fracs": [
+      0,
+      0.3,
+      0.6,
+      1
+     ],
+     "advice": "Move to a new lab, ideally in another country. EMBO requires a change of country and HFSP a host country other than that of your PhD. Hosts read staying in the PhD lab as missing new training.",
+     "num": "5.1",
+     "labels": [
+      "Stay in the PhD lab (0 pts)",
+      "New lab at the PhD institution (3.6 pts)",
+      "New institution in the same country (7.2 pts)",
+      "Different country from the PhD (12 pts)"
+     ]
+    },
+    {
+     "id": "m2",
+     "type": "choice",
+     "max": 2,
+     "label": "Time already spent in the host country",
+     "hint": "In the three years before the call deadline.",
+     "options": [
+      "More than 12 months",
+      "Up to 12 months",
+      "None"
+     ],
+     "fracs": [
+      0,
+      0.8,
+      1
+     ],
+     "advice": "Check the mobility rules before choosing the host country. MSCA excludes candidates who lived or worked there for more than 12 months in the three years before the deadline; HFSP limits all earlier time there, including study and visits, to 12 months.",
+     "num": "5.2",
+     "labels": [
+      "More than 12 months (0 pts)",
+      "Up to 12 months (1.6 pts)",
+      "None (2 pts)"
+     ]
+    },
+    {
+     "id": "m3",
+     "type": "count",
+     "max": 8,
+     "unit": "months",
+     "label": "Research stays abroad during the PhD",
+     "hint": "Visits or courses in another country.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.4
+      ],
+      [
+       3,
+       0.75
+      ],
+      [
+       6,
+       1
+      ]
+     ],
+     "advice": "Spend a few weeks to months in a lab abroad during the PhD, for a collaboration or a method. It shows you can adapt to a new lab and often leads to the postdoc host.",
+     "num": "5.3"
+    },
+    {
+     "id": "m4",
+     "type": "check",
+     "max": 2,
+     "label": "Studied or worked abroad before the PhD",
+     "hint": "Exchange, master's degree or job abroad.",
+     "advice": "If you have never lived abroad, say in your application how you will settle in; panels and hosts look for evidence that you will adapt to a new country.",
+     "num": "5.4"
+    },
+    {
+     "id": "m5",
+     "type": "check",
+     "max": 2,
+     "label": "Host country is not your country of nationality",
+     "hint": "Required by HFSP.",
+     "advice": "HFSP does not fund a postdoc in your country of nationality. If you plan to return home, apply to other schemes.",
+     "num": "5.5"
+    }
+   ]
+  },
+  {
+   "id": "S6",
+   "name": "Funding, prizes and recognition",
+   "short": "Funding",
+   "weight": 5,
+   "intro": "Competitive funding and prizes show that others have already ranked your work highly.",
+   "criteria": [
+    {
+     "id": "g1",
+     "type": "choice",
+     "max": 8,
+     "label": "Funding of your PhD",
+     "hint": "",
+     "options": [
+      "Supervisor's grant",
+      "Departmental or graduate school position",
+      "Competitive PhD fellowship in your name",
+      "Highly selective international PhD fellowship"
+     ],
+     "fracs": [
+      0,
+      0.3,
+      0.8,
+      1
+     ],
+     "advice": "Without a competitive PhD fellowship in your name, collect smaller awards, such as travel grants or a short-term fellowship. Panels read personal funding as a sign that your work wins competitions.",
+     "num": "6.1",
+     "labels": [
+      "Supervisor's grant (0 pts)",
+      "Departmental or graduate school position (2.4 pts)",
+      "Competitive PhD fellowship in your name (6.4 pts)",
+      "Highly selective international PhD fellowship (8 pts)"
+     ]
+    },
+    {
+     "id": "g2",
+     "type": "count",
+     "max": 4,
+     "unit": "grants",
+     "label": "Travel or small grants in your name",
+     "hint": "Competitive, after review.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.5
+      ],
+      [
+       2,
+       0.75
+      ],
+      [
+       4,
+       1
+      ]
+     ],
+     "advice": "Apply for travel grants for conferences and for short visits. They are small, but each one is a competitive award in your name.",
+     "num": "6.2"
+    },
+    {
+     "id": "g3",
+     "type": "count",
+     "max": 4,
+     "unit": "prizes",
+     "label": "Prizes",
+     "hint": "Poster, talk or thesis prizes.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.6
+      ],
+      [
+       2,
+       0.85
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "Present at meetings that award poster and talk prizes, and ask whether your department has a thesis prize.",
+     "num": "6.3"
+    },
+    {
+     "id": "g4",
+     "type": "count",
+     "max": 4,
+     "unit": "applications",
+     "label": "Postdoc fellowship applications submitted",
+     "hint": "This cycle or earlier, funded or not.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.6
+      ],
+      [
+       2,
+       0.85
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "Apply to more than one scheme in the same cycle, for example EMBO, MSCA and a national funder. Success rates are low, so a single application is rarely enough.",
+     "num": "6.4"
+    },
+    {
+     "id": "g5",
+     "type": "check",
+     "max": 2,
+     "label": "Selected for a competitive course",
+     "hint": "e.g. an EMBO practical course or a Cold Spring Harbor course.",
+     "advice": "Apply for a selective course in the method you will use as a postdoc. It teaches the method and connects you with potential hosts.",
+     "num": "6.5"
+    }
+   ]
+  },
+  {
+   "id": "S7",
+   "name": "Visibility and network",
+   "short": "Visibility",
+   "weight": 4,
+   "intro": "Who knows your work. Many postdoc positions are found through meetings and personal contacts.",
+   "criteria": [
+    {
+     "id": "v1",
+     "type": "count",
+     "max": 8,
+     "unit": "talks",
+     "label": "Talks at conferences",
+     "hint": "Selected from abstracts or invited.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.55
+      ],
+      [
+       2,
+       0.8
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "Submit abstracts for talks, not only posters, at the main meeting of the field you want to join. A talk is often where a host first notices a candidate.",
+     "num": "7.1"
+    },
+    {
+     "id": "v2",
+     "type": "count",
+     "max": 4,
+     "unit": "posters",
+     "label": "Posters at international meetings",
+     "hint": "",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.5
+      ],
+      [
+       2,
+       0.8
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "Present at international meetings in the field of your planned postdoc, not only in your PhD field, so that potential hosts see your work.",
+     "num": "7.2"
+    },
+    {
+     "id": "v3",
+     "type": "count",
+     "max": 4,
+     "unit": "seminars",
+     "label": "Seminars at other institutes",
+     "hint": "",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.6
+      ],
+      [
+       2,
+       1
+      ]
+     ],
+     "advice": "Offer to present your work when you visit a potential host. A seminar there works as an informal interview.",
+     "num": "7.3"
+    },
+    {
+     "id": "v4",
+     "type": "choice",
+     "max": 4,
+     "label": "Network with potential hosts",
+     "hint": "",
+     "options": [
+      "No contacts",
+      "Met potential hosts at meetings",
+      "Discussed projects with several potential hosts",
+      "Several hosts interested in hiring you"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.75,
+      1
+     ],
+     "advice": "Make a list of five to ten potential hosts and meet them at conferences or by video call. Ask your supervisor and collaborators for introductions.",
+     "num": "7.4",
+     "labels": [
+      "No contacts (0 pts)",
+      "Met potential hosts at meetings (1.6 pts)",
+      "Discussed projects with several potential hosts (3 pts)",
+      "Several hosts interested in hiring you (4 pts)"
+     ]
+    },
+    {
+     "id": "v5",
+     "type": "choice",
+     "max": 2,
+     "label": "Peer review",
+     "hint": "",
+     "options": [
+      "None",
+      "Co-reviewed with the supervisor",
+      "Reviewed independently"
+     ],
+     "fracs": [
+      0,
+      0.7,
+      1
+     ],
+     "advice": "Ask your supervisor to co-review a manuscript with you, and say so in the report.",
+     "num": "7.5",
+     "labels": [
+      "None (0 pts)",
+      "Co-reviewed with the supervisor (1.4 pts)",
+      "Reviewed independently (2 pts)"
+     ]
+    },
+    {
+     "id": "v6",
+     "type": "choice",
+     "max": 2,
+     "label": "Open science",
+     "hint": "",
+     "options": [
+      "Nothing shared",
+      "Data or code deposited",
+      "Protocols, code or reagents used by other labs"
+     ],
+     "fracs": [
+      0,
+      0.7,
+      1
+     ],
+     "advice": "Deposit your data and code with each paper, and share protocols or reagents with labs that ask.",
+     "num": "7.6",
+     "labels": [
+      "Nothing shared (0 pts)",
+      "Data or code deposited (1.4 pts)",
+      "Protocols, code or reagents used by other labs (2 pts)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "S8",
+   "name": "Teaching, supervision and service",
+   "short": "Teaching",
+   "weight": 3,
+   "intro": "Experience of guiding others and of contributing to your community.",
+   "criteria": [
+    {
+     "id": "s1",
+     "type": "count",
+     "max": 8,
+     "unit": "students",
+     "label": "Students you supervised day to day",
+     "hint": "Bachelor's or master's projects, or internships.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.5
+      ],
+      [
+       2,
+       0.75
+      ],
+      [
+       4,
+       1
+      ]
+     ],
+     "advice": "Supervise a master's or bachelor's project day to day. Hosts look for postdocs who can guide students in their lab.",
+     "num": "8.1"
+    },
+    {
+     "id": "s2",
+     "type": "count",
+     "max": 4,
+     "unit": "hours",
+     "label": "Teaching hours",
+     "hint": "Practicals, tutorials, lectures.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       10,
+       0.4
+      ],
+      [
+       30,
+       0.75
+      ],
+      [
+       60,
+       1
+      ]
+     ],
+     "advice": "Teach in a course, even a few practicals. Teaching counts for later faculty applications and is easier to start during the PhD.",
+     "num": "8.2"
+    },
+    {
+     "id": "s3",
+     "type": "choice",
+     "max": 4,
+     "label": "Service to your community",
+     "hint": "",
+     "options": [
+      "None",
+      "Occasional help (open days, events)",
+      "Member of a PhD council, committee or society board",
+      "Organised a symposium, seminar series or retreat"
+     ],
+     "fracs": [
+      0,
+      0.35,
+      0.75,
+      1
+     ],
+     "advice": "Take one role in your community, such as the PhD council or the organisation of a symposium. It builds your network and shows you take responsibility.",
+     "num": "8.3",
+     "labels": [
+      "None (0 pts)",
+      "Occasional help (open days, events) (1.4 pts)",
+      "Member of a PhD council, committee or society board (3 pts)",
+      "Organised a symposium, seminar series or retreat (4 pts)"
+     ]
+    },
+    {
+     "id": "s4",
+     "type": "count",
+     "max": 2,
+     "unit": "activities",
+     "label": "Outreach activities",
+     "hint": "School visits, public talks, popular science.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       1,
+       0.6
+      ],
+      [
+       3,
+       1
+      ]
+     ],
+     "advice": "Do some outreach. MSCA asks how you will communicate your project to the public.",
+     "num": "8.4"
+    },
+    {
+     "id": "s5",
+     "type": "check",
+     "max": 2,
+     "label": "Course in teaching or supervision",
+     "hint": "",
+     "advice": "Take a short course in teaching or supervision offered to PhD students.",
+     "num": "8.5"
+    }
+   ]
+  },
+  {
+   "id": "S9",
+   "name": "Timing and application readiness",
+   "short": "Readiness",
+   "weight": 6,
+   "intro": "The timing item uses the defence date on page 2. Once you are shortlisted, letters and the interview weigh most.",
+   "criteria": [
+    {
+     "id": "a1",
+     "type": "derived",
+     "source": "age",
+     "max": 8,
+     "unit": "",
+     "rubric_unit": "years relative to the PhD (negative = before the defence)",
+     "label": "Timing",
+     "hint": "Calculated from the defence date; leave deducted after the PhD.",
+     "anchors": [
+      [
+       -3,
+       0.1
+      ],
+      [
+       -1.5,
+       0.4
+      ],
+      [
+       -1,
+       0.75
+      ],
+      [
+       -0.5,
+       1
+      ],
+      [
+       1.5,
+       1
+      ],
+      [
+       2,
+       0.8
+      ],
+      [
+       3,
+       0.5
+      ],
+      [
+       5,
+       0.3
+      ]
+     ],
+     "advice": "TIMING",
+     "num": "9.1"
+    },
+    {
+     "id": "a7",
+     "type": "choice",
+     "max": 8,
+     "label": "Thesis completion",
+     "hint": "Most fellowships need the PhD by the start; MSCA by the deadline.",
+     "options": [
+      "No defence date in sight",
+      "Defence planned, thesis not started",
+      "Thesis being written, date set",
+      "Thesis submitted or defended"
+     ],
+     "fracs": [
+      0,
+      0.3,
+      0.75,
+      1
+     ],
+     "advice": "Set a defence date with your supervisor and plan the thesis writing backwards from it. EMBO and HFSP need the PhD by the start of the fellowship, and MSCA by the call deadline.",
+     "num": "9.2",
+     "labels": [
+      "No defence date in sight (0 pts)",
+      "Defence planned, thesis not started (2.4 pts)",
+      "Thesis being written, date set (6 pts)",
+      "Thesis submitted or defended (8 pts)"
+     ]
+    },
+    {
+     "id": "a2",
+     "type": "choice",
+     "max": 12,
+     "label": "Reference letters",
+     "hint": "Who will write, and how well they know your work.",
+     "options": [
+      "Only the PhD supervisor",
+      "Supervisor plus one",
+      "Three: supervisor, committee member, collaborator",
+      "Three or more, incl. an external senior scientist"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.75,
+      1
+     ],
+     "advice": "Line up three referees who know your work: your supervisor, a member of your thesis committee and an external collaborator or senior scientist. Give each of them your CV and the one sentence on what your thesis changed.",
+     "num": "9.3",
+     "labels": [
+      "Only the PhD supervisor (0 pts)",
+      "Supervisor plus one (4.8 pts)",
+      "Three: supervisor, committee member, collaborator (9 pts)",
+      "Three or more, incl. an external senior scientist (12 pts)"
+     ]
+    },
+    {
+     "id": "a3",
+     "type": "choice",
+     "max": 4,
+     "label": "Supervisor's support for your move",
+     "hint": "",
+     "options": [
+      "Not discussed",
+      "Supportive in principle",
+      "Actively helps: introductions, letters, time to apply"
+     ],
+     "fracs": [
+      0,
+      0.6,
+      1
+     ],
+     "advice": "Discuss your plans with your supervisor early. Their introductions and letter carry much weight with hosts.",
+     "num": "9.4",
+     "labels": [
+      "Not discussed (0 pts)",
+      "Supportive in principle (2.4 pts)",
+      "Actively helps: introductions, letters, time to apply (4 pts)"
+     ]
+    },
+    {
+     "id": "a4",
+     "type": "choice",
+     "max": 8,
+     "label": "Application documents",
+     "hint": "",
+     "options": [
+      "Nothing prepared",
+      "CV only",
+      "CV and a tailored cover letter or research statement",
+      "CV, statement and fellowship proposal, read by a mentor"
+     ],
+     "fracs": [
+      0,
+      0.3,
+      0.7,
+      1
+     ],
+     "advice": "Prepare a one-page CV and a cover letter tailored to each host, and have a postdoc or mentor outside your lab read both.",
+     "num": "9.5",
+     "labels": [
+      "Nothing prepared (0 pts)",
+      "CV only (2.4 pts)",
+      "CV and a tailored cover letter or research statement (5.6 pts)",
+      "CV, statement and fellowship proposal, read by a mentor (8 pts)"
+     ]
+    },
+    {
+     "id": "a5",
+     "type": "choice",
+     "max": 4,
+     "label": "Interview preparation",
+     "hint": "",
+     "options": [
+      "Not prepared",
+      "Short talk on the thesis prepared",
+      "Talk rehearsed and questions for the host prepared",
+      "Already interviewed for postdocs"
+     ],
+     "fracs": [
+      0,
+      0.4,
+      0.8,
+      1
+     ],
+     "advice": "Prepare a 20-minute talk on your thesis and a few slides on your postdoc idea, and rehearse it in front of your lab. Prepare questions for the host about mentoring and funding.",
+     "num": "9.6",
+     "labels": [
+      "Not prepared (0 pts)",
+      "Short talk on the thesis prepared (1.6 pts)",
+      "Talk rehearsed and questions for the host prepared (3.2 pts)",
+      "Already interviewed for postdocs (4 pts)"
+     ]
+    },
+    {
+     "id": "a6",
+     "type": "count",
+     "max": 2,
+     "unit": "applications",
+     "label": "Positions or fellowships applied for this cycle",
+     "hint": "Planned or sent.",
+     "anchors": [
+      [
+       0,
+       0
+      ],
+      [
+       2,
+       0.5
+      ],
+      [
+       5,
+       0.8
+      ],
+      [
+       8,
+       1
+      ]
+     ],
+     "advice": "Apply to several labs and schemes in parallel; a search often takes several months.",
+     "num": "9.7"
+    }
+   ]
+  }
+ ],
+ "dates": {
+  "signed": true,
+  "rate_item": null,
+  "alt": {
+   "per_child": 12,
+   "label": "EMBO rule"
+  }
+ },
+ "code": "PTP",
+ "group_labels": {},
+ "flags": [
+  {
+   "item": "o1",
+   "test": "eq",
+   "value": 0,
+   "text": "No first-author research paper accepted: EMBO and HFSP require one (EMBO also accepts a first-author preprint with public peer reviews)."
+  },
+  {
+   "item": "j1",
+   "test": "eq",
+   "value": 0,
+   "text": "The postdoc continues the PhD project: HFSP does not fund close continuations, and other panels expect a new step."
+  },
+  {
+   "item": "m1",
+   "test": "eq",
+   "value": 0,
+   "text": "Staying in the PhD lab: EMBO requires a change of country, and hosts and panels expect new training."
+  },
+  {
+   "item": "m2",
+   "test": "eq",
+   "value": 0,
+   "text": "More than 12 months in the host country in the last three years: not eligible for MSCA there."
+  }
+ ],
+ "presets": [
+  {
+   "name": "Personal fellowship: EMBO, MSCA (default)",
+   "weights": [
+    9,
+    8,
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    6
+   ]
+  },
+  {
+   "name": "Position advertised by a lab",
+   "weights": [
+    8,
+    10,
+    4,
+    10,
+    2,
+    3,
+    4,
+    3,
+    6
+   ]
+  },
+  {
+   "name": "HFSP Long-Term Fellowship (change of field)",
+   "weights": [
+    8,
+    7,
+    10,
+    7,
+    7,
+    4,
+    3,
+    2,
+    5
+   ]
+  },
+  {
+   "name": "Swedish Research Council international postdoc",
+   "weights": [
+    9,
+    7,
+    8,
+    8,
+    6,
+    4,
+    3,
+    3,
+    6
+   ]
+  }
+ ],
+ "bars": {
+  "total": 178,
+  "section": 53
+ }
+}
