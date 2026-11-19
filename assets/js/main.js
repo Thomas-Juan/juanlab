@@ -237,10 +237,13 @@
     document.querySelectorAll('a[data-download]').forEach(function (link) {
       link.addEventListener('click', function (e) {
         e.preventDefault();
-        dlTarget = link.href;
+        dlTarget = link;
         var size = link.getAttribute('data-size');
+        // data-from names the source; an empty value leaves it out (files on this site).
+        var from = link.hasAttribute('data-from') ? link.getAttribute('data-from') : 'GitHub';
         document.getElementById('download-file').textContent =
-          link.getAttribute('data-download') + (size ? ' (' + size + ') will be downloaded from GitHub.' : ' will be downloaded from GitHub.');
+          link.getAttribute('data-download') + (size ? ' (' + size + ')' : '') + ' will be downloaded' +
+          (from ? ' from ' + from : '') + '.';
         var note = document.getElementById('download-note');
         note.textContent = link.getAttribute('data-note') || '';
         note.hidden = !note.textContent;
@@ -249,7 +252,16 @@
     });
     document.getElementById('download-go').addEventListener('click', function () {
       dlDialog.close();
-      if (dlTarget) window.location.href = dlTarget;
+      if (dlTarget) {
+        if (dlTarget.hasAttribute('download')) {
+          // keep the download attribute, so a PDF is saved rather than opened in the browser
+          var a = document.createElement('a');
+          a.href = dlTarget.href; a.download = dlTarget.getAttribute('download');
+          document.body.appendChild(a); a.click(); a.remove();
+        } else {
+          window.location.href = dlTarget.href;
+        }
+      }
       dlTarget = null;
     });
     document.getElementById('download-cancel').addEventListener('click', function () {
