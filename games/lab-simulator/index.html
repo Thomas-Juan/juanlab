@@ -289,6 +289,178 @@ function show_infobox() {
 </head>
 
 <body>
+<!-- Loading screen for the browser version. tools/publish.py (web) inserts this file right after
+     <body> in the page pygbag builds. It covers pygbag's own messages, follows them (#progress,
+     #infobox), and fades out when the game starts. The emblem is logo/emblem.svg. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { background: #f8f3ea !important; }
+  #infobox, #transfer { opacity: 0 !important; pointer-events: none !important; }
+
+  #game-loader {
+    --ink: #1f1b33; --ink-soft: #3f3a55; --muted: #6a6479; --paper: #f8f3ea; --cream: #fffdf8;
+    --coral: #e0613f; --coral-dark: #c24e2f; --turquoise: #2a9d99;
+    position: fixed; inset: 0; z-index: 1000000; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(ellipse at 50% 38%, var(--cream) 0%, var(--paper) 62%, #f1e8d9 100%);
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--ink);
+    transition: opacity .6s ease;
+    cursor: default;
+  }
+  #game-loader.done { opacity: 0; pointer-events: none; }
+  #game-loader .card { position: relative; text-align: center; padding: 0 16px; max-width: 620px; }
+  #game-loader .emblem { width: min(150px, 34vw); height: auto; display: block; margin: 0 auto 14px;
+    animation: ls-bob 2.6s ease-in-out infinite alternate; }
+  #game-loader h1 { font-family: 'Inter Tight', Inter, system-ui, sans-serif; font-weight: 800;
+    font-size: clamp(30px, 5.4vw, 48px); line-height: 1.1; letter-spacing: -.015em; margin: 0 0 8px; }
+  #game-loader h1 span { color: var(--coral); }
+  #game-loader .sub { font-size: clamp(14px, 1.9vw, 17px); margin: 0 0 26px; color: var(--ink-soft); }
+  #game-loader .bar { width: min(340px, 72vw); height: 12px; margin: 0 auto 12px; border-radius: 999px;
+    border: 2px solid var(--ink); background: var(--cream); overflow: hidden; }
+  #game-loader .bar i { display: block; height: 100%; width: 4%; background: var(--turquoise); border-radius: 999px;
+    transition: width .35s ease; }
+  #game-loader .status { font-size: 15px; font-weight: 500; min-height: 1.4em; margin: 0; }
+  #game-loader button { margin-top: 14px; font: 600 17px Inter, system-ui, sans-serif; color: var(--cream);
+    background: var(--coral); border: 2px solid var(--ink); border-radius: 999px; padding: 10px 30px;
+    box-shadow: 0 3px 0 var(--ink); cursor: pointer; }
+  #game-loader button:hover { background: var(--coral-dark); }
+  #game-loader button:focus-visible { outline: 3px solid var(--turquoise); outline-offset: 3px; }
+  #game-loader .hint { font-size: 13px; line-height: 1.55; margin: 26px 0 0; color: var(--muted); }
+  #game-loader .credit { position: absolute; left: 0; right: 0; bottom: 18px; text-align: center;
+    font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  @keyframes ls-bob { from { transform: translateY(-4px) rotate(-2deg); } to { transform: translateY(4px) rotate(2deg); } }
+  @media (prefers-reduced-motion: reduce) { #game-loader .emblem { animation: none; } }
+</style>
+
+<div id="game-loader" role="status" aria-live="polite">
+  <div class="card">
+    <svg class="emblem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+      <defs>
+        <linearGradient id="ls-bg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#3db3ae"/>
+          <stop offset="1" stop-color="#1c6f73"/>
+        </linearGradient>
+        <linearGradient id="ls-face" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ffffff"/>
+          <stop offset="1" stop-color="#efe8dc"/>
+        </linearGradient>
+        <linearGradient id="ls-side" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#d9cfbf"/>
+          <stop offset="1" stop-color="#b9ad9b"/>
+        </linearGradient>
+        <linearGradient id="ls-tip" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#e9efee" stop-opacity="0.95"/>
+          <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.98"/>
+          <stop offset="1" stop-color="#c9d4d3" stop-opacity="0.95"/>
+        </linearGradient>
+        <radialGradient id="ls-pipC" cx="0.35" cy="0.3" r="0.8">
+          <stop offset="0" stop-color="#ff9a7e"/><stop offset="1" stop-color="#c24e2f"/>
+        </radialGradient>
+        <radialGradient id="ls-pipY" cx="0.35" cy="0.3" r="0.8">
+          <stop offset="0" stop-color="#ffe7a0"/><stop offset="1" stop-color="#d9a92e"/>
+        </radialGradient>
+        <radialGradient id="ls-pipL" cx="0.35" cy="0.3" r="0.8">
+          <stop offset="0" stop-color="#e2d6f2"/><stop offset="1" stop-color="#6e5a9e"/>
+        </radialGradient>
+        <radialGradient id="ls-pipG" cx="0.35" cy="0.3" r="0.8">
+          <stop offset="0" stop-color="#a8e6a0"/><stop offset="1" stop-color="#3d8f46"/>
+        </radialGradient>
+        <radialGradient id="ls-drop" cx="0.38" cy="0.35" r="0.75">
+          <stop offset="0" stop-color="#9ee7e2"/><stop offset="1" stop-color="#1c6f73"/>
+        </radialGradient>
+        <filter id="ls-soft" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="9"/>
+        </filter>
+      </defs>
+      <rect x="16" y="16" width="480" height="480" rx="104" fill="url(#ls-bg)" stroke="#1f1b33" stroke-width="14"/>
+      <rect x="44" y="40" width="424" height="150" rx="80" fill="#ffffff" opacity="0.10"/>
+      <ellipse cx="262" cy="430" rx="150" ry="22" fill="#0e2f33" opacity="0.45" filter="url(#ls-soft)"/>
+      <g transform="rotate(-9 256 300)">
+        <path d="M118 196 L382 196 L420 232 L420 452 Q420 470 402 470 L156 470 L118 434 Z" fill="url(#ls-side)" stroke="#1f1b33" stroke-width="12" stroke-linejoin="round"/>
+        <rect x="96" y="174" width="300" height="276" rx="54" fill="url(#ls-face)" stroke="#1f1b33" stroke-width="12"/>
+        <circle cx="170" cy="246" r="30" fill="url(#ls-pipC)" stroke="#1f1b33" stroke-width="7"/>
+        <circle cx="322" cy="246" r="30" fill="url(#ls-pipY)" stroke="#1f1b33" stroke-width="7"/>
+        <circle cx="170" cy="380" r="30" fill="url(#ls-pipL)" stroke="#1f1b33" stroke-width="7"/>
+        <circle cx="322" cy="380" r="30" fill="url(#ls-pipG)" stroke="#1f1b33" stroke-width="7"/>
+        <circle cx="246" cy="313" r="32" fill="url(#ls-drop)" stroke="#1f1b33" stroke-width="7"/>
+        <circle cx="160" cy="236" r="9" fill="#ffffff" opacity="0.7"/>
+        <circle cx="312" cy="236" r="9" fill="#ffffff" opacity="0.7"/>
+        <circle cx="160" cy="370" r="9" fill="#ffffff" opacity="0.7"/>
+        <circle cx="312" cy="370" r="9" fill="#ffffff" opacity="0.7"/>
+        <circle cx="235" cy="302" r="10" fill="#ffffff" opacity="0.75"/>
+      </g>
+      <path d="M228 40 L284 40 L264 186 Q256 200 248 186 Z" fill="url(#ls-tip)" stroke="#1f1b33" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M244 132 L268 132 L263 172 Q256 184 249 172 Z" fill="#2a9d99"/>
+      <line x1="240" y1="58" x2="248" y2="160" stroke="#ffffff" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+      <rect x="218" y="22" width="76" height="26" rx="8" fill="#e8ecee" stroke="#1f1b33" stroke-width="10"/>
+      <path d="M256 206 C246 222 242 230 242 238 A14 14 0 0 0 270 238 C270 230 266 222 256 206 Z" fill="url(#ls-drop)" stroke="#1f1b33" stroke-width="7" stroke-linejoin="round"/>
+      <circle cx="251" cy="236" r="4" fill="#ffffff" opacity="0.8"/>
+    </svg>
+    <h1>Lab <span>Simulator</span></h1>
+    <p class="sub">20 techniques of molecular and cell biology</p>
+    <div class="bar"><i></i></div>
+    <p class="status">Loading the game</p>
+    <button type="button" hidden>Start</button>
+    <p class="hint">The first visit takes longest: Python itself loads in your browser.<br>Played with the mouse.</p>
+  </div>
+  <p class="credit">Juan Lab · Uppsala University</p>
+</div>
+
+<script>
+(function () {
+  var loader = document.getElementById('game-loader');
+  if (!loader) return;
+  var bar = loader.querySelector('.bar i'), status = loader.querySelector('.status'),
+      start = loader.querySelector('button'), shown = 4, floor = 4, finished = false;
+
+  function focusGame() {
+    var c = document.getElementById('canvas');
+    if (c) c.focus();
+  }
+
+  function finish() {
+    if (finished) return;
+    finished = true;
+    bar.style.width = '100%';
+    loader.classList.add('done');
+    focusGame();
+    setTimeout(function () { loader.remove(); }, 700);
+  }
+
+  function update() {
+    var box = document.getElementById('infobox'), prog = document.getElementById('progress');
+    if (!box) return;
+    if (box.style.display === 'none') { finish(); return; }
+    var t = (box.innerText || '').trim();
+    if (/^installing/i.test(t)) {
+      floor = Math.max(floor, 72);
+      status.textContent = 'Installing ' + t.replace(/^installing\s*/i, '');
+    } else if (/ready to start/i.test(t)) {
+      floor = 100;
+      status.textContent = 'Ready';
+      start.hidden = false;
+    } else if (shown > 60) {
+      status.textContent = 'Unpacking the game';
+    }
+    var downloaded = prog && prog.value ? Math.min(100, prog.value) * 0.6 : 0;   // downloads are the first 60 %
+    var target = Math.max(floor, downloaded);
+    if (target < 100) target = Math.max(target, Math.min(shown + 0.25, 94));    // keep moving while Python starts
+    shown = Math.max(shown, target);
+    bar.style.width = shown + '%';
+  }
+
+  loader.addEventListener('click', focusGame);     // a click anywhere also unlocks the sound
+  start.addEventListener('click', function () {
+    start.hidden = true;
+    status.textContent = 'Starting';
+    focusGame();
+  });
+  var timer = setInterval(function () { update(); if (finished) clearInterval(timer); }, 150);
+})();
+</script>
+
 
     <div id="transfer" align=center>
 <!--        <div class="spinner" id='spinner'></div> -->
