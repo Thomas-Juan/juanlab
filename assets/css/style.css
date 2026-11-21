@@ -319,8 +319,14 @@ h2 { font-size: clamp(1.85rem, 3.1vw, 2.5rem); }
 .band-row .section-head { margin-bottom: 0; }
 /* the Training band: heading on top, then Games (cards side by side), then Forms */
 .subsections { display: grid; gap: 1.8rem; }
-#games { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem 2rem; align-items: start; }
+#games { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem 2rem; align-items: stretch; }
 #games .sub-title { grid-column: 1 / -1; margin-bottom: -.6rem; }
+/* the game cards share their rows (picture, title, text, buttons, more), so both are the same
+   size and their buttons line up, whatever the length of each paragraph */
+@supports (grid-template-rows: subgrid) {
+  #games .game { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; }
+  #games .game-body { grid-row: span 4; display: grid; grid-template-rows: subgrid; row-gap: 0; align-items: start; }
+}
 @media (max-width: 860px) { #games { grid-template-columns: 1fr; } }
 .sub-title { font-family: var(--display); font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: .6rem; }
 #software-content { margin-top: clamp(2rem, 4vw, 3rem); }
