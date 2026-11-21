@@ -317,9 +317,11 @@ h2 { font-size: clamp(1.85rem, 3.1vw, 2.5rem); }
   align-items: center;
 }
 .band-row .section-head { margin-bottom: 0; }
-/* the Training band: heading on top, Games and Forms side by side */
-.subsections { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 2rem; align-items: start; }
-@media (max-width: 860px) { .subsections { grid-template-columns: 1fr; } }
+/* the Training band: heading on top, then Games (cards side by side), then Forms */
+.subsections { display: grid; gap: 1.8rem; }
+#games { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem 2rem; align-items: start; }
+#games .sub-title { grid-column: 1 / -1; margin-bottom: -.6rem; }
+@media (max-width: 860px) { #games { grid-template-columns: 1fr; } }
 .sub-title { font-family: var(--display); font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: .6rem; }
 #software-content { margin-top: clamp(2rem, 4vw, 3rem); }
 
