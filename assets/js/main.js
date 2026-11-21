@@ -219,6 +219,8 @@
         frame.allow = 'autoplay; fullscreen';
         gameFrame.appendChild(frame);
         document.getElementById('game-dialog-title').textContent = frame.title;
+        document.getElementById('game-dialog-hint').textContent =
+          link.getAttribute('data-hint') || 'Click the game to start, then use the keyboard.';
         gameDialog.showModal();
         frame.focus();
       });

@@ -378,6 +378,35 @@
               </details>
             </div>
           </article>
+          <article class="game">
+            <img src="assets/img/games/lab-simulator.webp?v=20261121" alt="The game board: lab benches for twenty techniques around a central panel with the die" width="960" height="540" loading="lazy">
+            <div class="game-body">
+              <h4>Lab Simulator</h4>
+              <p>A board game on twenty techniques of molecular and cell biology, from PCR to zebrafish microinjection, each carried out step by step at the bench.</p>
+              <div class="game-links">
+                <a class="btn" href="games/lab-simulator/" data-game="games/lab-simulator/" data-title="Lab Simulator" data-hint="Click the game to start, then play with the mouse.">Play in browser</a>
+              </div>
+              <div class="game-links">
+                <a class="btn btn--light" href="https://github.com/Thomas-Juan/lab-simulator/releases/latest/download/LabSimulator-Windows.exe" data-download="LabSimulator-Windows.exe" data-size="about 27 MB" data-note="The program is not signed, so Windows may show a notice the first time you run it. Choose More info, then Run anyway.">Download for Windows</a>
+                <a class="btn btn--light" href="https://github.com/Thomas-Juan/lab-simulator/releases/latest/download/LabSimulator-macOS.zip" data-download="LabSimulator-macOS.zip" data-size="about 19 MB" data-note="For Apple silicon Macs. Unzip the file, then right-click the app and choose Open the first time.">Download for Mac</a>
+              </div>
+              <details class="more">
+                <summary>More information</summary>
+                <dl class="game-info">
+                  <dt>The game</dt>
+                  <dd>Roll the die to move between benches. At each bench you find the reagents, pipette, calculate, time the reaction and read the result. Every step ends with a fact about the technique, and each bench has three difficulty levels.</dd>
+                  <dt>In the browser</dt>
+                  <dd>Needs a mouse. Progress is kept in that browser. The first visit downloads about 15 MB.</dd>
+                  <dt>Download for Windows</dt>
+                  <dd>One file, about 27 MB. Windows may ask for confirmation the first time you run it.</dd>
+                  <dt>Download for Mac</dt>
+                  <dd>For Apple silicon Macs, about 19 MB. Unzip, then right-click the app and choose Open the first time.</dd>
+                  <dt>Cost</dt>
+                  <dd>Free. The <a href="https://github.com/Thomas-Juan/lab-simulator">source code</a> is on GitHub.</dd>
+                </dl>
+              </details>
+            </div>
+          </article>
           </div>
 
           <div class="subsection" id="forms">
@@ -558,7 +587,7 @@
   <dialog class="game-dialog" id="game-dialog" aria-labelledby="game-dialog-title">
     <div class="game-bar">
       <strong id="game-dialog-title">Game</strong>
-      <span>Click the game to start, then use the keyboard.</span>
+      <span id="game-dialog-hint">Click the game to start, then use the keyboard.</span>
       <button class="btn game-close" type="button">Close</button>
     </div>
     <div class="game-frame"></div>
@@ -575,6 +604,6 @@
     </div>
   </dialog>
 
-  <script src="assets/js/main.js?v=20261119b" defer></script>
+  <script src="assets/js/main.js?v=20261121a" defer></script>
 </body>
 </html>
