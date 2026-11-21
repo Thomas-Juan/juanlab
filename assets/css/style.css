@@ -356,7 +356,7 @@ h2 { font-size: clamp(1.85rem, 3.1vw, 2.5rem); }
   overflow: hidden;
 }
 .game img { display: block; width: 100%; height: auto; border-bottom: 1px solid var(--line); }
-.game-body { padding: 1.1rem 1.5rem 1.3rem; }
+.game-body { padding: 1rem 1.4rem 1.1rem; }
 .game h4 { font-family: var(--display); font-size: 1.2rem; letter-spacing: -0.01em; margin-bottom: .35rem; }
 .form-list { list-style: none; display: grid; gap: .1rem; margin-top: .8rem; }
 .form-list li { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .65rem 0; border-top: 1px solid var(--line); }
@@ -364,10 +364,10 @@ h2 { font-size: clamp(1.85rem, 3.1vw, 2.5rem); }
 .form-list p { font-size: .88rem; }
 .form-list .btn { flex: none; padding: .45rem 1rem; font-size: .85rem; }
 .game p { color: var(--ink-soft); font-size: .95rem; }
-.game-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .95rem; }
-.game-links .btn { padding: .6rem 1.1rem; font-size: .9rem; }
-.game-links + .game-links { margin-top: .6rem; }
-.game .more { margin-top: .95rem; }
+/* Play and the two downloads on one line */
+.game-links { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+.game-links .btn { padding: .55rem 1.05rem; font-size: .9rem; gap: .4rem; }
+.game .more { margin-top: .7rem; }
 .game .more summary { padding: .4rem .95rem; font-size: .85rem; border-width: 1px; border-color: var(--line); color: var(--ink-soft); }
 .game .more[open] summary { margin-bottom: .8rem; }
 .game-info { display: grid; gap: .1rem; font-size: .88rem; }
